@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tabvora Privacy Policy – Local First & Zero Tracking</title>
-  <meta name="description" content="Official Tabvora Privacy Policy. Learn why Tabvora collects zero telemetry, runs completely local, and enforces Manifest V3 security rules.">
+  <title>Tabvora – Privacy Policy</title>
+  <meta name="description" content="Official Tabvora Privacy Policy. Learn why Tabvora operates on a local-first architecture with zero tracking, no telemetry, and full user data control.">
   <link rel="canonical" href="https://tabvora.com/privacy.html">
   <link rel="stylesheet" href="css/main.css">
   <link rel="icon" href="favicon.ico">
 </head>
 <body>
 
+<!-- Header -->
 <header class="app-header">
   <nav class="nav-container" aria-label="Main Navigation">
-    <a href="index.html" class="brand">
-      <img src="images/logo.svg" alt="Tabvora Logo" class="brand-logo" width="32" height="32">
-      <span>Tabvora</span>
+    <a href="index.html" class="brand" aria-label="Tabvora Home">
+      <img src="images/logo.png" alt="Tabvora Logo" class="brand-logo" style="height: 44px; max-height: 48px; width: auto; display: block;">
     </a>
     <button class="mobile-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">&#9776;</button>
     <ul class="nav-links" id="nav-links">
@@ -23,7 +23,7 @@
       <li><a href="features.html" class="nav-link">Features</a></li>
       <li><a href="screenshots.html" class="nav-link">Screenshots</a></li>
       <li><a href="download.html" class="nav-link">Download</a></li>
-      <li><a href="privacy.html" class="nav-link">Privacy</a></li>
+      <li><a href="privacy.html" class="nav-link active" aria-current="page">Privacy</a></li>
       <li><a href="security.html" class="nav-link">Security</a></li>
       <li><a href="faq.html" class="nav-link">FAQ</a></li>
       <li><a href="support.html" class="nav-link">Support</a></li>
@@ -37,51 +37,174 @@
   </nav>
 </header>
 
-<main class="main-content" style="max-width: 800px;">
-  <section class="page-header" style="text-align: left;">
-    <h1 class="page-title">Privacy Policy</h1>
-    <p class="page-subtitle" style="margin: 0;">Last Updated: January 15, 2026 &bull; Version 1.0</p>
-  </section>
+<!-- Main Privacy Content -->
+<main class="main-content" style="max-width: 860px;">
+  
+  <!-- Page Header -->
+  <div class="page-header" style="text-align: left; margin-bottom: 24px;">
+    <h1 class="page-title" style="color: var(--brand-primary); letter-spacing: -0.02em;">Tabvora Privacy Policy</h1>
+    <p class="page-subtitle" style="margin: 0; font-size: 13px; font-weight: 500;">Effective Date: July 23, 2026 • Version 1.0.0</p>
+  </div>
 
-  <article style="line-height: 1.8;">
-    <section style="margin-bottom: 2rem;">
-      <h2 style="margin-bottom: 1rem;">1. Core Privacy Philosophy: Local First</h2>
-      <p>Tabvora is architected from the ground up to respect user privacy completely. We believe that your browsing context, workspace structures, open tabs, and daily activity belong exclusively to you. Tabvora does not contain telemetry, tracking code, analytics scripts, or remote server dependencies.</p>
-    </section>
+  <!-- Main Policy Card Container -->
+  <div class="app-card" style="padding: 36px; box-shadow: var(--shadow-lg);">
+    
+    <!-- Summary Banner -->
+    <div style="background: rgba(37, 99, 235, 0.08); border-left: 4px solid var(--brand-primary); border-radius: 0 var(--radius-md) var(--radius-md) 0; padding: 16px 20px; margin-bottom: 32px; font-size: 14px; color: var(--text-primary); line-height: 1.6;">
+      <strong>Summary:</strong> Tabvora operates on a local-first design. All user-generated content, shortcuts, notes, settings, and optional feature data remain stored locally on your device. Tabvora does not transmit personal user data to external servers or remote telemetry endpoints.
+    </div>
 
-    <section style="margin-bottom: 2rem;">
-      <h2 style="margin-bottom: 1rem;">2. Data Collection Statement</h2>
-      <p><strong>We collect zero personal data.</strong></p>
-      <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
-        <li><strong>No Analytics:</strong> We do not track page views, clicks, or extension lifecycle events.</li>
-        <li><strong>No Telemetry:</strong> No error reports or usage metrics are transmitted across the network.</li>
-        <li><strong>No Remote Code:</strong> In accordance with Chrome Web Store Manifest V3 requirements, all executable code is packaged locally inside the extension archive.</li>
+    <!-- 1. Introduction & Core Principles -->
+    <div style="margin-bottom: 28px;">
+      <h2 style="font-size: 17px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">1. Introduction & Core Principles</h2>
+      <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 10px; line-height: 1.6;">
+        Tabvora is a local-first browser extension created for shortcut organization, custom workspaces, productivity tools, and browser navigation. We believe personal browsing data, shortcuts, scratchpad notes, and local configurations belong entirely under user control.
+      </p>
+    </div>
+
+    <!-- 2. What Data Is Stored Locally -->
+    <div style="margin-bottom: 28px;">
+      <h2 style="font-size: 17px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">2. What Data Is Stored Locally</h2>
+      <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 10px; line-height: 1.6;">Tabvora relies on browser-native local storage APIs (specifically <code>chrome.storage.local</code> and <code>IndexedDB</code>) to preserve dashboard data across browser sessions:</p>
+      <ul style="list-style: none; padding-left: 0; margin-top: 8px;">
+        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span><strong style="color: var(--text-primary);">Shortcuts & Workspaces:</strong> Saved custom links, titles, custom workspace categories, colors, and layout order.</li>
+        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span><strong style="color: var(--text-primary);">Quick Notes:</strong> Scratchpad text stored inside the local note widget.</li>
+        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span><strong style="color: var(--text-primary);">Settings & Appearance:</strong> Selected themes, card sizing, grid gap density, corner radius, background options, and default search choices.</li>
+        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span><strong style="color: var(--text-primary);">Archive Data:</strong> Items manually archived from the primary shortcut grid.</li>
       </ul>
-    </section>
+    </div>
 
-    <section style="margin-bottom: 2rem;">
-      <h2 style="margin-bottom: 1rem;">3. Optional Local Features</h2>
-      <p>Tabvora includes optional productivity modules (such as Local Draft Recovery and Workspace Usage Statistics). These modules are <strong>OFF by default</strong> and operate purely on local storage (Chrome IndexedDB). Enabling these options will never cause data to leave your physical hardware.</p>
-    </section>
+    <!-- 3. Optional Privacy-Sensitive Features -->
+    <div style="margin-bottom: 28px;">
+      <h2 style="font-size: 17px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">3. Optional Privacy-Sensitive Features</h2>
+      <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 10px; line-height: 1.6;">To ensure absolute user choice, privacy-sensitive functionality is controlled via toggles inside extension settings and disabled by default where applicable:</p>
+      <ul style="list-style: none; padding-left: 0; margin-top: 8px;">
+        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span><strong style="color: var(--text-primary);">Draft Recovery (Default OFF):</strong> Temporarily records unsaved text field inputs across tabs to prevent data loss from accidental closes. Snapshots remain stored locally inside IndexedDB and can be wiped or disabled at any time.</li>
+        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span><strong style="color: var(--text-primary);">Website Usage Statistics (Default OFF):</strong> Records domain visit frequency and duration to render local statistics charts. Data is calculated and retained strictly inside local browser storage.</li>
+      </ul>
+    </div>
 
-    <section style="margin-bottom: 2rem;">
-      <h2 style="margin-bottom: 1rem;">4. How Data is Stored and Erased</h2>
-      <p>All workspace names, tab configurations, and layout settings are stored locally via standard browser storage APIs (<code>chrome.storage.local</code> and <code>IndexedDB</code>). Uninstalling the Tabvora extension instantly and permanently wipes all stored workspace data from your computer.</p>
-    </section>
+    <!-- 4. What We Do NOT Collect -->
+    <div style="margin-bottom: 28px;">
+      <h2 style="font-size: 17px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">4. What We Do NOT Collect</h2>
+      <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 10px; line-height: 1.6;">Tabvora enforces strict technical parameters. We do not collect, transmit, or record any of the following items:</p>
+      <ul style="list-style: none; padding-left: 0; margin-top: 8px;">
+        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span> Passwords, PINs, or OTP authentication tokens.</li>
+        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span> Credit/debit card numbers, CVV codes, or financial inputs.</li>
+        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span> Personal identity documents or biometric information.</li>
+        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span> Advertising identifiers, tracking cookies, or user fingerprinting parameters.</li>
+        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span> Remote logs, background telemetry, or cloud copies of browsing data.</li>
+      </ul>
+    </div>
 
-    <section style="margin-bottom: 2rem;">
-      <h2 style="margin-bottom: 1rem;">5. Contact and Policy Updates</h2>
-      <p>If we update this privacy document, changes will be published directly to this page alongside clear release notes in our <a href="changelog.html" style="color: var(--brand-primary);">Changelog</a>.</p>
-    </section>
-  </article>
+    <!-- 5. Security & Sensitive Field Exclusion -->
+    <div style="margin-bottom: 28px;">
+      <h2 style="font-size: 17px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">5. Security & Sensitive Field Exclusion</h2>
+      <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 10px; line-height: 1.6;">
+        When optional Draft Recovery is enabled, Tabvora screens active form inputs. Password inputs (<code>type="password"</code>), payment forms, credit card fields, hidden security tokens, and authentication paths are automatically excluded from local draft snapshots.
+      </p>
+    </div>
+
+    <!-- 6. Browser Permissions Declared -->
+    <div style="margin-bottom: 28px;">
+      <h2 style="font-size: 17px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">6. Browser Permissions Declared</h2>
+      <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 10px; line-height: 1.6;">Tabvora requests only permissions directly needed for implemented extension functionality:</p>
+      <ul style="list-style: none; padding-left: 0; margin-top: 8px;">
+        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span><code>storage</code>: Used to store shortcuts, workspaces, notes, and preferences locally.</li>
+        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span><code>tabs</code>: Used to open links, switch active workspaces, and monitor page domains for context features.</li>
+        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span><code>bookmarks</code>: Used strictly when the user manually clicks "Import Bookmarks" to fill the shortcut grid.</li>
+        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span><code>contextMenus</code>: Used to provide right-click options for saving shortcuts.</li>
+        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span><code>favicon</code>: Used to fetch and display domain icon images cleanly.</li>
+        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span><code>host_permissions (http/https)</code>: Used exclusively for the optional Draft Recovery feature across user-visited sites when explicitly enabled by the user.</li>
+      </ul>
+    </div>
+
+    <!-- 7. Network Usage -->
+    <div style="margin-bottom: 28px;">
+      <h2 style="font-size: 17px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">7. Network Usage</h2>
+      <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 10px; line-height: 1.6;">
+        Tabvora does not upload user data to external servers. Internet traffic occurs strictly through standard browser navigation when you intentionally:
+      </p>
+      <ul style="list-style: none; padding-left: 0; margin-top: 8px;">
+        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span> Click a saved shortcut link to navigate to a website.</li>
+        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span> Click links to open the Official Website, GitHub Repository, Report an Issue, Privacy Policy, or Rate Extension pages.</li>
+      </ul>
+    </div>
+
+    <!-- 8. Data Retention & User Control -->
+    <div style="margin-bottom: 28px;">
+      <h2 style="font-size: 17px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">8. Data Retention & User Control</h2>
+      <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 10px; line-height: 1.6;">
+        Users retain full administrative control over stored local data. Through Extension Settings, users can:
+      </p>
+      <ul style="list-style: none; padding-left: 0; margin-top: 8px;">
+        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span> Enable or disable optional features (Draft Recovery and Usage Statistics) at any time.</li>
+        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span> Clear saved Draft Recovery records or clear Usage Statistics logs instantly.</li>
+        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span> Individual shortcuts, notes, and archived items can be deleted at any time.</li>
+        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span> Perform a complete <strong>Factory Reset</strong> to clear all local Tabvora storage.</li>
+        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span> Draft Recovery automatically purges local records according to the retention period selected by the user.</li>
+      </ul>
+    </div>
+
+    <!-- 9. Open Source Transparency -->
+    <div style="margin-bottom: 28px;">
+      <h2 style="font-size: 17px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">9. Open Source Transparency</h2>
+      <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 10px; line-height: 1.6;">
+        Tabvora is an open-source project. Users, developers, and security reviewers are invited to review the source code on our official GitHub repository to inspect our local storage practices and Manifest V3 implementation.
+      </p>
+    </div>
+
+    <!-- 10. Core Privacy Guarantees Grid -->
+    <div style="margin-bottom: 28px;">
+      <h2 style="font-size: 17px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">10. Core Privacy Guarantees</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 14px;">
+        <div style="background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 14px;">
+          <div style="font-size: 13px; font-weight: 700; color: var(--brand-primary); margin-bottom: 2px;">Local First</div>
+          <div style="font-size: 12px; color: var(--text-secondary);">100% device-level data retention</div>
+        </div>
+        <div style="background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 14px;">
+          <div style="font-size: 13px; font-weight: 700; color: var(--brand-primary); margin-bottom: 2px;">Zero Tracking</div>
+          <div style="font-size: 12px; color: var(--text-secondary);">No background telemetry scripts</div>
+        </div>
+        <div style="background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 14px;">
+          <div style="font-size: 13px; font-weight: 700; color: var(--brand-primary); margin-bottom: 2px;">User Controlled</div>
+          <div style="font-size: 12px; color: var(--text-secondary);">Optional features remain Default OFF</div>
+        </div>
+        <div style="background: var(--bg-tertiary); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 14px;">
+          <div style="font-size: 13px; font-weight: 700; color: var(--brand-primary); margin-bottom: 2px;">Manifest V3</div>
+          <div style="font-size: 12px; color: var(--text-secondary);">Built using secure extension standards</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 11. Updates to This Policy -->
+    <div style="margin-bottom: 28px;">
+      <h2 style="font-size: 17px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">11. Updates to This Policy</h2>
+      <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 10px; line-height: 1.6;">
+        If changes are made to this Privacy Policy to reflect future extension updates, the Effective Date at the top of this document will be updated. All revisions will strictly maintain our local-first data architecture.
+      </p>
+    </div>
+
+    <!-- 12. Resources & Contact -->
+    <div style="margin-bottom: 0;">
+      <h2 style="font-size: 17px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">12. Resources & Contact</h2>
+      <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 10px; line-height: 1.6;">For questions, bug reports, or code review, visit our official links:</p>
+      <ul style="list-style: none; padding-left: 0; margin-top: 8px;">
+        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span><strong style="color: var(--text-primary);">GitHub Repository:</strong> <a href="https://github.com/shajibsikder/tabvora" target="_blank" rel="noopener" style="color: var(--brand-primary); font-weight: 500;">github.com/shajibsikder/tabvora</a></li>
+        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span><strong style="color: var(--text-primary);">Report an Issue:</strong> <a href="https://github.com/shajibsikder/tabvora/issues/new" target="_blank" rel="noopener" style="color: var(--brand-primary); font-weight: 500;">github.com/shajibsikder/tabvora/issues</a></li>
+      </ul>
+    </div>
+
+  </div>
 </main>
 
+<!-- Footer -->
 <footer class="app-footer">
   <div class="footer-container">
     <div class="footer-brand">
-      <a href="index.html" class="brand">
-        <img src="images/logo.svg" alt="Tabvora Logo" width="24" height="24">
-        <span>Tabvora</span>
+      <a href="index.html" class="brand-footer-link" aria-label="Tabvora Home">
+        <img src="images/logo1.png" alt="Tabvora Logo" class="footer-square-logo" width="40" height="40">
+        <span class="footer-brand-title">Tabvora</span>
       </a>
       <p>Smart Tab & Workspace Dashboard for Google Chrome. Free, Open Source, and Local-First.</p>
     </div>

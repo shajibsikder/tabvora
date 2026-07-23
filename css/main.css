@@ -118,17 +118,16 @@ body {
 .brand {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
   text-decoration: none;
-  color: var(--text-primary);
-  font-weight: 700;
-  font-size: 1.25rem;
+  height: 100%;
+  padding: 4px 0; /* ওপর-নিচে অতিরিক্ত মার্জিন তুলে দেওয়া হলো */
 }
 
 .brand-logo {
-  width: 32px;
-  height: 32px;
-  border-radius: var(--radius-sm);
+  height: 44px; /* এখানে আপনার ইচ্ছা অনুযায়ী ৪০px থেকে ৪৮px পর্যন্ত বাড়াতে পারেন */
+  width: auto;
+  max-height: calc(var(--nav-height) - 12px); /* হেডারের বাইরে যাতে না চলে যায় */
+  object-fit: contain;
 }
 
 .nav-links {
@@ -722,30 +721,402 @@ body {
   max-width: 380px;
 }
 
-/* Mobile Responsiveness Adjustments */
-@media (max-width: 768px) {
-  .hero-title {
+/* ==========================================================================
+   Mobile Responsive Alignment Fix (Left Align & Single Line Buttons)
+   ========================================================================== */
+
+@media (max-width: 960px) {
+  /* কার্ডের ভেতরের কন্টেন্ট বামে এলাইন করা */
+  .hero-content-col {
+    align-items: flex-start !important;
+    text-align: left !important;
+  }
+
+  .hero-main-title {
+    font-size: 2.1rem;
+    text-align: left !important;
+  }
+
+  .hero-description-text {
+    font-size: 0.95rem;
+    text-align: left !important;
+  }
+
+  /* ৩টি বাটন এক লাইনে (Horizontal Row) রাখা */
+  .hero-btn-group {
+    display: flex !important;
+    flex-direction: row !important; /* জোরপূর্বক এক লাইনে রাখা */
+    flex-wrap: nowrap !important; /* ভেঙে নিচে যাওয়া বন্ধ করা */
+    justify-content: flex-start !important;
+    align-items: center !important;
+    gap: 0.4rem !important; /* মোবাইলে জায়গা পাওয়ার জন্য গ্যাপ কমানো হলো */
+    width: 100% !important;
+    overflow-x: auto; /* স্ক্রিন বেশি ছোট হলে স্ক্রোল হতে পারবে */
+    padding-bottom: 4px;
+  }
+
+  /* মোবাইলের জন্য বাটনগুলোর সাইজ ও প্যাডিং একটু কমপ্যাক্ট করা */
+  .hero-btn-group .btn-hero,
+  .hero-btn-group .btn-disabled {
+    padding: 0.55rem 0.75rem !important;
+    font-size: 0.8rem !important;
+    white-space: nowrap !important; /* টেক্সট ভেঙে দুই লাইন হওয়া বন্ধ করা */
+    flex-shrink: 0;
+  }
+
+  .hero-btn-group .tooltip-container {
+    flex-shrink: 0;
+  }
+
+  /* ট্রাস্ট বার বামে এলাইন করা */
+  .hero-trust-bar {
+    justify-content: flex-start !important;
+    text-align: left !important;
+    gap: 0.75rem !important;
+  }
+}
+
+/* ==========================================================================
+   Adaptive Split Hero Section (Light & Dark Theme Compatible)
+   ========================================================================== */
+
+.tabvora-hero {
+  padding: 3rem 1.5rem 4rem 1.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-split-container {
+  max-width: var(--max-width);
+  width: 100%;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 3.5rem 3rem;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 3rem;
+  align-items: center;
+  box-shadow: var(--shadow-md);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Left Column Styling */
+.hero-content-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.hero-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--brand-surface);
+  border: 1px solid var(--brand-border);
+  color: var(--brand-primary);
+  font-size: 0.825rem;
+  font-weight: 600;
+  padding: 0.3rem 0.8rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 1.25rem;
+}
+
+.pill-dot {
+  width: 7px;
+  height: 7px;
+  background-color: #10b981;
+  border-radius: 50%;
+}
+
+.hero-main-title {
+  font-size: 2.85rem;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.text-gradient {
+  color: var(--brand-primary);
+}
+
+.hero-description-text {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  max-width: 540px;
+}
+
+/* Button Group */
+.hero-btn-group {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.btn-hero {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.4rem;
+  font-size: 0.925rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-hero-primary.btn-disabled {
+  background-color: var(--bg-tertiary);
+  color: var(--text-tertiary);
+  border: 1px solid var(--border-color);
+  cursor: not-allowed;
+}
+
+.btn-hero-secondary {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.btn-hero-secondary:hover {
+  background-color: var(--bg-tertiary);
+  border-color: var(--border-strong);
+}
+
+.btn-hero-outline {
+  background-color: transparent;
+  color: var(--brand-primary);
+  border: 1px solid var(--brand-border);
+}
+
+.btn-hero-outline:hover {
+  background-color: var(--brand-surface);
+}
+
+/* Tooltip Styling */
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-bubble {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
+  font-size: 0.775rem;
+  font-weight: 600;
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  box-shadow: var(--shadow-md);
+  transition: all 0.2s ease;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.tooltip-container:hover .tooltip-bubble {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Trust Bar */
+.hero-trust-bar {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-tertiary);
+}
+
+.hero-trust-bar span {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+/* Right Media Column */
+.hero-media-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.media-card-frame {
+  width: 100%;
+  max-width: 340px;
+  aspect-ratio: 1 / 1;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.hero-preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+}
+
+/* Responsive Mobile Rules */
+@media (max-width: 960px) {
+  .hero-split-container {
+    grid-template-columns: 1fr;
+    padding: 2.5rem 1.5rem;
+    gap: 2.5rem;
+  }
+  
+  .hero-content-col {
+    align-items: center;
+    text-align: center;
+  }
+  
+  .hero-main-title {
     font-size: 2.25rem;
   }
-  .hero-subtitle {
-    font-size: 1.15rem;
-  }
-  .hero-description {
-    font-size: 0.95rem;
-  }
-  .hero-actions {
-    flex-direction: column;
+  
+  .hero-btn-group {
+    justify-content: center;
     width: 100%;
   }
-  .hero-actions .tooltip-container,
-  .hero-actions .hero-btn {
-    width: 100%;
+
+  .hero-trust-bar {
+    justify-content: center;
+    flex-wrap: wrap;
   }
-  .hero-actions button,
-  .hero-actions a {
-    width: 100%;
-  }
-  .preview-content-placeholder {
-    min-height: 220px;
-  }
+}
+
+/* ==========================================================================
+   4:3 Screenshot Window Frame Fix
+   ========================================================================== */
+
+.hero-media-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-window-frame {
+  width: 100%;
+  max-width: 580px;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-window-frame:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 25px 50px -12px rgba(37, 99, 235, 0.25);
+}
+
+.window-bar {
+  height: 38px;
+  background-color: var(--bg-tertiary);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+
+.window-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot.close { background-color: #ff5f56; }
+.dot.minimize { background-color: #ffbd2e; }
+.dot.expand { background-color: #27c93f; }
+
+.window-url-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.725rem;
+  color: var(--text-tertiary);
+  background-color: var(--bg-primary);
+  padding: 0.2rem 0.75rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-color);
+}
+
+/* 4:3 Ratio Lock Container */
+.window-image-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3; /* ৪:৩ অনুপাত লকিং */
+  overflow: hidden;
+  background-color: var(--bg-primary);
+}
+
+.dashboard-screenshot {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center; /* ছবির ওপরের অংশ যেন কাটা না যায় */
+  display: block;
+}
+
+/* ==========================================================================
+   Footer Brand Section (1:1 Square Logo Style)
+   ========================================================================== */
+
+.brand-footer-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+/* ১:১ পারফেক্ট স্কোয়ার ইমেজের স্টাইল */
+.footer-square-logo {
+  width: 40px;
+  height: 40px;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  display: block;
+}
+
+.footer-brand-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
 }

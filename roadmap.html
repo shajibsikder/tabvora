@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabvora Product Roadmap – Planned Local Features & Updates</title>
+  <meta name="description" content="Explore the future product roadmap for Tabvora. Upcoming local-first productivity features, Manifest V3 enhancements, and privacy-preserving tools.">
+  <link rel="canonical" href="https://tabvora.com/roadmap.html">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="icon" href="favicon.ico">
+</head>
+<body>
+
+<!-- Header -->
+<header class="app-header">
+  <nav class="nav-container" aria-label="Main Navigation">
+    <a href="index.html" class="brand" aria-label="Tabvora Home">
+      <img src="images/logo.png" alt="Tabvora Logo" class="brand-logo" style="height: 44px; max-height: 48px; width: auto; display: block;">
+    </a>
+    <button class="mobile-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">&#9776;</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="features.html" class="nav-link">Features</a></li>
+      <li><a href="screenshots.html" class="nav-link">Screenshots</a></li>
+      <li><a href="download.html" class="nav-link">Download</a></li>
+      <li><a href="privacy.html" class="nav-link">Privacy</a></li>
+      <li><a href="security.html" class="nav-link">Security</a></li>
+      <li><a href="faq.html" class="nav-link">FAQ</a></li>
+      <li><a href="support.html" class="nav-link">Support</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle Theme">
+        <svg id="theme-icon" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/></svg>
+      </button>
+      <a href="download.html" class="btn btn-primary" style="padding: 0.4rem 0.9rem; font-size: 0.85rem;">Get Extension</a>
+    </div>
+  </nav>
+</header>
+
+<!-- Main Content -->
+<main class="main-content" style="max-width: 860px;">
+  
+  <section class="page-header" style="text-align: left; margin-bottom: 2rem;">
+    <h1 class="page-title">Product Roadmap</h1>
+    <p class="page-subtitle" style="margin: 0;">Our transparent release timeline. Built with zero tracking, local-first storage, and strict Google Developer Policy compliance.</p>
+  </section>
+
+  <!-- Roadmap Timeline Container -->
+  <div style="display: flex; flex-direction: column; gap: 2rem; margin-bottom: 3rem;">
+    
+    <!-- Q3 2026: Released & Live -->
+    <article class="app-card" style="padding: 2rem; border-left: 4px solid #10b981; box-shadow: var(--shadow-sm);">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
+        <div style="display: flex; align-items: center; gap: 0.6rem;">
+          <span class="badge badge-success" style="font-size: 0.8rem;">Completed</span>
+          <h2 style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary); margin: 0;">v1.0.0 – Production Baseline</h2>
+        </div>
+        <span style="font-size: 0.85rem; font-weight: 600; color: var(--text-tertiary);">July 2026</span>
+      </div>
+      <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.6;">
+        Full Manifest V3 architecture, local-first workspace manager, Scratchpad widget, and custom theme launcher.
+      </p>
+      <ul style="list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.9rem; color: var(--text-secondary);">
+        <li>✓ Strict Manifest V3 Service Worker background engine</li>
+        <li>✓ Zero remote network calls, tracking pixels, or telemetry</li>
+        <li>✓ IndexedDB local database layer for instant performance</li>
+      </ul>
+    </article>
+
+    <!-- Q4 2026: In Active Development -->
+    <article class="app-card" style="padding: 2rem; border-left: 4px solid var(--brand-primary); box-shadow: var(--shadow-sm);">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
+        <div style="display: flex; align-items: center; gap: 0.6rem;">
+          <span class="badge badge-info" style="font-size: 0.8rem;">In Progress</span>
+          <h2 style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary); margin: 0;">v1.1.0 – Local Backup & Advanced Widgets</h2>
+        </div>
+        <span style="font-size: 0.85rem; font-weight: 600; color: var(--text-tertiary);">Q4 2026</span>
+      </div>
+      <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.6;">
+        Enhancing data portability and dashboard customizability without introducing any third-party cloud connections.
+      </p>
+      <ul style="list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.9rem; color: var(--text-secondary);">
+        <li style="padding-left: 1.25rem; position: relative;">
+          <span style="position: absolute; left: 0; color: var(--brand-primary); font-weight: 700;">•</span>
+          <strong>Encrypted JSON Export/Import:</strong> Backup your shortcuts and workspace structures directly to your local file system.
+        </li>
+        <li style="padding-left: 1.25rem; position: relative;">
+          <span style="position: absolute; left: 0; color: var(--brand-primary); font-weight: 700;">•</span>
+          <strong>Custom Wallpaper Engine:</strong> Support for local custom image upload and gradient presets for the dashboard background.
+        </li>
+        <li style="padding-left: 1.25rem; position: relative;">
+          <span style="position: absolute; left: 0; color: var(--brand-primary); font-weight: 700;">•</span>
+          <strong>Keyboard Shortcut Manager:</strong> Extended global hotkey bindings for opening workspace folders instantly.
+        </li>
+      </ul>
+    </article>
+
+    <!-- Q1 2027: Future Exploration -->
+    <article class="app-card" style="padding: 2rem; border-left: 4px solid var(--border-strong); box-shadow: var(--shadow-sm);">
+      <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
+        <div style="display: flex; align-items: center; gap: 0.6rem;">
+          <span class="badge badge-warning" style="font-size: 0.8rem;">Planned</span>
+          <h2 style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary); margin: 0;">v1.2.0 – Smart Focus Tools</h2>
+        </div>
+        <span style="font-size: 0.85rem; font-weight: 600; color: var(--text-tertiary);">Q1 2027</span>
+      </div>
+      <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.6;">
+        Focus mode integrations designed to reduce screen clutter and improve browser memory efficiency.
+      </p>
+      <ul style="list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.9rem; color: var(--text-secondary);">
+        <li style="padding-left: 1.25rem; position: relative;">
+          <span style="position: absolute; left: 0; color: var(--text-tertiary); font-weight: 700;">•</span>
+          <strong>Tab Group Auto-Organizer:</strong> Automatic grouping of open tabs by host domain using Chrome Tab Groups API.
+        </li>
+        <li style="padding-left: 1.25rem; position: relative;">
+          <span style="position: absolute; left: 0; color: var(--text-tertiary); font-weight: 700;">•</span>
+          <strong>Focus Timer Widget:</strong> Local Pomodoro timer card on the dashboard to help manage work cycles.
+        </li>
+      </ul>
+    </article>
+
+  </div>
+
+  <!-- Suggest Feature Banner -->
+  <div style="background-color: var(--brand-surface); border: 1px solid var(--brand-border); border-radius: var(--radius-lg); padding: 2rem; text-align: center;">
+    <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-primary);">Have a feature request?</h3>
+    <p style="color: var(--text-secondary); max-width: 580px; margin: 0 auto 1.25rem auto; font-size: 0.95rem;">
+      Tabvora is driven by community feedback. Suggest new productivity features or review our open issues on GitHub.
+    </p>
+    <a href="https://github.com/shajibsikder/tabvora/issues/new" target="_blank" rel="noopener" class="btn btn-primary" style="font-size: 0.875rem;">Submit Feature Request</a>
+  </div>
+
+</main>
+
+<!-- Footer -->
+<footer class="app-footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <a href="index.html" class="brand-footer-link" aria-label="Tabvora Home">
+        <img src="images/logo1.png" alt="Tabvora Logo" class="footer-square-logo" width="40" height="40">
+        <span class="footer-brand-title">Tabvora</span>
+      </a>
+      <p>Smart Tab & Workspace Dashboard for Google Chrome. Free, Open Source, and Local-First.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Product</div>
+      <ul class="footer-links">
+        <li><a href="features.html" class="footer-link">Features</a></li>
+        <li><a href="screenshots.html" class="footer-link">Screenshots</a></li>
+        <li><a href="download.html" class="footer-link">Download</a></li>
+        <li><a href="changelog.html" class="footer-link">Changelog</a></li>
+        <li><a href="roadmap.html" class="footer-link">Roadmap</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Security & Terms</div>
+      <ul class="footer-links">
+        <li><a href="privacy.html" class="footer-link">Privacy Policy</a></li>
+        <li><a href="permissions.html" class="footer-link">Permissions</a></li>
+        <li><a href="security.html" class="footer-link">Security Architecture</a></li>
+        <li><a href="terms.html" class="footer-link">Terms of Service</a></li>
+        <li><a href="cookies.html" class="footer-link">Cookie Policy</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Community</div>
+      <ul class="footer-links">
+        <li><a href="opensource.html" class="footer-link">Open Source</a></li>
+        <li><a href="faq.html" class="footer-link">FAQ</a></li>
+        <li><a href="support.html" class="footer-link">Support</a></li>
+        <li><a href="contact.html" class="footer-link">Contact</a></li>
+        <li><a href="donate.html" class="footer-link">Donate</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Project</div>
+      <ul class="footer-links">
+        <li><a href="license.html" class="footer-link">MIT License</a></li>
+        <li><a href="accessibility.html" class="footer-link">Accessibility</a></li>
+        <li><a href="credits.html" class="footer-link">Credits & Assets</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>&copy; 2026 Tabvora Project. Released under the open-source MIT License.</div>
+    <div>Local-First &bull; No Analytics &bull; No Telemetry</div>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>
