@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabvora FAQ – Frequently Asked Questions</title>
+  <meta name="description" content="Get answers to common questions about Tabvora, including workspace management, browser resource savings, privacy, and local storage.">
+  <link rel="canonical" href="https://tabvora.com/faq.html">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="icon" href="favicon.ico">
+</head>
+<body>
+
+<header class="app-header">
+  <nav class="nav-container" aria-label="Main Navigation">
+    <a href="index.html" class="brand">
+      <img src="images/logo.svg" alt="Tabvora Logo" width="32" height="32">
+      <span>Tabvora</span>
+    </a>
+    <button class="mobile-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">&#9776;</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="features.html" class="nav-link">Features</a></li>
+      <li><a href="screenshots.html" class="nav-link">Screenshots</a></li>
+      <li><a href="download.html" class="nav-link">Download</a></li>
+      <li><a href="privacy.html" class="nav-link">Privacy</a></li>
+      <li><a href="security.html" class="nav-link">Security</a></li>
+      <li><a href="faq.html" class="nav-link">FAQ</a></li>
+      <li><a href="support.html" class="nav-link">Support</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle Theme">
+        <svg id="theme-icon" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/></svg>
+      </button>
+      <a href="download.html" class="btn btn-primary" style="padding: 0.4rem 0.9rem; font-size: 0.85rem;">Get Extension</a>
+    </div>
+  </nav>
+</header>
+
+<main class="main-content" style="max-width: 800px;">
+  <section class="page-header">
+    <h1 class="page-title">Frequently Asked Questions</h1>
+    <p class="page-subtitle">Everything you need to know about Tabvora workspace architecture and privacy.</p>
+  </section>
+
+  <div style="display: flex; flex-direction: column; gap: 1rem;">
+    <div class="app-card">
+      <button class="accordion-header" aria-expanded="false" style="background:none; border:none; width:100%; text-align:left; font-size:1.15rem; font-weight:700; color:var(--text-primary); cursor:pointer; display:flex; justify-content:space-between; align-items:center;">
+        Is Tabvora completely free and open source?
+        <span>&#9660;</span>
+      </button>
+      <div class="accordion-content" style="display:none; margin-top: 1rem; color: var(--text-secondary);">
+        Yes. Tabvora is 100% free software distributed under the permissive MIT License. There are no hidden subscriptions, premium paywalls, or feature limits.
+      </div>
+    </div>
+
+    <div class="app-card">
+      <button class="accordion-header" aria-expanded="false" style="background:none; border:none; width:100%; text-align:left; font-size:1.15rem; font-weight:700; color:var(--text-primary); cursor:pointer; display:flex; justify-content:space-between; align-items:center;">
+        Does Tabvora transmit my browsing history or workspace names?
+        <span>&#9660;</span>
+      </button>
+      <div class="accordion-content" style="display:none; margin-top: 1rem; color: var(--text-secondary);">
+        Never. Tabvora runs entirely on your local machine. All workspace data, tab sessions, and configuration settings are saved in standard browser IndexedDB storage and never transmitted over the internet.
+      </div>
+    </div>
+
+    <div class="app-card">
+      <button class="accordion-header" aria-expanded="false" style="background:none; border:none; width:100%; text-align:left; font-size:1.15rem; font-weight:700; color:var(--text-primary); cursor:pointer; display:flex; justify-content:space-between; align-items:center;">
+        How does Tabvora save system memory?
+        <span>&#9660;</span>
+      </button>
+      <div class="accordion-content" style="display:none; margin-top: 1rem; color: var(--text-secondary);">
+        Tabvora leverages standard Chrome browser Tab Discard APIs to unload memory-heavy tabs in inactive workspaces while maintaining their title, favicon, and URL for instant restoration when clicked.
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="app-footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <a href="index.html" class="brand">
+        <img src="images/logo.svg" alt="Tabvora Logo" width="24" height="24">
+        <span>Tabvora</span>
+      </a>
+      <p>Smart Tab & Workspace Dashboard for Google Chrome. Free, Open Source, and Local-First.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Product</div>
+      <ul class="footer-links">
+        <li><a href="features.html" class="footer-link">Features</a></li>
+        <li><a href="screenshots.html" class="footer-link">Screenshots</a></li>
+        <li><a href="download.html" class="footer-link">Download</a></li>
+        <li><a href="changelog.html" class="footer-link">Changelog</a></li>
+        <li><a href="roadmap.html" class="footer-link">Roadmap</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Security & Terms</div>
+      <ul class="footer-links">
+        <li><a href="privacy.html" class="footer-link">Privacy Policy</a></li>
+        <li><a href="permissions.html" class="footer-link">Permissions</a></li>
+        <li><a href="security.html" class="footer-link">Security Architecture</a></li>
+        <li><a href="terms.html" class="footer-link">Terms of Service</a></li>
+        <li><a href="cookies.html" class="footer-link">Cookie Policy</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Community</div>
+      <ul class="footer-links">
+        <li><a href="opensource.html" class="footer-link">Open Source</a></li>
+        <li><a href="faq.html" class="footer-link">FAQ</a></li>
+        <li><a href="support.html" class="footer-link">Support</a></li>
+        <li><a href="contact.html" class="footer-link">Contact</a></li>
+        <li><a href="donate.html" class="footer-link">Donate</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Project</div>
+      <ul class="footer-links">
+        <li><a href="license.html" class="footer-link">MIT License</a></li>
+        <li><a href="accessibility.html" class="footer-link">Accessibility</a></li>
+        <li><a href="credits.html" class="footer-link">Credits & Assets</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>&copy; 2026 Tabvora Project. Released under the open-source MIT License.</div>
+    <div>Local-First &bull; No Analytics &bull; No Telemetry</div>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>

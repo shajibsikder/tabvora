@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabvora Security Model & Architecture</title>
+  <meta name="description" content="Technical details on Tabvora Manifest V3 compliance, zero remote code execution, sandboxed DOM rendering, and local security.">
+  <link rel="canonical" href="https://tabvora.com/security.html">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="icon" href="favicon.ico">
+</head>
+<body>
+
+<header class="app-header">
+  <nav class="nav-container" aria-label="Main Navigation">
+    <a href="index.html" class="brand">
+      <img src="images/logo.svg" alt="Tabvora Logo" class="brand-logo" width="32" height="32">
+      <span>Tabvora</span>
+    </a>
+    <button class="mobile-toggle" id="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">&#9776;</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" class="nav-link">Home</a></li>
+      <li><a href="features.html" class="nav-link">Features</a></li>
+      <li><a href="screenshots.html" class="nav-link">Screenshots</a></li>
+      <li><a href="download.html" class="nav-link">Download</a></li>
+      <li><a href="privacy.html" class="nav-link">Privacy</a></li>
+      <li><a href="security.html" class="nav-link">Security</a></li>
+      <li><a href="faq.html" class="nav-link">FAQ</a></li>
+      <li><a href="support.html" class="nav-link">Support</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle Theme">
+        <svg id="theme-icon" width="20" height="20" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/></svg>
+      </button>
+      <a href="download.html" class="btn btn-primary" style="padding: 0.4rem 0.9rem; font-size: 0.85rem;">Get Extension</a>
+    </div>
+  </nav>
+</header>
+
+<main class="main-content" style="max-width: 800px;">
+  <section class="page-header" style="text-align: left;">
+    <h1 class="page-title">Security Architecture</h1>
+    <p class="page-subtitle" style="margin:0;">Engineering standards, Manifest V3 compliance, and local threat modeling.</p>
+  </section>
+
+  <section class="app-card" style="margin-bottom: 2rem;">
+    <h2>1. Strict Manifest V3 Enforcement</h2>
+    <p class="app-card-desc" style="margin-top: 0.5rem;">
+      Tabvora is compiled fully within Chrome's Manifest V3 platform. In strict accordance with Web Store policies:
+    </p>
+    <ul style="margin-left: 1.5rem; margin-top: 0.5rem; color: var(--text-secondary);">
+      <li>No remote scripts, hosted JS files, or dynamically evaluated code (e.g., <code>eval()</code>) are permitted or used.</li>
+      <li>Background tasks run exclusively inside ephemeral, non-persistent Service Workers.</li>
+      <li>Strict Content Security Policies (CSP) block external network connections completely.</li>
+    </ul>
+  </section>
+
+  <section class="app-card" style="margin-bottom: 2rem;">
+    <h2>2. Open Source Verifiability</h2>
+    <p class="app-card-desc" style="margin-top: 0.5rem;">
+      The entire source code of Tabvora is public and auditable on GitHub. Security researchers and users can verify that the published Chrome Web Store zip file matches the open-source repository commit history line-for-line.
+    </p>
+  </section>
+
+  <section class="app-card">
+    <h2>3. Vulnerability Reporting</h2>
+    <p class="app-card-desc" style="margin-top: 0.5rem;">
+      If you discover a potential security concern within Tabvora, please report it privately through our GitHub Security Advisory channel rather than public issue trackers.
+    </p>
+    <div style="margin-top: 1rem;">
+      <a href="https://github.com/tabvora/tabvora/security" class="btn btn-secondary" target="_blank" rel="noopener">GitHub Security Portal</a>
+    </div>
+  </section>
+</main>
+
+<footer class="app-footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <a href="index.html" class="brand">
+        <img src="images/logo.svg" alt="Tabvora Logo" width="24" height="24">
+        <span>Tabvora</span>
+      </a>
+      <p>Smart Tab & Workspace Dashboard for Google Chrome. Free, Open Source, and Local-First.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Product</div>
+      <ul class="footer-links">
+        <li><a href="features.html" class="footer-link">Features</a></li>
+        <li><a href="screenshots.html" class="footer-link">Screenshots</a></li>
+        <li><a href="download.html" class="footer-link">Download</a></li>
+        <li><a href="changelog.html" class="footer-link">Changelog</a></li>
+        <li><a href="roadmap.html" class="footer-link">Roadmap</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Security & Terms</div>
+      <ul class="footer-links">
+        <li><a href="privacy.html" class="footer-link">Privacy Policy</a></li>
+        <li><a href="permissions.html" class="footer-link">Permissions</a></li>
+        <li><a href="security.html" class="footer-link">Security Architecture</a></li>
+        <li><a href="terms.html" class="footer-link">Terms of Service</a></li>
+        <li><a href="cookies.html" class="footer-link">Cookie Policy</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Community</div>
+      <ul class="footer-links">
+        <li><a href="opensource.html" class="footer-link">Open Source</a></li>
+        <li><a href="faq.html" class="footer-link">FAQ</a></li>
+        <li><a href="support.html" class="footer-link">Support</a></li>
+        <li><a href="contact.html" class="footer-link">Contact</a></li>
+        <li><a href="donate.html" class="footer-link">Donate</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Project</div>
+      <ul class="footer-links">
+        <li><a href="license.html" class="footer-link">MIT License</a></li>
+        <li><a href="accessibility.html" class="footer-link">Accessibility</a></li>
+        <li><a href="credits.html" class="footer-link">Credits & Assets</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>&copy; 2026 Tabvora Project. Released under the open-source MIT License.</div>
+    <div>Local-First &bull; No Analytics &bull; No Telemetry</div>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>
