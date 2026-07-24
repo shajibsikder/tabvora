@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tabvora FAQ – Frequently Asked Questions</title>
-  <meta name="description" content="Get answers to common questions about Tabvora, including workspace management, browser resource savings, privacy, and local storage.">
-  <link rel="canonical" href="https://tabvora.com/faq.html">
+  <meta name="description" content="Get answers to common questions about Tabvora, including workspace shortcut folders, dashboard performance, privacy, and local storage.">
+  <link rel="canonical" href="https://shajibsikder.github.io/tabvora/faq.html">
   <link rel="stylesheet" href="css/main.css">
   <link rel="icon" href="favicon.ico">
 </head>
@@ -59,17 +59,17 @@
         <span>&#9660;</span>
       </button>
       <div class="accordion-content" style="display:none; margin-top: 1rem; color: var(--text-secondary);">
-        Never. Tabvora runs entirely on your local machine. All workspace data, tab sessions, and configuration settings are saved in standard browser IndexedDB storage and never transmitted over the internet.
+        Never. Tabvora runs entirely on your local machine. All shortcuts, workspace folders, notes, and settings are saved in standard browser <code>chrome.storage.local</code>/IndexedDB storage and never transmitted over the internet.
       </div>
     </div>
 
     <div class="app-card">
       <button class="accordion-header" aria-expanded="false" style="background:none; border:none; width:100%; text-align:left; font-size:1.15rem; font-weight:700; color:var(--text-primary); cursor:pointer; display:flex; justify-content:space-between; align-items:center;">
-        How does Tabvora save system memory?
+        How does Tabvora stay fast with a lot of saved shortcuts?
         <span>&#9660;</span>
       </button>
       <div class="accordion-content" style="display:none; margin-top: 1rem; color: var(--text-secondary);">
-        Tabvora leverages standard Chrome browser Tab Discard APIs to unload memory-heavy tabs in inactive workspaces while maintaining their title, favicon, and URL for instant restoration when clicked.
+        Tabvora uses a virtual scrolling grid, so it only renders the shortcuts currently visible on screen. This keeps the new-tab dashboard fast and responsive even with hundreds of saved shortcuts.
       </div>
     </div>
   </div>
