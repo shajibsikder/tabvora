@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tabvora – Privacy Policy</title>
   <meta name="description" content="Official Tabvora Privacy Policy. Learn why Tabvora operates on a local-first architecture with zero tracking, no telemetry, and full user data control.">
-  <link rel="canonical" href="https://tabvora.com/privacy.html">
+  <link rel="canonical" href="https://shajibsikder.github.io/tabvora/privacy.html">
   <link rel="stylesheet" href="css/main.css">
   <link rel="icon" href="favicon.ico">
 </head>
@@ -108,14 +108,30 @@
     <!-- 6. Browser Permissions Declared -->
     <div style="margin-bottom: 28px;">
       <h2 style="font-size: 17px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">6. Browser Permissions Declared</h2>
-      <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 10px; line-height: 1.6;">Tabvora requests only permissions directly needed for implemented extension functionality:</p>
+      <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 10px; line-height: 1.6;">Tabvora requests only the permissions listed in its <code>manifest.json</code> that are directly needed for implemented functionality. No permission is requested "for future use":</p>
       <ul style="list-style: none; padding-left: 0; margin-top: 8px;">
-        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span><code>storage</code>: Used to store shortcuts, workspaces, notes, and preferences locally.</li>
-        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span><code>tabs</code>: Used to open links, switch active workspaces, and monitor page domains for context features.</li>
-        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span><code>bookmarks</code>: Used strictly when the user manually clicks "Import Bookmarks" to fill the shortcut grid.</li>
-        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span><code>contextMenus</code>: Used to provide right-click options for saving shortcuts.</li>
-        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span><code>favicon</code>: Used to fetch and display domain icon images cleanly.</li>
-        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span><code>host_permissions (http/https)</code>: Used exclusively for the optional Draft Recovery feature across user-visited sites when explicitly enabled by the user.</li>
+        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span><code>storage</code>: Saves shortcuts, workspaces, notes, archived items, and user preferences to <code>chrome.storage.local</code> on this device only.</li>
+        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span><code>tabs</code>: Reads the active tab so Tabvora can open shortcuts, determine which page is currently focused for the optional Website Usage Statistics feature, and support in-dashboard navigation. Page content is never read through this permission.</li>
+        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span><code>bookmarks</code>: Reads your bookmarks only when you manually click "Import Bookmarks" to populate the shortcut grid. Never accessed automatically or in the background.</li>
+        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span><code>contextMenus</code>: Adds right-click ("Add to Tabvora") menu options in the browser for saving shortcuts.</li>
+        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span><code>alarms</code>: Used to schedule periodic local maintenance tasks, including recovery for optional Website Usage Statistics after service worker suspension and other background tasks required for extension functionality.</li>
+        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span><code>favicon</code>: Uses Chrome's built-in favicon API to display each shortcut's site icon locally, without contacting third-party favicon services.</li>
+        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span><code>host_permissions</code> (<code>http://*/*</code>, <code>https://*/*</code>): Required only for the optional, default-OFF features — Draft Recovery (recovering unsaved form text after an accidental tab close) and Website Usage Statistics (local time-on-site charts). Also used to verify whether a saved shortcut's URL is still reachable. These permissions are never used to read, log, or transmit page content to any server; everything they touch stays in local storage.</li>
+      </ul>
+    </div>
+
+    <!-- 6a. Compliance Certification -->
+    <div style="margin-bottom: 28px;">
+      <h2 style="font-size: 17px; font-weight: 700; color: var(--text-primary); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">6a. Chrome Web Store Compliance</h2>
+      <p style="font-size: 14px; color: var(--text-secondary); margin-bottom: 10px; line-height: 1.6;">
+        Tabvora's use of user data complies with the <strong>Chrome Web Store User Data Policy</strong>, including the Limited Use requirements:
+      </p>
+      <ul style="list-style: none; padding-left: 0; margin-top: 8px;">
+        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span>Data accessed through granted permissions is used only to provide and improve Tabvora's user-facing features described in this policy.</li>
+        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span>Tabvora does not sell or transfer user data to third parties.</li>
+        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span>Tabvora does not use or transfer user data for advertising, and does not use it for purposes unrelated to Tabvora's single purpose (a new-tab shortcut and workspace dashboard).</li>
+        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span>Tabvora does not use or transfer user data to determine creditworthiness or for lending purposes.</li>
+        <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span>No humans read user data unless required for security purposes (e.g., investigating abuse), with the user's consent, or to comply with applicable law.</li>
       </ul>
     </div>
 
@@ -129,6 +145,7 @@
         <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span> Click a saved shortcut link to navigate to a website.</li>
         <li style="font-size: 13.5px; color: var(--text-secondary); margin-bottom: 10px; position: relative; padding-left: 22px; line-height: 1.5;"><span style="color: var(--brand-primary); font-size: 18px; position: absolute; left: 6px; top: -2px;">•</span> Click links to open the Official Website, GitHub Repository, Report an Issue, Privacy Policy, or Rate Extension pages.</li>
       </ul>
+<p>Some optional features, such as checking whether a saved shortcut is still reachable, may send a direct request to the selected website itself. Tabvora does not operate any backend servers. These requests are sent directly from your browser to the selected website and are not routed through or stored by Tabvora.</p>
     </div>
 
     <!-- 8. Data Retention & User Control -->
