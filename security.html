@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tabvora Security Model & Architecture</title>
   <meta name="description" content="Technical details on Tabvora Manifest V3 compliance, zero remote code execution, sandboxed DOM rendering, and local security.">
-  <link rel="canonical" href="https://tabvora.com/security.html">
+  <link rel="canonical" href="https://shajibsikder.github.io/tabvora/security.html">
   <link rel="stylesheet" href="css/main.css">
   <link rel="icon" href="favicon.ico">
 </head>
@@ -50,7 +50,7 @@
     <ul style="margin-left: 1.5rem; margin-top: 0.5rem; color: var(--text-secondary);">
       <li>No remote scripts, hosted JS files, or dynamically evaluated code (e.g., <code>eval()</code>) are permitted or used.</li>
       <li>Background tasks run exclusively inside ephemeral, non-persistent Service Workers.</li>
-      <li>Strict Content Security Policies (CSP) block external network connections completely.</li>
+      <li>Strict Content Security Policies (CSP) block all remote script loading and inline code execution. Tabvora operates without any backend server — the only outbound requests are standard browser navigation, checking whether a saved shortcut's URL is reachable, and page interactions used by the optional Draft Recovery and Website Usage Statistics features, none of which send data to a Tabvora-owned server.</li>
     </ul>
   </section>
 
@@ -67,7 +67,7 @@
       If you discover a potential security concern within Tabvora, please report it privately through our GitHub Security Advisory channel rather than public issue trackers.
     </p>
     <div style="margin-top: 1rem;">
-      <a href="https://github.com/tabvora/tabvora/security" class="btn btn-secondary" target="_blank" rel="noopener">GitHub Security Portal</a>
+      <a href="https://github.com/shajibsikder/tabvora" class="btn btn-secondary" target="_blank" rel="noopener">GitHub Security Portal</a>
     </div>
   </section>
 </main>
