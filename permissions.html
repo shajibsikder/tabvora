@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tabvora Extension Permissions Explained</title>
   <meta name="description" content="Transparent explanation of every Chrome extension permission requested by Tabvora, why it is required, and how data remains local.">
-  <link rel="canonical" href="https://tabvora.com/permissions.html">
+  <link rel="canonical" href="https://shajibsikder.github.io/tabvora/permissions.html">
   <link rel="stylesheet" href="css/main.css">
   <link rel="icon" href="favicon.ico">
 </head>
@@ -47,39 +47,69 @@
   <div style="display: flex; flex-direction: column; gap: 1.5rem;">
     <article class="app-card">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-        <code style="font-size: 1.1rem; color: var(--brand-primary); font-weight: 700;">tabs</code>
-        <span class="badge badge-success">Required</span>
-      </div>
-      <p class="app-card-desc"><strong>Why required:</strong> Necessary to read active tab titles, favicons, and URLs to display them within your local Tabvora dashboard.</p>
-      <p class="app-card-desc" style="margin-top: 0.5rem; color: var(--text-tertiary);"><strong>What is NOT collected:</strong> Page contents, keystrokes, form entries, or cookies are never read or accessed.</p>
-    </article>
-
-    <article class="app-card">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-        <code style="font-size: 1.1rem; color: var(--brand-primary); font-weight: 700;">tabGroups</code>
-        <span class="badge badge-success">Required</span>
-      </div>
-      <p class="app-card-desc"><strong>Why required:</strong> Allows Tabvora to organize, collapse, color-code, and label tab groups natively inside Google Chrome.</p>
-      <p class="app-card-desc" style="margin-top: 0.5rem; color: var(--text-tertiary);"><strong>What is NOT collected:</strong> No group configuration data is transmitted anywhere outside your device.</p>
-    </article>
-
-    <article class="app-card">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
         <code style="font-size: 1.1rem; color: var(--brand-primary); font-weight: 700;">storage</code>
         <span class="badge badge-success">Required</span>
       </div>
-      <p class="app-card-desc"><strong>Why required:</strong> Used to write your workspace names, custom colors, dashboard layouts, and user preferences to local browser disk storage.</p>
-      <p class="app-card-desc" style="margin-top: 0.5rem; color: var(--text-tertiary);"><strong>What is NOT collected:</strong> Storage is isolated inside your browser instance and inaccessible to third parties.</p>
+      <p class="app-card-desc"><strong>Why required:</strong> Saves your shortcuts, workspaces, notes, archived items, and preferences to <code>chrome.storage.local</code> so your dashboard persists across browser sessions.</p>
+      <p class="app-card-desc" style="margin-top: 0.5rem; color: var(--text-tertiary);"><strong>What is NOT collected:</strong> Storage is isolated inside your own browser profile and is never transmitted to any server or third party.</p>
     </article>
 
     <article class="app-card">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-        <code style="font-size: 1.1rem; color: var(--brand-primary); font-weight: 700;">sidePanel</code>
-        <span class="badge badge-info">Optional / Ergonomic</span>
+        <code style="font-size: 1.1rem; color: var(--brand-primary); font-weight: 700;">tabs</code>
+        <span class="badge badge-success">Required</span>
       </div>
-      <p class="app-card-desc"><strong>Why required:</strong> Enables opening Tabvora seamlessly within Chrome's native side panel alongside your active web page.</p>
+      <p class="app-card-desc"><strong>Why required:</strong> Reads the active tab so Tabvora can open shortcuts, determine which page is currently focused for the optional Website Usage Statistics feature, and support in-dashboard navigation.</p>
+      <p class="app-card-desc" style="margin-top: 0.5rem; color: var(--text-tertiary);"><strong>What is NOT collected:</strong> Page contents, keystrokes, form entries, or cookies are never read or accessed through this permission.</p>
+    </article>
+
+    <article class="app-card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+        <code style="font-size: 1.1rem; color: var(--brand-primary); font-weight: 700;">bookmarks</code>
+        <span class="badge badge-success">Required</span>
+      </div>
+      <p class="app-card-desc"><strong>Why required:</strong> Reads your bookmarks only when you manually click "Import Bookmarks" to fill the shortcut grid.</p>
+      <p class="app-card-desc" style="margin-top: 0.5rem; color: var(--text-tertiary);"><strong>What is NOT collected:</strong> Bookmarks are never read automatically or in the background — only on your explicit action.</p>
+    </article>
+
+    <article class="app-card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+        <code style="font-size: 1.1rem; color: var(--brand-primary); font-weight: 700;">contextMenus</code>
+        <span class="badge badge-success">Required</span>
+      </div>
+      <p class="app-card-desc"><strong>Why required:</strong> Adds a right-click ("Add to Tabvora") option in Chrome's context menu so you can save the current page as a shortcut.</p>
+      <p class="app-card-desc" style="margin-top: 0.5rem; color: var(--text-tertiary);"><strong>What is NOT collected:</strong> No page data is read — only the URL and title of the page you right-click on.</p>
+    </article>
+
+    <article class="app-card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+        <code style="font-size: 1.1rem; color: var(--brand-primary); font-weight: 700;">alarms</code>
+        <span class="badge badge-success">Required</span>
+      </div>
+      <p class="app-card-desc"><strong>Why required:</strong> Schedules periodic local checks — such as background Draft Recovery snapshots and broken-shortcut detection — without keeping the extension's service worker running continuously.</p>
+      <p class="app-card-desc" style="margin-top: 0.5rem; color: var(--text-tertiary);"><strong>What is NOT collected:</strong> Alarms only trigger local, on-device logic. No data is sent anywhere as a result.</p>
+    </article>
+
+    <article class="app-card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+        <code style="font-size: 1.1rem; color: var(--brand-primary); font-weight: 700;">favicon</code>
+        <span class="badge badge-success">Required</span>
+      </div>
+      <p class="app-card-desc"><strong>Why required:</strong> Uses Chrome's built-in favicon API to display each shortcut's site icon locally.</p>
+      <p class="app-card-desc" style="margin-top: 0.5rem; color: var(--text-tertiary);"><strong>What is NOT collected:</strong> No requests are made to third-party favicon services — icons are resolved by Chrome itself.</p>
+    </article>
+
+    <article class="app-card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+        <code style="font-size: 1.1rem; color: var(--brand-primary); font-weight: 700;">host_permissions (http://*/*, https://*/*)</code>
+        <span class="badge badge-success">Required</span>
+      </div>
+      <p class="app-card-desc"><strong>Why required:</strong> Needed only for optional, default-OFF features: Draft Recovery (recovering unsaved form text after an accidental tab close) and Website Usage Statistics (local time-on-site charts), plus checking whether a saved shortcut's URL is still reachable.</p>
+      <p class="app-card-desc" style="margin-top: 0.5rem; color: var(--text-tertiary);"><strong>What is NOT collected:</strong> Page content accessed under this permission never leaves your device — it is not logged, transmitted, or sent to any Tabvora server.</p>
     </article>
   </div>
+
+  <p style="margin-top: 1.5rem; font-size: 0.85rem; color: var(--text-tertiary);">This list matches the <code>permissions</code> and <code>host_permissions</code> fields declared in Tabvora's <code>manifest.json</code> exactly. See our <a href="privacy.html">Privacy Policy</a> for full details on data handling.</p>
 </main>
 
 <!-- Footer -->
