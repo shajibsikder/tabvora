@@ -1,0 +1,46 @@
+{
+  "manifest_version": 3,
+  "name": "Tabvora – Smart Tab & Session Manager",
+  "version": "1.0.0",
+  "description": "A high-performance, offline-first New Tab dashboard with virtual scrolling, unlimited shortcuts, deep search, and draft recovery.",
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+  "action": {
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "Tabvora Dashboard"
+  },
+  "permissions": [
+    "storage",
+    "favicon",
+    "tabs",
+    "bookmarks",
+    "contextMenus",
+    "alarms"
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["js/content-script.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "js/background.js",
+    "type": "module"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "offline_enabled": true
+}
