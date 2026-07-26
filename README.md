@@ -4,20 +4,26 @@
 
 A fast, local-first New Tab dashboard for organizing shortcuts, workspaces, and daily browsing — with **zero telemetry** and **zero cloud storage**.
 
-<img src="https://raw.githubusercontent.com/shajibsikder/tabvora/refs/heads/main/images/ff1.png" alt="Available on the Chrome Web Store"/>
+<img src="https://raw.githubusercontent.com/shajibsikder/tabvora/refs/heads/main/images/cover.png" alt="Available on the Chrome Web Store"/>
 
-<br/>
 
-<!--
-  IMPORTANT: Replace CHROME_WEB_STORE_URL below with your real Chrome Web Store
-  listing link once the extension is published/approved. Until then this button
-  will not point anywhere valid — do not publish the README with a placeholder link live.
--->
+---
+
+### 📖 About: Tabvora - Smart Tab & Workspace
+
+**Tabvora** replaces Chrome's default New Tab page with a fast, customizable dashboard built around one idea: your browsing data should stay on your device, under your control.
+
+Instead of a static grid of a few recent sites, Tabvora gives you an **unlimited, virtually-scrolled shortcut grid** organized into custom **workspaces**, with search, drag-and-drop reordering, pinning, color labels, and one-click bookmark import. A handful of optional productivity tools — draft recovery, usage statistics, and daily time limits — are available if you want them, and are **off by default**.
+
+Every piece of data Tabvora creates — shortcuts, notes, settings, drafts, usage stats — is stored locally in your browser using `chrome.storage.local` and `IndexedDB`. Nothing is uploaded, synced to a server, or shared with any third party.
+
+---
+
 <a href="CHROME_WEB_STORE_URL" target="_blank">
   <img src="https://raw.githubusercontent.com/shajibsikder/tabvora/refs/heads/main/images/chrome.png" alt="Available on the Chrome Web Store" width="220"/>
 </a>
 
-<br/><br/>
+<br/>
 
 [![Manifest](https://img.shields.io/badge/Manifest-V3-4285F4?style=flat-square&logo=googlechrome&logoColor=white)](manifest.json)
 [![Privacy](https://img.shields.io/badge/Privacy-Local--First-10b981?style=flat-square)](https://shajibsikder.github.io/tabvora/privacy.html)
@@ -27,16 +33,6 @@ A fast, local-first New Tab dashboard for organizing shortcuts, workspaces, and 
 [Install](#-installation) · [Features](#-features) · [Privacy](#-privacy--data-handling) · [Permissions](#-permissions-explained) · [Architecture](#-architecture) · [Contributing](#-contributing)
 
 </div>
-
----
-
-## 📖 About
-
-**Tabvora** replaces Chrome's default New Tab page with a fast, customizable dashboard built around one idea: your browsing data should stay on your device, under your control.
-
-Instead of a static grid of a few recent sites, Tabvora gives you an **unlimited, virtually-scrolled shortcut grid** organized into custom **workspaces**, with search, drag-and-drop reordering, pinning, color labels, and one-click bookmark import. A handful of optional productivity tools — draft recovery, usage statistics, and daily time limits — are available if you want them, and are **off by default**.
-
-Every piece of data Tabvora creates — shortcuts, notes, settings, drafts, usage stats — is stored locally in your browser using `chrome.storage.local` and `IndexedDB`. Nothing is uploaded, synced to a server, or shared with any third party.
 
 ---
 
