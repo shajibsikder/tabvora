@@ -4,6 +4,8 @@
 
 A fast, local-first New Tab dashboard for organizing shortcuts, workspaces, and daily browsing — with **zero telemetry** and **zero cloud storage**.
 
+[Install](#-installation) · [Features](#-features) · [Privacy](#-privacy--data-handling) · [Permissions](#-permissions-explained) · [Contributing](#-contributing)
+
 ---
 
 ### 📖 About: Tabvora - Smart Tab & Workspace
@@ -20,18 +22,12 @@ Every piece of data Tabvora creates — shortcuts, notes, settings, drafts, usag
 
 ---
 
-<a href="CHROME_WEB_STORE_URL" target="_blank">
+<a href="https://chromewebstore.google.com/detail/tabvora-%E2%80%93-smart-tab-sessi/ibejmhkigcbnfnobfkeebfnpodlpgjab" target="_blank">
   <img src="https://raw.githubusercontent.com/shajibsikder/tabvora/refs/heads/main/images/chrome.png" alt="Available on the Chrome Web Store" width="220"/>
 </a>
 
 <br/>
 
-[![Manifest](https://img.shields.io/badge/Manifest-V3-4285F4?style=flat-square&logo=googlechrome&logoColor=white)](manifest.json)
-[![Privacy](https://img.shields.io/badge/Privacy-Local--First-10b981?style=flat-square)](https://shajibsikder.github.io/tabvora/privacy.html)
-[![Open Source](https://img.shields.io/badge/Open%20Source-Yes-blue?style=flat-square)](https://github.com/shajibsikder/tabvora)
-[![Issues](https://img.shields.io/github/issues/shajibsikder/tabvora?style=flat-square)](https://github.com/shajibsikder/tabvora/issues)
-
-[Install](#-installation) · [Features](#-features) · [Privacy](#-privacy--data-handling) · [Permissions](#-permissions-explained) · [Architecture](#-architecture) · [Contributing](#-contributing)
 
 </div>
 
@@ -198,7 +194,7 @@ This project's license is specified in the [LICENSE](LICENSE) file of this repos
 | GitHub Repository | [github.com/shajibsikder/tabvora](https://github.com/shajibsikder/tabvora) |
 | Report an Issue | [github.com/shajibsikder/tabvora/issues](https://github.com/shajibsikder/tabvora/issues) |
 | Privacy Policy | [shajibsikder.github.io/tabvora/privacy.html](https://shajibsikder.github.io/tabvora/privacy.html) |
-| Chrome Web Store | _Add link once published_ |
+| Chrome Web Store | [https://shajibsikder.github.io/tabvora](https://shajibsikder.github.io/tabvora/download.html) |
 
 ---
 
