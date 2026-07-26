@@ -18,15 +18,13 @@ A fast, local-first New Tab dashboard for organizing shortcuts, workspaces, and 
 
 Instead of a static grid of a few recent sites, Tabvora gives you an **unlimited, virtually-scrolled shortcut grid** organized into custom **workspaces**, with search, drag-and-drop reordering, pinning, color labels, and one-click bookmark import. A handful of optional productivity tools — draft recovery, usage statistics, and daily time limits — are available if you want them, and are **off by default**.
 
-Every piece of data Tabvora creates — shortcuts, notes, settings, drafts, usage stats — is stored locally in your browser using `chrome.storage.local` and `IndexedDB`. Nothing is uploaded, synced to a server, or shared with any third party.
-
----
-
+<div align="center">
 <a href="https://chromewebstore.google.com/detail/tabvora-%E2%80%93-smart-tab-sessi/ibejmhkigcbnfnobfkeebfnpodlpgjab" target="_blank">
-  <img src="https://raw.githubusercontent.com/shajibsikder/tabvora/refs/heads/main/images/chrome.png" alt="Available on the Chrome Web Store" width="220"/>
+  <img src="https://raw.githubusercontent.com/shajibsikder/tabvora/refs/heads/main/images/chrome.png" alt="Available on the Chrome Web Store" width="300"/>
 </a>
+</div>
 
-<br/>
+Every piece of data Tabvora creates — shortcuts, notes, settings, drafts, usage stats — is stored locally in your browser using `chrome.storage.local` and `IndexedDB`. Nothing is uploaded, synced to a server, or shared with any third party.
 
 
 </div>
