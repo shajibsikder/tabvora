@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabvora – Privacy Policy</title>
+  <style>
+    :root {
+      --bg-color: #0b0f19;
+      --card-bg: #131b2e;
+      --card-border: #1e293b;
+      --primary-color: #3b82f6;
+      --primary-hover: #60a5fa;
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --accent-green: #10b981;
+      --radius-lg: 16px;
+      --radius-md: 10px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-primary);
+      line-height: 1.6;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 820px;
+    }
+
+    /* Page Header */
+    .header {
+      margin-bottom: 24px;
+      padding-left: 4px;
+    }
+
+    .app-title {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--primary-color);
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+
+    .meta-date {
+      font-size: 13px;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    /* Main Policy Card */
+    .policy-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+    }
+
+    /* Highlight Banner */
+    .summary-banner {
+      background: rgba(59, 130, 246, 0.08);
+      border-left: 4px solid var(--primary-color);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: 16px 20px;
+      margin-bottom: 32px;
+      font-size: 14px;
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+
+    /* Section Styling */
+    .section {
+      margin-bottom: 28px;
+    }
+
+    .section:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 10px;
+    }
+
+    /* Custom List */
+    .custom-list {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 8px;
+    }
+
+    .custom-list li {
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 22px;
+      line-height: 1.5;
+    }
+
+    .custom-list li::before {
+      content: "•";
+      color: var(--primary-color);
+      font-size: 18px;
+      position: absolute;
+      left: 6px;
+      top: -2px;
+    }
+
+    .custom-list strong {
+      color: var(--text-primary);
+    }
+
+    /* Principles Grid */
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .principle-box {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-md);
+      padding: 14px;
+    }
+
+    .principle-heading {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--primary-color);
+      margin-bottom: 2px;
+    }
+
+    .principle-sub {
+      font-size: 12px;
+      color: var(--text-secondary);
+    }
+
+    /* Code Tags & Links */
+    code {
+      background: rgba(255, 255, 255, 0.06);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+      font-size: 12px;
+      color: #e2e8f0;
+    }
+
+    a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    a:hover {
+      color: var(--primary-hover);
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--card-border);
+      padding-top: 20px;
+      margin-top: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--text-secondary);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <h1 class="app-title">Tabvora Privacy Policy</h1>
+      <div class="meta-date">Effective Date: July 23, 2026 • Version 1.0.0</div>
+    </div>
+
+    <!-- Main Card Container -->
+    <div class="policy-card">
+      
+      <div class="summary-banner">
+        <strong>Summary:</strong> Tabvora operates on a local-first design. All user-generated content, shortcuts, notes, settings, and optional feature data remain stored locally on your device. Tabvora does not transmit personal user data to external servers or remote telemetry endpoints.
+      </div>
+
+      <!-- 1. Principles Overview -->
+      <div class="section">
+        <h2 class="section-title">1. Introduction & Core Principles</h2>
+        <p class="section-p">
+          Tabvora is a local-first browser extension created for shortcut organization, custom workspaces, productivity tools, and browser navigation. We believe personal browsing data, shortcuts, scratchpad notes, and local configurations belong entirely under user control.
+        </p>
+      </div>
+
+      <!-- 2. What Data Is Stored Locally -->
+      <div class="section">
+        <h2 class="section-title">2. What Data Is Stored Locally</h2>
+        <p class="section-p">Tabvora relies on browser-native local storage APIs (specifically <code>chrome.storage.local</code> and <code>IndexedDB</code>) to preserve dashboard data across browser sessions:</p>
+        <ul class="custom-list">
+          <li><strong>Shortcuts & Workspaces:</strong> Saved custom links, titles, custom workspace categories, colors, and layout order.</li>
+          <li><strong>Quick Notes:</strong> Scratchpad text stored inside the local note widget.</li>
+          <li><strong>Settings & Appearance:</strong> Selected themes, card sizing, grid gap density, corner radius, background options, and default search choices.</li>
+          <li><strong>Archive Data:</strong> Items manually archived from the primary shortcut grid.</li>
+        </ul>
+      </div>
+
+      <!-- 3. Optional Features -->
+      <div class="section">
+        <h2 class="section-title">3. Optional Privacy-Sensitive Features</h2>
+        <p class="section-p">To ensure absolute user choice, privacy-sensitive functionality is controlled via toggles inside extension settings and disabled by default where applicable:</p>
+        <ul class="custom-list">
+          <li><strong>Draft Recovery (Default OFF):</strong> Temporarily records unsaved text field inputs across tabs to prevent data loss from accidental closes. Snapshots remain stored locally inside IndexedDB and can be wiped or disabled at any time.</li>
+          <li><strong>Website Usage Statistics (Default OFF):</strong> Records domain visit frequency and duration to render local statistics charts. Data is calculated and retained strictly inside local browser storage.</li>
+        </ul>
+      </div>
+
+      <!-- 4. What We Do NOT Collect -->
+      <div class="section">
+        <h2 class="section-title">4. What We Do NOT Collect</h2>
+        <p class="section-p">Tabvora enforces strict technical parameters. We do not collect, transmit, or record any of the following items:</p>
+        <ul class="custom-list">
+          <li>Passwords, PINs, or OTP authentication tokens.</li>
+          <li>Credit/debit card numbers, CVV codes, or financial inputs.</li>
+          <li>Personal identity documents or biometric information.</li>
+          <li>Advertising identifiers, tracking cookies, or user fingerprinting parameters.</li>
+          <li>Remote logs, background telemetry, or cloud copies of browsing data.</li>
+        </ul>
+      </div>
+
+      <!-- 5. Security & Sensitive Information Exclusion -->
+      <div class="section">
+        <h2 class="section-title">5. Security & Sensitive Field Exclusion</h2>
+        <p class="section-p">
+          When optional Draft Recovery is enabled, Tabvora screens active form inputs. Password inputs (<code>type="password"</code>), payment forms, credit card fields, hidden security tokens, and authentication paths are automatically excluded from local draft snapshots.
+        </p>
+      </div>
+
+      <!-- 6. Browser Permissions Declared -->
+      <div class="section">
+        <h2 class="section-title">6. Browser Permissions Declared</h2>
+        <p class="section-p">Tabvora requests only permissions directly needed for implemented extension functionality:</p>
+        <ul class="custom-list">
+          <li><code>storage</code>: Used to store shortcuts, workspaces, notes, and preferences locally.</li>
+          <li><code>tabs</code>: Used to manage shortcuts, determine the active tab for optional Usage Statistics, and support browser navigation features.</li>
+          <li><code>bookmarks</code>: Used strictly when the user manually clicks "Import Bookmarks" to fill the shortcut grid.</li>
+          <li><code>contextMenus</code>: Used to provide right-click options for saving shortcuts.</li>
+          <li><code>favicon</code>: Used to fetch and display domain icon images cleanly.</li>
+          <li><code>alarms</code>: Schedules periodic local checks (background Draft Recovery snapshots and broken-shortcut detection) without keeping the extension's service worker running continuously.</li>
+          <li><code>host_permissions (http/https)</code>: Required for optional features that interact with web pages selected or visited by the user, including Draft Recovery (when enabled), saved website availability checks, and other user-initiated page features. No browsing data is transmitted to Tabvora servers.</li>
+        </ul>
+      </div>
+
+      <!-- 6a. Compliance Certification -->
+      <div class="section">
+        <h2 class="section-title">6a. Chrome Web Store Compliance</h2>
+        <p class="section-p">Tabvora's use of user data complies with the Chrome Web Store User Data Policy, including the Limited Use requirements:</p>
+        <ul class="custom-list">
+          <li>Data accessed through granted permissions is used only to provide and improve the user-facing features described in this policy.</li>
+          <li>Tabvora does not sell or transfer user data to third parties.</li>
+          <li>Tabvora does not use or transfer user data for advertising, and does not use it for purposes unrelated to its single purpose (a new-tab shortcut and workspace dashboard).</li>
+          <li>Tabvora does not use or transfer user data to determine creditworthiness or for lending purposes.</li>
+          <li>No humans read user data unless required for security purposes, with the user's consent, or to comply with applicable law.</li>
+        </ul>
+      </div>
+
+      <!-- 7. Network Usage -->
+      <div class="section">
+        <h2 class="section-title">7. Network Usage</h2>
+        <p class="section-p">
+          Tabvora does not upload, synchronize, or transmit user-generated data to external servers or cloud services. Internet traffic occurs strictly through standard browser navigation when you intentionally:
+        </p>
+        <ul class="custom-list">
+          <li>Click a saved shortcut link to navigate to a website.</li>
+          <li>Click links to open the Official Website, GitHub Repository, Report an Issue, Privacy Policy, or Rate Extension pages.</li>
+        </ul>
+        <p>Some optional features (such as checking the availability of a saved website) may send a direct request to the destination website selected by the user. These requests are made directly between your browser and the destination website. Tabvora does not operate backend servers and does not receive, collect, or store this network traffic.</p>
+      </div>
+
+      <!-- 8. Data Retention & User Control -->
+      <div class="section">
+        <h2 class="section-title">8. Data Retention & User Control</h2>
+        <p class="section-p">
+          Users retain full administrative control over stored local data. Through Extension Settings, users can:
+        </p>
+        <ul class="custom-list">
+          <li>Enable or disable optional features (Draft Recovery and Usage Statistics) at any time.</li>
+          <li>Clear saved Draft Recovery records or clear Usage Statistics logs instantly.</li>
+          <li>Individual shortcuts, notes, and archived items can be deleted at any time.</li>
+          <li>Perform a complete <strong>Factory Reset</strong> to clear all local Tabvora storage.</li>
+          <li>Draft Recovery automatically purges local records according to the retention period selected by the user.</li>
+        </ul>
+      </div>
+
+      <!-- 9. Open Source Transparency -->
+      <div class="section">
+        <h2 class="section-title">9. Open Source Transparency</h2>
+        <p class="section-p">
+          Tabvora is an open-source project. Users, developers, and security reviewers are invited to review the source code on our official GitHub repository to inspect our local storage practices and Manifest V3 implementation.
+        </p>
+      </div>
+
+      <!-- 10. Core Principles -->
+      <div class="section">
+        <h2 class="section-title">10. Core Privacy Guarantees</h2>
+        <div class="principles-grid">
+          <div class="principle-box">
+            <div class="principle-heading">Local First</div>
+            <div class="principle-sub">100% device-level data retention</div>
+          </div>
+          <div class="principle-box">
+            <div class="principle-heading">Zero Tracking</div>
+            <div class="principle-sub">No background telemetry scripts</div>
+          </div>
+          <div class="principle-box">
+            <div class="principle-heading">User Controlled</div>
+            <div class="principle-sub">Optional features remain Default OFF</div>
+          </div>
+          <div class="principle-box">
+            <div class="principle-heading">Manifest V3</div>
+            <div class="principle-sub">Built using secure extension standards</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 11. Policy Updates -->
+      <div class="section">
+        <h2 class="section-title">11. Updates to This Policy</h2>
+        <p class="section-p">
+          If changes are made to this Privacy Policy to reflect future extension updates, the Effective Date at the top of this document will be updated. All revisions will strictly maintain our local-first data architecture.
+        </p>
+      </div>
+
+      <!-- 12. Contact & Resources -->
+      <div class="section">
+        <h2 class="section-title">12. Resources & Contact</h2>
+        <p class="section-p">For questions, bug reports, or code review, visit our official links:</p>
+        <ul class="custom-list">
+          <li><strong>GitHub Repository:</strong> <a href="https://github.com/shajibsikder/tabvora" target="_blank" rel="noopener">github.com/shajibsikder/tabvora</a></li>
+          <li><strong>Report an Issue:</strong> <a href="https://github.com/shajibsikder/tabvora/issues/new" target="_blank" rel="noopener">github.com/shajibsikder/tabvora/issues</a></li>
+        </ul>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer">
+        <span>Tabvora © 2026</span>
+        <span>Privacy First • Local First • Manifest V3</span>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
