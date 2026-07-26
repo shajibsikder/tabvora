@@ -19,7 +19,7 @@ A fast, local-first New Tab dashboard for organizing shortcuts, workspaces, and 
 Instead of a static grid of a few recent sites, Tabvora gives you an **unlimited, virtually-scrolled shortcut grid** organized into custom **workspaces**, with search, drag-and-drop reordering, pinning, color labels, and one-click bookmark import. A handful of optional productivity tools — draft recovery, usage statistics, and daily time limits — are available if you want them, and are **off by default**.
 
 <div align="center">
-<a href="https://chromewebstore.google.com/detail/tabvora-%E2%80%93-smart-tab-sessi/ibejmhkigcbnfnobfkeebfnpodlpgjab" target="_blank">
+<a href="" target="_blank">
   <img src="https://raw.githubusercontent.com/shajibsikder/tabvora/refs/heads/main/images/chrome.png" alt="Available on the Chrome Web Store" width="300"/>
 </a>
 </div>
@@ -107,7 +107,7 @@ No permission is requested "just in case" — each one maps directly to a featur
 ## 🚀 Installation
 
 ### From the Chrome Web Store (recommended)
-1. Click the **Chrome Web Store** button at the top of this page, or visit the [listing directly](https://chromewebstore.google.com/detail/tabvora-%E2%80%93-smart-tab-sessi/ibejmhkigcbnfnobfkeebfnpodlpgjab).
+1. Click the **Chrome Web Store** button at the top of this page, or visit the [listing directly]().
 2. Click **Add to Chrome**.
 3. Open a new tab — Tabvora is ready to use.
 
