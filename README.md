@@ -107,7 +107,7 @@ No permission is requested "just in case" — each one maps directly to a featur
 ## 🚀 Installation
 
 ### From the Chrome Web Store (recommended)
-1. Click the **Chrome Web Store** button at the top of this page, or visit the [listing directly](CHROME_WEB_STORE_URL).
+1. Click the **Chrome Web Store** button at the top of this page, or visit the [listing directly](https://chromewebstore.google.com/detail/tabvora-%E2%80%93-smart-tab-sessi/ibejmhkigcbnfnobfkeebfnpodlpgjab).
 2. Click **Add to Chrome**.
 3. Open a new tab — Tabvora is ready to use.
 
