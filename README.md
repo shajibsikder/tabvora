@@ -4,7 +4,7 @@
 
 A fast, local-first New Tab dashboard for organizing shortcuts, workspaces, and daily browsing — with **zero telemetry** and **zero cloud storage**.
 
-<img src="https://raw.githubusercontent.com/shajibsikder/tabvora/refs/heads/main/images/ff1.png" alt="Available on the Chrome Web Store" width="220"/>
+<img src="https://raw.githubusercontent.com/shajibsikder/tabvora/refs/heads/main/images/ff1.png" alt="Available on the Chrome Web Store"/>
 
 <br/>
 
