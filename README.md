@@ -4,14 +4,15 @@
 
 A fast, local-first New Tab dashboard for organizing shortcuts, workspaces, and daily browsing — with **zero telemetry** and **zero cloud storage**.
 
-<img src="https://raw.githubusercontent.com/shajibsikder/tabvora/refs/heads/main/images/cover.png" alt="Available on the Chrome Web Store"/>
-
-
 ---
 
 ### 📖 About: Tabvora - Smart Tab & Workspace
 
 **Tabvora** replaces Chrome's default New Tab page with a fast, customizable dashboard built around one idea: your browsing data should stay on your device, under your control.
+
+<img src="https://raw.githubusercontent.com/shajibsikder/tabvora/refs/heads/main/images/cover.png" alt="Available on the Chrome Web Store"/>
+
+<br/>
 
 Instead of a static grid of a few recent sites, Tabvora gives you an **unlimited, virtually-scrolled shortcut grid** organized into custom **workspaces**, with search, drag-and-drop reordering, pinning, color labels, and one-click bookmark import. A handful of optional productivity tools — draft recovery, usage statistics, and daily time limits — are available if you want them, and are **off by default**.
 
