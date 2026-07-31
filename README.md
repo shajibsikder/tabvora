@@ -2,9 +2,15 @@
 
 ## 🗂️ Tabvora - Smart Tab & Workspace Dashboard for Chrome
 
-A fast, local-first New Tab dashboard for organizing shortcuts, workspaces, and daily browsing — with **zero telemetry** and **zero cloud storage**.
+A fast, local-first New Tab dashboard for organizing shortcuts, workspaces, and improving daily browsing productivity — with zero telemetry, zero analytics, and no cloud storage.
 
-[Install](#-installation) · [Features](#-features) · [Privacy](#-privacy--data-handling) · [Permissions](#-permissions-explained) · [Contributing](#-contributing)
+[![Chrome Web Store](https://img.shields.io/badge/Chrome_Web_Store-v2.0.0-blue?logo=googlechrome&logoColor=white)](https://chromewebstore.google.com/detail/ibejmhkigcbnfnobfkeebfnpodlpgjab)
+[![Manifest V3](https://img.shields.io/badge/Manifest-V3-green)](https://developer.chrome.com/docs/extensions/mv3/intro/)
+[![Local First](https://img.shields.io/badge/Local--First-100%25-success)](#-privacy--data-handling)
+[![Privacy First](https://img.shields.io/badge/Privacy-100%25_Local-brightgreen)](#-privacy--data-handling)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
+[Install](#-installation) · [What's New in v2.0](#-whats-new-in-v20) · [Features](#-features) · [Privacy](#-privacy--data-handling) · [Permissions](#-permissions-explained) · [Contributing](#-contributing)
 
 ---
 
@@ -16,7 +22,7 @@ A fast, local-first New Tab dashboard for organizing shortcuts, workspaces, and 
 
 <br/>
 
-Instead of a static grid of a few recent sites, Tabvora gives you an **unlimited, virtually-scrolled shortcut grid** organized into custom **workspaces**, with search, drag-and-drop reordering, pinning, color labels, and one-click bookmark import. A handful of optional productivity tools — draft recovery, usage statistics, and daily time limits — are available if you want them, and are **off by default**.
+Instead of a static grid of a few recent sites, Tabvora gives you an **unlimited, virtually-scrolled shortcut grid** organized into custom **workspaces**, with search, drag-and-drop reordering, pinning, color labels, and one-click bookmark import. A suite of optional productivity tools — Digital Wellbeing, Browser Usage Dashboard, Draft Recovery, Website Usage Statistics, and browsing time limits — are available if you want them, and are **off by default**.
 
 <div align="center">
 <a href="https://chromewebstore.google.com/detail/ibejmhkigcbnfnobfkeebfnpodlpgjab?utm_source=item-share-cb" target="_blank">
@@ -24,10 +30,22 @@ Instead of a static grid of a few recent sites, Tabvora gives you an **unlimited
 </a>
 </div>
 
-Every piece of data Tabvora creates — shortcuts, notes, settings, drafts, usage stats — is stored locally in your browser using `chrome.storage.local` and `IndexedDB`. Nothing is uploaded, synced to a server, or shared with any third party.
-
+Every piece of data Tabvora creates — shortcuts, notes, settings, drafts, Digital Wellbeing settings, usage stats — is stored locally in your browser using `chrome.storage.local`, `chrome.storage.session`, and `IndexedDB`. Nothing is uploaded, synced to a server, or shared with any third party.
 
 </div>
+
+---
+
+## 🚀 What's New in v2.0
+
+Tabvora v2.0.0 introduces significant productivity and Digital Wellbeing enhancements while maintaining our strict local-first, zero-telemetry architecture:
+
+- 🧘 **Digital Wellbeing Engine**: Session-only, local break reminders (Eye, Stretch, Walk, Long Break) to reduce eye strain and encourage screen breaks.
+- 🌐 **Browser Usage Dashboard & Widget Card**: Track your total daily Chrome browsing duration with an optional dashboard widget card and real-time usage progress tracking.
+- ⏱️ **Website & Global Browsing Time Limits**: Set custom daily browsing allowances per website or globally across Chrome. Features real-time auto-popups that work even during full-screen video playback.
+- 🎨 **Native Glassmorphism Reminders**: Reminder dialogs redesigned with a modern native glassmorphism interface.
+- ⚙️ **Dashboard Widget Controls**: Toggle individual widgets on or off directly via Appearance Settings (including the Browser Usage Card).
+- 🛡️ **Session-Only Memory Safety**: Digital Wellbeing state and limit dismissal flags utilize `chrome.storage.session` and automatically clear when Chrome closes.
 
 ---
 
@@ -45,7 +63,9 @@ Every piece of data Tabvora creates — shortcuts, notes, settings, drafts, usag
 - **Archive** for shortcuts you want to keep but don't need on the main grid
 - **Broken link detection** (optional) — checks whether saved shortcuts are still reachable
 
-### Productivity Widgets
+### Productivity & Digital Wellbeing Widgets
+- **Browser Usage Card (v2.0)** — Optional dashboard widget displaying daily Chrome time spent and progress toward configured global limits
+- **Digital Wellbeing (v2.0)** — Session-based periodic wellness break reminders
 - **Quick Notes** — a local scratchpad with character count and one-click export to a `.txt` file
 - **Live clock & date** widget
 
@@ -55,15 +75,18 @@ Every piece of data Tabvora creates — shortcuts, notes, settings, drafts, usag
 ### Appearance
 - **Light & Dark themes** (with automatic system preference support)
 - **Adjustable card size and grid density** to fit your screen and preference
+- **Widget Visibility Controls (v2.0)** — Hide or show specific widgets (Browser Usage Card, Live Clock, Quick Notes) in Appearance Settings
 
 ### Optional Features (disabled by default)
 These are the only features that require broader site access, and they only activate if you turn them on in Settings:
 
 | Feature | What it does | Default |
 |---|---|---|
-| **Draft Recovery** | Locally saves unsaved text from web form fields so you don't lose it if a tab closes unexpectedly. Password, payment, and other sensitive fields are automatically excluded. | Off |
-| **Website Usage Statistics** | Locally calculates and displays how much time you spend on specific sites. | Off |
-| **Daily Time Limits** | Lets you set a daily time budget for a saved shortcut and shows a local reminder when it's reached. | Off |
+| **Digital Wellbeing** | Session-only reminders for Eye, Stretch, Walk, and Long Breaks. Runs locally and resets automatically when Chrome closes. | Off |
+| **Browser Usage Dashboard** | Locally calculates total daily Chrome usage time and provides progress tracking on the dashboard. | Off |
+| **Website & Global Limits** | Lets you set daily time budgets for individual shortcuts or overall Chrome usage with real-time popup alerts. | Off |
+| **Draft Recovery** | Locally saves unsaved text from web form fields so you don't lose it if a tab closes unexpectedly. Password, payment, and sensitive fields are excluded. | Off |
+| **Website Usage Statistics** | Locally calculates and displays domain visit frequency and duration charts. | Off |
 
 ---
 
@@ -72,11 +95,15 @@ These are the only features that require broader site access, and they only acti
 Tabvora is built local-first, on purpose:
 
 - ❌ No analytics
-- ❌ No advertising trackers
+- ❌ No advertising trackers or SDKs
 - ❌ No remote telemetry
 - ❌ No cloud sync
+- ❌ No user accounts or sign-in
 - ❌ No backend servers collecting your browsing data
+- ❌ No health data collection or medical profiling
 - ✅ All shortcuts, notes, settings, and optional-feature data stay in your browser's local storage unless *you* explicitly export them
+- ✅ Digital Wellbeing uses session-only storage (`chrome.storage.session`) and resets automatically when Chrome closes
+- ✅ Reminder data is temporary and automatically cleared when the browser session ends
 - ✅ Draft Recovery automatically excludes password fields, payment fields, and other sensitive inputs before anything is saved
 - ✅ Sensitive/optional features are off until you turn them on
 
@@ -93,12 +120,12 @@ Tabvora requests only the permissions its implemented features actually use:
 | Permission | Why it's needed |
 |---|---|
 | `storage` | Save shortcuts, notes, workspaces, and preferences locally |
-| `tabs` | Open shortcuts, identify the active tab for optional Usage Statistics, and manage dashboard navigation |
+| `tabs` | Open shortcuts, identify the active tab for optional Usage Statistics and limits, and manage dashboard navigation |
 | `bookmarks` | Read bookmarks only when you use the "Import Bookmarks" action |
 | `contextMenus` | Power the right-click "Add to Tabvora" option |
-| `alarms` | Reliably resume optional Usage Statistics tracking after the browser suspends the extension's background service worker |
+| `alarms` | Schedules local reminder events and maintains optional background functionality |
 | `favicon` | Display each shortcut's site icon via Chrome's built-in favicon service |
-| Host access (`http://*/*`, `https://*/*`) | Required **only** for the optional, off-by-default Draft Recovery and Daily Time Limit features, plus the optional broken-link check |
+| Host access (`http://*/*`, `https://*/*`) | Required **only** for optional user-enabled features: Website Usage Statistics, Draft Recovery, Browsing Time Limits, and broken-link checks |
 
 No permission is requested "just in case" — each one maps directly to a feature described above.
 
@@ -116,103 +143,4 @@ Useful for trying the latest source before it hits the Web Store, or for contrib
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/shajibsikder/tabvora.git
-   ```
-2. Open `chrome://extensions` in Chrome.
-3. Enable **Developer mode** (top-right toggle).
-4. Click **Load unpacked** and select the cloned `tabvora` folder.
-5. Open a new tab to see it in action.
-
-No build step, no package manager, and no compilation pipeline are required — Tabvora runs directly from source.
-
----
-
-## 🏗️ Architecture
-
-Tabvora is intentionally dependency-free: vanilla JavaScript (ES modules), the native `chrome.*` extension APIs, `IndexedDB` for structured local data, and `chrome.storage` for settings/session state. No frameworks, no bundlers, no build pipeline.
-
-```
-tabvora/
-├── manifest.json          # Manifest V3 configuration
-├── newtab.html             # New Tab dashboard entry point
-├── privacy.html             # Privacy policy page (served via GitHub Pages)
-├── js/
-│   ├── background.js        # Service worker — usage tracking, alarms, context menus, messaging
-│   ├── content-script.js    # Draft Recovery & daily-limit reminder UI (runs on visited pages)
-│   ├── app.js                # Dashboard controller — shortcuts, workspaces, settings, import/export
-│   ├── db.js                  # IndexedDB access layer
-│   ├── virtual-grid.js        # Virtualized shortcut grid renderer
-│   ├── widgets.js             # Clock & Quick Notes widgets
-│   └── utils.js               # Shared helpers (URL parsing, favicon URLs, HTML escaping)
-├── css/
-│   ├── tokens.css             # Design tokens (colors, spacing, theme variables)
-│   ├── base.css                # Base layout and reset
-│   └── components.css          # Component-level styles
-└── icons/                    # Extension icons
-```
-
-**Key engineering details:**
-- **Virtual scrolling** in the shortcut grid keeps rendering smooth regardless of collection size — only visible rows are mounted to the DOM at any time.
-- **Service worker resilience**: Manifest V3 service workers can be suspended by the browser at any time. Tabvora persists active tracking state to `chrome.storage.session` and uses a `chrome.alarms` fallback to recover Usage Statistics tracking accurately after a suspension, rather than relying solely on a `setInterval` timer.
-- **Defense-in-depth against XSS**: all user-influenced strings (shortcut titles, notes, imported backup data) are HTML-escaped before being rendered, and backup imports are validated and whitelisted field-by-field before being written to storage.
-- **Sensitive-field exclusion**: Draft Recovery actively screens out password, payment, OTP, and other sensitive inputs using both attribute heuristics and structural (form context) checks — both when capturing and when restoring a draft.
-
----
-
-## 🤝 Contributing
-
-Contributions, bug reports, and feature suggestions are welcome.
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/your-feature`)
-3. Commit your changes with clear messages
-4. Open a Pull Request describing what changed and why
-
-For bugs or security concerns, please open an issue rather than a public discussion of exploit details — see [Reporting a Vulnerability](#-security) below.
-
----
-
-## 🛡️ Security
-
-If you discover a security or privacy issue in Tabvora, please report it via [GitHub Issues](https://github.com/shajibsikder/tabvora/issues) or by contacting the maintainer directly. Please avoid disclosing exploit details in a public issue until a fix has shipped.
-
----
-
-## 📄 License
-
-<!-- TODO: Add a LICENSE file to the repository and name it here, e.g. MIT, Apache-2.0, GPL-3.0 -->
-This project's license is specified in the [LICENSE](LICENSE) file of this repository.
-
----
-
-## 🔗 Links
-
-| Resource | Link |
-|---|---|
-| GitHub Repository | [github.com/shajibsikder/tabvora](https://github.com/shajibsikder/tabvora) |
-| Report an Issue | [github.com/shajibsikder/tabvora/issues](https://github.com/shajibsikder/tabvora/issues) |
-| Privacy Policy | [shajibsikder.github.io/tabvora/privacy.html](https://shajibsikder.github.io/tabvora/privacy.html) |
-| Chrome Web Store | [https://shajibsikder.github.io/tabvora](https://shajibsikder.github.io/tabvora/download.html) |
-
----
-
-## 🌐 About This Repository
-
-This repository contains both the **extension source code** and the **official Tabvora website** (privacy policy and supporting pages), published via GitHub Pages.
-
-### Website Deployment
-The website is built with zero package managers or compilation pipelines and runs directly on GitHub Pages.
-
-1. Push all files to the `main` branch.
-2. Enable **GitHub Pages** in repository settings, selecting `/ (root)`.
-3. The site goes live automatically at your GitHub Pages address.
-
----
-
-<div align="center">
-
-Made with care for people who keep a lot of tabs open.
-
-**Tabvora** — Local-first. Privacy-first. Yours.
-
-</div>
+   git clone [https://github.com/shajibsikder/tabvora.git](https://github.com/shajibsikder/tabvora.git)
