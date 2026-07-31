@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tabvora Features – Smart Tab & Workspace Dashboard</title>
-  <meta name="description" content="Explore every feature built into Tabvora: workspace shortcut folders, local draft recovery, local usage stats, backup/export, and local-first data storage.">
+  <meta name="description" content="Explore every feature built into Tabvora v2.0: workspace shortcuts, local-first digital wellbeing, browser usage statistics, daily website limits, and local draft recovery.">
   <link rel="canonical" href="https://shajibsikder.github.io/tabvora/features.html">
   <link rel="stylesheet" href="css/main.css">
   <link rel="icon" href="favicon.ico">
@@ -38,45 +38,72 @@
 
 <main class="main-content">
   <section class="page-header">
-    <h1 class="page-title">Native Extension Features</h1>
-    <p class="page-subtitle">A comprehensive overview of every feature built directly into Tabvora. No fluff, no remote dependencies.</p>
+    <h1 class="page-title">Native Extension Features (v2.0)</h1>
+    <p class="page-subtitle">A comprehensive overview of every feature built directly into Tabvora. No fluff, no telemetry, no remote dependencies.</p>
   </section>
 
   <div class="card-grid">
+    <!-- 1. Workspace Shortcuts -->
     <article class="app-card">
       <span class="badge badge-info" style="margin-bottom: 0.5rem;">Core Architecture</span>
       <h2 class="app-card-title">Workspace Shortcut Folders</h2>
-      <p class="app-card-desc">Organize saved shortcuts into custom, color-coded workspace folders (e.g., Development, Research, Finance) on your new-tab dashboard. Switch between them instantly.</p>
+      <p class="app-card-desc">Organize saved shortcuts into custom, color-coded workspace folders (e.g., Development, Research, Personal) on your new-tab dashboard. Switch between them instantly with hotkeys.</p>
     </article>
 
+    <!-- 2. Digital Wellbeing (NEW v2.0) -->
+    <article class="app-card">
+      <span class="badge badge-info" style="margin-bottom: 0.5rem;">Wellbeing (v2.0)</span>
+      <h2 class="app-card-title">Digital Wellbeing (Optional, Default OFF)</h2>
+      <p class="app-card-desc">Receive gentle, local wellness reminders (Eye, Stretch, Walk, and Long Break) to reduce eye strain and encourage screen breaks. Operates strictly using session-based timers that automatically reset when Chrome closes.</p>
+    </article>
+
+    <!-- 3. Global & Real-time Site Limits (NEW v2.0) -->
+    <article class="app-card">
+      <span class="badge badge-info" style="margin-bottom: 0.5rem;">Productivity (v2.0)</span>
+      <h2 class="app-card-title">Website & Browser Usage Limits</h2>
+      <p class="app-card-desc">Set max daily usage thresholds for specific websites or set a global Chrome usage cap. Native glassmorphism popups automatically alert you in real-time — even while watching videos — without any remote logging.</p>
+    </article>
+
+    <!-- 4. Browser Usage Card (NEW v2.0) -->
+    <article class="app-card">
+      <span class="badge badge-info" style="margin-bottom: 0.5rem;">Dashboard (v2.0)</span>
+      <h2 class="app-card-title">Browser Usage Dashboard Card</h2>
+      <p class="app-card-desc">An optional dashboard widget that displays real-time progress toward your daily Chrome browser limit. Easily toggle it on or off anytime via Appearance Settings.</p>
+    </article>
+
+    <!-- 5. Website Usage Statistics -->
+    <article class="app-card">
+      <span class="badge badge-info" style="margin-bottom: 0.5rem;">Privacy Analytics</span>
+      <h2 class="app-card-title">Website Usage Statistics (Optional, Default OFF)</h2>
+      <p class="app-card-desc">An optional, local-only view of domain visit frequency, duration, and calendar breakdowns. All calculations remain strictly in local storage and can be cleared instantly.</p>
+    </article>
+
+    <!-- 6. Local Draft Recovery -->
+    <article class="app-card">
+      <span class="badge badge-info" style="margin-bottom: 0.5rem;">Data Recovery</span>
+      <h2 class="app-card-title">Local Draft Recovery (Optional, Default OFF)</h2>
+      <p class="app-card-desc">Temporarily saves unsaved text-field input across tabs to prevent data loss from accidental tab closes. Snapshots stay in local IndexedDB, and password or payment fields are strictly excluded.</p>
+    </article>
+
+    <!-- 7. Virtual Grid -->
     <article class="app-card">
       <span class="badge badge-info" style="margin-bottom: 0.5rem;">Performance</span>
       <h2 class="app-card-title">Virtual Scrolling Grid</h2>
-      <p class="app-card-desc">Only the shortcuts currently in view are rendered, so the dashboard stays fast and responsive even with hundreds of saved shortcuts.</p>
+      <p class="app-card-desc">Only the shortcuts currently in view are rendered, ensuring the dashboard stays ultra-fast and responsive even with hundreds of saved shortcuts.</p>
     </article>
 
+    <!-- 8. Local Backup & Export -->
     <article class="app-card">
-      <span class="badge badge-info" style="margin-bottom: 0.5rem;">Utility</span>
+      <span class="badge badge-info" style="margin-bottom: 0.5rem;">Data Control</span>
       <h2 class="app-card-title">Local Backup & Export</h2>
-      <p class="app-card-desc">Export and import your shortcuts, workspace folders, and settings as a standardized local JSON backup file — no account or cloud required.</p>
+      <p class="app-card-desc">Export and import your shortcuts, workspace folders, and settings as a standardized local JSON backup file — no user account, server, or cloud sync required.</p>
     </article>
 
+    <!-- 9. Deep Shortcut Search -->
     <article class="app-card">
       <span class="badge badge-info" style="margin-bottom: 0.5rem;">Navigation</span>
       <h2 class="app-card-title">Deep Shortcut Search</h2>
-      <p class="app-card-desc">Instantly search your saved shortcuts by title, URL, domain, or notes, with configurable search scope and keyboard-first navigation.</p>
-    </article>
-
-    <article class="app-card">
-      <span class="badge badge-info" style="margin-bottom: 0.5rem;">Recovery</span>
-      <h2 class="app-card-title">Local Draft Recovery (Optional, Default OFF)</h2>
-      <p class="app-card-desc">When enabled, temporarily records unsaved text-field input across tabs so you don't lose it after an accidental close. Snapshots stay in local IndexedDB and password/payment fields are automatically excluded.</p>
-    </article>
-
-    <article class="app-card">
-      <span class="badge badge-info" style="margin-bottom: 0.5rem;">Privacy</span>
-      <h2 class="app-card-title">Website Usage Statistics (Optional, Default OFF)</h2>
-      <p class="app-card-desc">An optional, local-only view of domain visit frequency and time spent, rendered as charts. Data is calculated and stored strictly on your device and never transmitted.</p>
+      <p class="app-card-desc">Instantly search your saved shortcuts by title, URL, domain, or notes, with configurable search scope and keyboard-first navigation (Ctrl+K).</p>
     </article>
   </div>
 </main>
