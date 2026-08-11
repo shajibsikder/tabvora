@@ -36,9 +36,17 @@ Every piece of data Tabvora creates — shortcuts, notes, settings, drafts, Digi
 
 ---
 
+## 🚀 What's New in v2.0.1
+
+Tabvora v2.0.1 is a maintenance and compliance-focused update.
+
+- 🔎 Improved web-search wording to accurately reflect Chrome's default search engine.
+- 🧹 Minor UI and code cleanup.
+- 🛡️ No changes to the local-first privacy architecture or data-handling model.
+
 ## 🚀 What's New in v2.0
 
-Tabvora v2.0.0 introduces significant productivity and Digital Wellbeing enhancements while maintaining our strict local-first, zero-telemetry architecture:
+Tabvora v2.0.0 introduced significant productivity and Digital Wellbeing enhancements while maintaining our strict local-first, zero-telemetry architecture:
 
 - 🧘 **Digital Wellbeing Engine**: Session-only, local break reminders (Eye, Stretch, Walk, Long Break) to reduce eye strain and encourage screen breaks.
 - 🌐 **Browser Usage Dashboard & Widget Card**: Track your total daily Chrome browsing duration with an optional dashboard widget card and real-time usage progress tracking.
