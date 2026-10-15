@@ -1,0 +1,233 @@
+/* ==========================================================================
+   Tabvora v2.1.0 - Base & Layout Architecture
+   Designed for Eye Soothing Ergonomics & Glassmorphism Depth
+   ========================================================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-family);
+  font-size: 14px;
+  color-scheme: dark light;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #080d1a !important;
+  background-image: none !important;
+  color: #ffffff;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  transition: color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Eye-Friendly Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.3);
+  border-radius: var(--radius-full);
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.5);
+}
+
+body.reduce-motion * {
+  animation: none !important;
+  transition: none !important;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Floating Glass Header Actions */
+.top-header-actions {
+  position: fixed;
+  top: 18px;
+  right: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 100;
+}
+
+.dashboard-scroll-wrapper {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 32px;
+  padding-bottom: 96px;
+  width: 100%;
+}
+
+/* Hero Section */
+.google-hero-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 24px;
+  width: 100%;
+  max-width: 680px;
+  padding: 0 20px;
+}
+
+.header-logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  user-select: none;
+}
+
+.header-logo-img {
+  height: 64px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(37, 99, 235, 0.15));
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.header-logo-img:hover {
+  transform: scale(1.04);
+}
+
+.version-badge {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 3px 9px;
+  border-radius: var(--radius-full);
+  background: var(--surface-subtle);
+  color: var(--primary-color);
+  border: 1px solid var(--border-color);
+  line-height: 1;
+  backdrop-filter: blur(8px);
+}
+
+.grid-viewport {
+  width: 100%;
+  max-width: 1100px;
+  padding: 0 24px;
+  position: relative;
+  outline: none;
+}
+
+.grid-canvas {
+  position: relative;
+  width: 100%;
+  min-height: 140px;
+  margin: 0 auto;
+}
+
+.hidden { display: none !important; }
+
+:focus-visible {
+  outline: 2px solid var(--primary-color) !important;
+  outline-offset: 2px !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Vignette Overlay for Crisp White Contrast on Photographic Wallpapers */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.52) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.app-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Top Left Brand Badge (Momentum & Bonjourr subtle corner brand) */
+.top-brand-badge {
+  position: fixed;
+  top: 18px;
+  left: 24px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  z-index: 100;
+  user-select: none;
+  background: rgba(15, 23, 42, 0.35);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 6px 14px 6px 8px;
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+  transition: all 0.25s ease;
+}
+
+.top-brand-badge:hover {
+  background: rgba(15, 23, 42, 0.55);
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-1px);
+}
+
+.top-brand-logo {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.top-brand-text {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  line-height: 1;
+}
+
+.top-brand-version {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--primary-color, #60a5fa);
+  background: rgba(96, 165, 250, 0.15);
+  padding: 2px 6px;
+  border-radius: var(--radius-full);
+  line-height: 1;
+  border: 1px solid rgba(96, 165, 250, 0.3);
+}
+
+/* Zen Mode hides brand badge and top actions */
+body.zen-mode .top-brand-badge {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transform: translateY(-8px) !important;
+}

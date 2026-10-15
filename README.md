@@ -4,13 +4,13 @@
 
 A fast, local-first New Tab dashboard for organizing shortcuts, workspaces, and improving daily browsing productivity — with zero telemetry, zero analytics, and no cloud storage.
 
-[![Chrome Web Store](https://img.shields.io/badge/Chrome_Web_Store-v2.0.0-blue?logo=googlechrome&logoColor=white)](https://chromewebstore.google.com/detail/ibejmhkigcbnfnobfkeebfnpodlpgjab)
+[![Chrome Web Store](https://img.shields.io/badge/Chrome_Web_Store-v2.1.0-blue?logo=googlechrome&logoColor=white)](https://chromewebstore.google.com/detail/ibejmhkigcbnfnobfkeebfnpodlpgjab)
 [![Manifest V3](https://img.shields.io/badge/Manifest-V3-green)](https://developer.chrome.com/docs/extensions/mv3/intro/)
-[![Local First](https://img.shields.io/badge/Local--First-100%25-success)](#-privacy--data-handling)
-[![Privacy First](https://img.shields.io/badge/Privacy-100%25_Local-brightgreen)](#-privacy--data-handling)
+[![Local First](https://img.shields.io/badge/Local--First-Active-success)](#-privacy--data-handling)
+[![Privacy First](https://img.shields.io/badge/Privacy-Device--Level-brightgreen)](#-privacy--data-handling)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
-[Install](#-installation) · [What's New in v2.0](#-whats-new-in-v20) · [Features](#-features) · [Privacy](#-privacy--data-handling) · [Permissions](#-permissions-explained) · [Contributing](#-contributing)
+[Install](#-installation) · [What's New in v2.1](#-whats-new-in-v21) · [Features](#-features) · [Privacy](#-privacy--data-handling) · [Permissions](#-permissions-explained) · [Contributing](#-contributing)
 
 ---
 
@@ -35,6 +35,16 @@ Every piece of data Tabvora creates — shortcuts, notes, settings, drafts, Digi
 </div>
 
 ---
+
+## 🚀 What's New in v2.1.0
+
+Tabvora v2.1.0 delivers major performance, security hardening, and Chrome Web Store policy compliance improvements:
+
+- 🧹 **RAM Saver (Memory Optimizer)**: One-click background tab sleeping via `chrome.tabs.discard` to reduce system memory footprint, automatically protecting pinned tabs and media playback.
+- 🛡️ **Hardened Draft Recovery Screening**: Multi-tier input inspection that filters out passwords, payment forms, CVVs, tokens, authentication parameters, and phone numbers.
+- 🎨 **40 Curated Wallpapers & Live Effects**: High-definition aesthetic backgrounds featuring dynamic CSS/canvas live effects (aurora, rain, fireflies, cosmic lake, stars).
+- 🔒 **Zero Host Permissions**: Eliminated broad host access permissions from manifest; uses strictly scoped top-level content scripts.
+- 📜 **Complete Asset Attribution**: Bundled `LICENSES.md` and `ATTRIBUTION.md` catalogues documenting third-party assets and MIT licensing.
 
 ## 🚀 What's New in v2.0.1
 
@@ -69,24 +79,24 @@ Tabvora v2.0.0 introduced significant productivity and Digital Wellbeing enhance
 - **One-click bookmark import** from your existing Chrome bookmarks
 - **Duplicate finder** to detect and clean up repeated shortcuts
 - **Archive** for shortcuts you want to keep but don't need on the main grid
-- **Broken link detection** (optional) — checks whether saved shortcuts are still reachable
+- **RAM Saver (Memory Optimizer)** — One-click sleep for inactive background tabs (safeguarding pinned tabs and media playback) to reclaim system RAM
 
 ### Productivity & Digital Wellbeing Widgets
-- **Browser Usage Card (v2.0)** — Optional dashboard widget displaying daily Chrome time spent and progress toward configured global limits
-- **Digital Wellbeing (v2.0)** — Session-based periodic wellness break reminders
-- **Quick Notes** — a local scratchpad with character count and one-click export to a `.txt` file
-- **Live clock & date** widget
+- **Browser Usage Card** — Optional dashboard widget displaying daily Chrome time spent and progress toward configured global limits
+- **Digital Wellbeing** — Session-based periodic wellness break reminders (Eye, Stretch, Walk, Long Break)
+- **Quick Notes** — Scratchpad with character count, one-click clipboard paste, and export to `.txt`
+- **Pomodoro Timer & Clock** — Focused work cycles with short/long breaks and synthetic Web Audio chimes
 
 ### Data Portability
-- **Backup & Restore** — export your entire shortcut collection to a local file and re-import it anytime, on any device
+- **Backup & Restore** — Export your entire shortcut collection to a local JSON file and re-import it anytime
 
 ### Appearance
-- **Light & Dark themes** (with automatic system preference support)
-- **Adjustable card size and grid density** to fit your screen and preference
-- **Widget Visibility Controls (v2.0)** — Hide or show specific widgets (Browser Usage Card, Live Clock, Quick Notes) in Appearance Settings
+- **40 Curated Wallpapers** — High-definition aesthetic backgrounds with dynamic live animation effects (aurora, rain, fireflies, cosmic lake, stars)
+- **Light & Dark themes** — Seamless automatic system preference detection and Zen minimalist mode
+- **Adjustable card size and grid density** to fit any screen resolution
 
 ### Optional Features (disabled by default)
-These are the only features that require broader site access, and they only activate if you turn them on in Settings:
+These features activate only if you explicitly choose to turn them on in Settings:
 
 | Feature | What it does | Default |
 |---|---|---|
@@ -112,10 +122,9 @@ Tabvora is built local-first, on purpose:
 - ✅ All shortcuts, notes, settings, and optional-feature data stay in your browser's local storage unless *you* explicitly export them
 - ✅ Digital Wellbeing uses session-only storage (`chrome.storage.session`) and resets automatically when Chrome closes
 - ✅ Reminder data is temporary and automatically cleared when the browser session ends
-- ✅ Draft Recovery automatically excludes password fields, payment fields, and other sensitive inputs before anything is saved
-- ✅ Sensitive/optional features are off until you turn them on
-
-The one exception to "no network activity": the optional **broken-link check** sends a direct request to a website *you already saved* to see if it's still reachable — that request goes straight to that site, never to a Tabvora-controlled server.
+- ✅ Draft Recovery automatically excludes password fields, payment fields, CVVs, tokens, authentication forms, and phone numbers
+- ✅ All sensitive and productivity monitoring features are off until you turn them on
+- ✅ Zero automated background network requests: All operations execute entirely on your machine
 
 Full details: **[Privacy Policy](https://shajibsikder.github.io/tabvora/privacy.html)**
 
@@ -123,19 +132,20 @@ Full details: **[Privacy Policy](https://shajibsikder.github.io/tabvora/privacy.
 
 ## 🔑 Permissions Explained
 
-Tabvora requests only the permissions its implemented features actually use:
+Tabvora requests only permissions directly needed for implemented features:
 
 | Permission | Why it's needed |
 |---|---|
-| `storage` | Save shortcuts, notes, workspaces, and preferences locally |
-| `tabs` | Open shortcuts, identify the active tab for optional Usage Statistics and limits, and manage dashboard navigation |
-| `bookmarks` | Read bookmarks only when you use the "Import Bookmarks" action |
-| `contextMenus` | Power the right-click "Add to Tabvora" option |
-| `alarms` | Schedules local reminder events and maintains optional background functionality |
-| `favicon` | Display each shortcut's site icon via Chrome's built-in favicon service |
-| Host access (`http://*/*`, `https://*/*`) | Required **only** for optional user-enabled features: Website Usage Statistics, Draft Recovery, Browsing Time Limits, and broken-link checks |
-
-No permission is requested "just in case" — each one maps directly to a feature described above.
+| `storage` | Save shortcuts, notes, workspaces, Pomodoro timer state, and preferences locally |
+| `favicon` | Render website icons cleanly via Chrome's native favicon provider (`chrome://favicon2/`) |
+| `tabs` | Open shortcuts, determine active domain for optional usage stats, and sleep background tabs via `chrome.tabs.discard` (RAM Saver) |
+| `bookmarks` | Read bookmarks only when you explicitly click "Import Bookmarks" |
+| `contextMenus` | Provide right-click "Add to Tabvora" context menu options |
+| `alarms` | Schedule local periodic tasks, Pomodoro intervals, wellbeing breaks, and midnight reset checks |
+| `search` | Execute searches from the dashboard search bar through your default search engine |
+| `clipboardRead` | Allow one-click pasting into the Quick Notes scratchpad widget when you click "Paste" |
+| `notifications` | Deliver local desktop notifications for Pomodoro cycles and website limits |
+| `content_scripts` (`http://*/*`, `https://*/*`) | Scoped strictly to top-level pages (`all_frames: false`) for optional Draft Recovery and Limit Overlays. No broad host permissions requested. |
 
 ---
 
@@ -151,4 +161,23 @@ Useful for trying the latest source before it hits the Web Store, or for contrib
 
 1. Clone this repository:
    ```bash
-   git clone [https://github.com/shajibsikder/tabvora.git](https://github.com/shajibsikder/tabvora.git)
+   git clone https://github.com/shajibsikder/tabvora.git
+   ```
+2. Open Chrome (or Edge / Brave / Opera / Vivaldi / Arc) and navigate to `chrome://extensions` (or `edge://extensions`).
+3. Enable **Developer mode** in the top-right corner.
+4. Click **Load unpacked** and select the `tabvora` directory inside this repository.
+5. Open a new tab to see Tabvora in action.
+
+---
+
+## 🌐 Supported Browsers
+
+Tabvora is built strictly to the W3C WebExtensions standard and Chromium Manifest V3 specifications. It is fully compatible with:
+
+- **Google Chrome** (v102+) — Primary distribution target
+- **Microsoft Edge** (v102+) — 1-click install (enable "Allow extensions from other stores")
+- **Brave Browser** (v1.40+) — Full compatibility with Brave Shields
+- **Opera & Opera GX** (v88+) — Full workspace & RAM Saver support
+- **Vivaldi** (v5.0+) — Full compatibility with tab stacks
+- **Arc Browser** — Native feature parity within Arc Spaces
+

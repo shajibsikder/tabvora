@@ -1,0 +1,13 @@
+# Archive packages (distribution zips)
+*.zip
+
+# OS Generated Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Node modules & temporary files
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

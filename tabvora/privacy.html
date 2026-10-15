@@ -205,43 +205,49 @@
     <!-- Header -->
     <div class="header">
       <h1 class="app-title">Tabvora Privacy Policy</h1>
-      <div class="meta-date">Effective Date: July 23, 2026 • Version 1.0.0</div>
+      <div class="meta-date">Effective Date: October 14, 2026 • Version 2.1.0</div>
     </div>
 
     <!-- Main Card Container -->
     <div class="policy-card">
       
       <div class="summary-banner">
-        <strong>Summary:</strong> Tabvora operates on a local-first design. All user-generated content, shortcuts, notes, settings, and optional feature data remain stored locally on your device. Tabvora does not transmit personal user data to external servers or remote telemetry endpoints.
+        <strong>Summary:</strong> Tabvora operates on a local-first design. Tabvora stores locally your shortcuts, workspaces, notes, preferences, optional Draft Recovery data, website usage statistics, browser usage statistics, browser usage limits, and Digital Wellbeing settings. No personal information or user-generated data is transmitted to external servers. All processing is performed locally on your device unless you intentionally visit external websites or use browser navigation.
       </div>
 
       <!-- 1. Principles Overview -->
       <div class="section">
         <h2 class="section-title">1. Introduction & Core Principles</h2>
         <p class="section-p">
-          Tabvora is a local-first browser extension created for shortcut organization, custom workspaces, productivity tools, and browser navigation. We believe personal browsing data, shortcuts, scratchpad notes, and local configurations belong entirely under user control.
+          Tabvora is a local-first browser extension created for shortcut organization, custom workspaces, productivity tools, and browser navigation. We believe personal browsing data, shortcuts, scratchpad notes, usage stats, and local configurations belong entirely under user control. No user account or sign-in is required to use Tabvora.
         </p>
       </div>
 
       <!-- 2. What Data Is Stored Locally -->
       <div class="section">
         <h2 class="section-title">2. What Data Is Stored Locally</h2>
-        <p class="section-p">Tabvora relies on browser-native local storage APIs (specifically <code>chrome.storage.local</code> and <code>IndexedDB</code>) to preserve dashboard data across browser sessions:</p>
+        <p class="section-p">Tabvora relies on browser-native local storage APIs (specifically <code>chrome.storage.local</code>, <code>chrome.storage.session</code>, and <code>IndexedDB</code>) to preserve dashboard data across browser sessions:</p>
         <ul class="custom-list">
-          <li><strong>Shortcuts & Workspaces:</strong> Saved custom links, titles, custom workspace categories, colors, and layout order.</li>
-          <li><strong>Quick Notes:</strong> Scratchpad text stored inside the local note widget.</li>
-          <li><strong>Settings & Appearance:</strong> Selected themes, card sizing, grid gap density, corner radius, background options, and default search choices.</li>
-          <li><strong>Archive Data:</strong> Items manually archived from the primary shortcut grid.</li>
+          <li><strong>Shortcuts & Workspaces:</strong> Saved custom links, titles, workspace categories, colors, and layout order (stored in local IndexedDB).</li>
+          <li><strong>Quick Notes:</strong> Scratchpad notes and text entered in the dashboard note widget (stored in <code>chrome.storage.local</code>).</li>
+          <li><strong>Timer & Pomodoro State:</strong> Timer mode, countdown state, and timestamps (stored in <code>chrome.storage.local</code>).</li>
+          <li><strong>Settings & Appearance:</strong> Selected themes, card sizing, grid gap density, corner radius, background options, widget configurations, and default search engine choice (stored in <code>chrome.storage.local</code>).</li>
+          <li><strong>Archive Data:</strong> Items manually archived from the primary shortcut grid (stored in local IndexedDB).</li>
+          <li><strong>Website & Browser Usage Statistics (Optional):</strong> When enabled, domain visit frequency, active duration, and user-configured limit thresholds are calculated and stored locally in <code>chrome.storage.local</code>.</li>
+          <li><strong>Draft Snapshots (Optional):</strong> When Draft Recovery is enabled, unsaved text from non-sensitive inputs is saved in local IndexedDB to prevent data loss.</li>
+          <li><strong>Digital Wellbeing State:</strong> Temporary session-based reminder timestamps stored in <code>chrome.storage.session</code> that automatically reset when the browser restarts.</li>
         </ul>
       </div>
 
       <!-- 3. Optional Features -->
       <div class="section">
         <h2 class="section-title">3. Optional Privacy-Sensitive Features</h2>
-        <p class="section-p">To ensure absolute user choice, privacy-sensitive functionality is controlled via toggles inside extension settings and disabled by default where applicable:</p>
+        <p class="section-p">To ensure absolute user choice, privacy-sensitive functionality is controlled via toggles inside extension settings and disabled by default:</p>
         <ul class="custom-list">
-          <li><strong>Draft Recovery (Default OFF):</strong> Temporarily records unsaved text field inputs across tabs to prevent data loss from accidental closes. Snapshots remain stored locally inside IndexedDB and can be wiped or disabled at any time.</li>
-          <li><strong>Website Usage Statistics (Default OFF):</strong> Records domain visit frequency and duration to render local statistics charts. Data is calculated and retained strictly inside local browser storage.</li>
+          <li><strong>Draft Recovery (Default OFF):</strong> When explicitly enabled, temporarily captures unsaved text field inputs on top-level pages to prevent data loss from accidental tab closure. Snapshots remain stored strictly inside local IndexedDB. Passwords, payment details, phone numbers, and authentication tokens are excluded. Users can disable the feature or purge all stored drafts at any time through Settings.</li>
+          <li><strong>Website & Browser Usage Statistics (Default OFF):</strong> Records domain visit frequency, duration, and overall Chrome browser usage to render local statistics charts and optional dashboard usage cards. Data is calculated and retained strictly inside local browser storage and can be cleared by the user at any time.</li>
+          <li><strong>Global Browser Usage Limit (Default OFF):</strong> Allows users to set a total daily browser usage threshold and receive local reminder popups when reached. All checks run locally without external communication.</li>
+          <li><strong>Digital Wellbeing (Default OFF):</strong> Provides periodic wellness reminders (Eye, Stretch, Walk, and Long Break Reminders) to encourage healthy computer habits. Reminders run locally, rely solely on session-based timers, reset automatically when Chrome closes, and do not collect or upload health or profiling data. Digital Wellbeing reminders are informational only and are not intended to diagnose, monitor, treat, or provide medical advice.</li>
         </ul>
       </div>
 
@@ -252,7 +258,7 @@
         <ul class="custom-list">
           <li>Passwords, PINs, or OTP authentication tokens.</li>
           <li>Credit/debit card numbers, CVV codes, or financial inputs.</li>
-          <li>Personal identity documents or biometric information.</li>
+          <li>Personal identity documents, medical/health data, or biometric information.</li>
           <li>Advertising identifiers, tracking cookies, or user fingerprinting parameters.</li>
           <li>Remote logs, background telemetry, or cloud copies of browsing data.</li>
         </ul>
@@ -262,8 +268,16 @@
       <div class="section">
         <h2 class="section-title">5. Security & Sensitive Field Exclusion</h2>
         <p class="section-p">
-          When optional Draft Recovery is enabled, Tabvora screens active form inputs. Password inputs (<code>type="password"</code>), payment forms, credit card fields, hidden security tokens, and authentication paths are automatically excluded from local draft snapshots.
+          When optional Draft Recovery is enabled, Tabvora enforces multi-layered screening before capturing any draft inputs:
         </p>
+        <ul class="custom-list">
+          <li><strong>Input Types Excluded:</strong> Password fields (<code>type="password"</code>), hidden inputs, telephone numbers (<code>type="tel"</code>), file uploads, and button/submit controls are never captured.</li>
+          <li><strong>Sensitive Autocomplete Tokens:</strong> Inputs specifying sensitive autocomplete attributes (such as <code>cc-number</code>, <code>cc-exp</code>, <code>cc-csc</code>, <code>one-time-code</code>, <code>current-password</code>, <code>new-password</code>, <code>tel*</code>, <code>bday*</code>, and <code>transaction-*</code>) are completely bypassed.</li>
+          <li><strong>Field Metadata & Keyword Filtering:</strong> Inputs whose name, ID, placeholder, class, or aria-label contains sensitive terms (including <code>password</code>, <code>otp</code>, <code>pin</code>, <code>token</code>, <code>secret</code>, <code>cvc</code>, <code>cvv</code>, <code>csc</code>, <code>iban</code>, <code>routing</code>, <code>account</code>, <code>card-number</code>, <code>ssn</code>, <code>taxid</code>, <code>security-code</code>, <code>expiry</code>, <code>auth</code>, <code>passcode</code>, and <code>phone</code>) are filtered out using best-effort multi-layer screening.</li>
+          <li><strong>Form Security Context:</strong> Inputs located inside login, authentication, checkout, or payment forms containing password or card fields are excluded.</li>
+          <li><strong>Top-Level Context Only:</strong> Draft capture operates strictly in the top-level browsing window (<code>window.top === window.self</code>), ignoring embedded and cross-origin iframes.</li>
+          <li><strong>URL Path & Parameter Handling:</strong> Stored draft snapshots record the web page origin and pathname (<code>origin + pathname</code>) to associate draft text with the specific page for restoration. Query strings (such as <code>?token=...</code>, <code>?auth=...</code>) and hash fragments (<code>#...</code>) are stripped. URL paths themselves are preserved to distinguish between different pages on the same website.</li>
+        </ul>
       </div>
 
       <!-- 6. Browser Permissions Declared -->
@@ -271,14 +285,17 @@
         <h2 class="section-title">6. Browser Permissions Declared</h2>
         <p class="section-p">Tabvora requests only permissions directly needed for implemented extension functionality:</p>
         <ul class="custom-list">
-          <li><code>storage</code>: Used to store shortcuts, workspaces, notes, and preferences locally.</li>
-          <li><code>tabs</code>: Used to manage shortcuts, determine the active tab for optional Usage Statistics, and support browser navigation features.</li>
-          <li><code>bookmarks</code>: Used strictly when the user manually clicks "Import Bookmarks" to fill the shortcut grid.</li>
-          <li><code>contextMenus</code>: Used to provide right-click options for saving shortcuts.</li>
-          <li><code>favicon</code>: Used to fetch and display domain icon images cleanly.</li>
-          <li><code>alarms</code>: Schedules periodic local checks (background Draft Recovery snapshots and broken-shortcut detection) without keeping the extension's service worker running continuously.</li>
-          <li><code>host_permissions (http/https)</code>: Required for optional features that interact with web pages selected or visited by the user, including Draft Recovery (when enabled), saved website availability checks, and other user-initiated page features. No browsing data is transmitted to Tabvora servers.</li>
+          <li><code>storage</code>: Used to store shortcuts, workspaces, quick notes, Pomodoro timer state, settings, and optional usage statistics locally.</li>
+          <li><code>favicon</code>: Used to fetch and display domain icon images cleanly via Chrome's native favicon provider.</li>
+          <li><code>tabs</code>: Used to manage shortcuts, determine the active tab domain for optional Usage Statistics and limits, support browser navigation, and sleep background tabs via <code>chrome.tabs.discard</code> when the user clicks the RAM Saver memory optimizer.</li>
+          <li><code>bookmarks</code>: Used strictly when the user manually clicks "Import Bookmarks" to populate the shortcut grid.</li>
+          <li><code>contextMenus</code>: Used to provide right-click options for saving shortcuts directly to Tabvora.</li>
+          <li><code>alarms</code>: Used for scheduled local periodic tasks such as event-driven usage recording, Pomodoro countdown intervals, Digital Wellbeing reminders, and midnight reset checks.</li>
+          <li><code>search</code>: Used to execute search queries entered in the dashboard search bar through the user's preferred search engine.</li>
+          <li><code>clipboardRead</code>: Used strictly when the user explicitly clicks the "Paste" button in the Quick Notes widget to insert clipboard text into their notes. Clipboard data is never accessed automatically or in the background.</li>
+          <li><code>notifications</code>: Used to deliver local desktop notifications when a Pomodoro timer session completes or when user-configured website usage limits are reached.</li>
         </ul>
+        <p class="section-p" style="margin-top: 8px;"><em>Note: Tabvora does not request broad host permissions (<code>http://*/*</code> or <code>https://*/*</code>). Content scripts are scoped strictly to top-level pages to support user-enabled features without broad extension host access.</em></p>
       </div>
 
       <!-- 6a. Compliance Certification -->
@@ -288,7 +305,7 @@
         <ul class="custom-list">
           <li>Data accessed through granted permissions is used only to provide and improve the user-facing features described in this policy.</li>
           <li>Tabvora does not sell or transfer user data to third parties.</li>
-          <li>Tabvora does not use or transfer user data for advertising, and does not use it for purposes unrelated to its single purpose (a new-tab shortcut and workspace dashboard).</li>
+          <li>Tabvora does not use or transfer user data for advertising, and does not use it for purposes unrelated to its single purpose (a new-tab shortcut, workspace dashboard, and productivity manager).</li>
           <li>Tabvora does not use or transfer user data to determine creditworthiness or for lending purposes.</li>
           <li>No humans read user data unless required for security purposes, with the user's consent, or to comply with applicable law.</li>
         </ul>
@@ -298,13 +315,16 @@
       <div class="section">
         <h2 class="section-title">7. Network Usage</h2>
         <p class="section-p">
-          Tabvora does not upload, synchronize, or transmit user-generated data to external servers or cloud services. Internet traffic occurs strictly through standard browser navigation when you intentionally:
+          Tabvora operates on a strict zero-telemetry, offline-first model. Tabvora sends no automated or background network requests from any extension features. All features (shortcuts grid, custom workspaces, notes, timers, optional draft recovery, and usage limits) execute entirely on your local device.
+        </p>
+        <p class="section-p">
+          Standard internet traffic occurs exclusively through normal browser navigation when you intentionally:
         </p>
         <ul class="custom-list">
-          <li>Click a saved shortcut link to navigate to a website.</li>
-          <li>Click links to open the Official Website, GitHub Repository, Report an Issue, Privacy Policy, or Rate Extension pages.</li>
+          <li>Click a saved shortcut link to navigate to a website in a browser tab.</li>
+          <li>Click links to open the Official Website, Official Chrome Web Store page, GitHub Repository, Contact Page, Privacy Policy, or Report an Issue pages.</li>
         </ul>
-        <p>Some optional features (such as checking the availability of a saved website) may send a direct request to the destination website selected by the user. These requests are made directly between your browser and the destination website. Tabvora does not operate backend servers and does not receive, collect, or store this network traffic.</p>
+        <p class="section-p" style="margin-top: 8px;"><em>Note: When performing a search from the dashboard search bar or viewing shortcut icons, Chrome's built-in favicon cache and your designated search engine handle their respective network traffic directly. Tabvora transmits no data to any intermediary server.</em></p>
       </div>
 
       <!-- 8. Data Retention & User Control -->
@@ -314,29 +334,31 @@
           Users retain full administrative control over stored local data. Through Extension Settings, users can:
         </p>
         <ul class="custom-list">
-          <li>Enable or disable optional features (Draft Recovery and Usage Statistics) at any time.</li>
-          <li>Clear saved Draft Recovery records or clear Usage Statistics logs instantly.</li>
-          <li>Individual shortcuts, notes, and archived items can be deleted at any time.</li>
+          <li>Enable or disable optional features (Draft Recovery, Usage Statistics, Global Browser Limits, and Digital Wellbeing) at any time.</li>
+          <li>Clear saved Draft Recovery records or clear Usage Statistics logs instantly with a single click.</li>
+          <li>Individual shortcuts, notes, and archived items can be edited or deleted at any time.</li>
           <li>Perform a complete <strong>Factory Reset</strong> to clear all local Tabvora storage.</li>
-          <li>Draft Recovery automatically purges local records according to the retention period selected by the user.</li>
+          <li>Digital Wellbeing session data resets automatically when Chrome closes or during the daily midnight reset.</li>
+          <li>Uninstalling Tabvora removes extension-managed local data in accordance with Chrome's extension storage behavior.</li>
         </ul>
       </div>
 
-      <!-- 9. Open Source Transparency -->
+      <!-- 9. Code Transparency & Supporting Resources -->
       <div class="section">
-        <h2 class="section-title">9. Open Source Transparency</h2>
+        <h2 class="section-title">9. Code Transparency & Supporting Resources</h2>
         <p class="section-p">
-          Tabvora is an open-source project. Users, developers, and security reviewers are invited to review the source code on our official GitHub repository to inspect our local storage practices and Manifest V3 implementation.
+          Tabvora is committed to transparency. Complete source files, documentation, and extension assets are provided for community reference, auditability, and independent verification. Complete software license terms and wallpaper attribution catalogues are documented in our repository's <code>LICENSES.md</code> and <code>ATTRIBUTION.md</code> records.
         </p>
       </div>
 
       <!-- 10. Core Principles -->
       <div class="section">
         <h2 class="section-title">10. Core Privacy Guarantees</h2>
+        <p class="section-p" style="margin-bottom: 12px;">No user data is sold, rented, shared, or transferred to third parties for advertising, profiling, or analytics purposes.</p>
         <div class="principles-grid">
           <div class="principle-box">
             <div class="principle-heading">Local First</div>
-            <div class="principle-sub">100% device-level data retention</div>
+            <div class="principle-sub">Strict device-level data retention</div>
           </div>
           <div class="principle-box">
             <div class="principle-heading">Zero Tracking</div>
@@ -364,10 +386,12 @@
       <!-- 12. Contact & Resources -->
       <div class="section">
         <h2 class="section-title">12. Resources & Contact</h2>
-        <p class="section-p">For questions, bug reports, or code review, visit our official links:</p>
+        <p class="section-p">For questions, bug reports, or support, visit our official links:</p>
         <ul class="custom-list">
+          <li><strong>Website:</strong> <a href="https://shajibsikder.github.io/tabvora" target="_blank" rel="noopener">shajibsikder.github.io/tabvora</a></li>
+          <li><strong>Contact:</strong> <a href="https://shajibsikder.github.io/tabvora/contact.html" target="_blank" rel="noopener">shajibsikder.github.io/tabvora/contact.html</a></li>
           <li><strong>GitHub Repository:</strong> <a href="https://github.com/shajibsikder/tabvora" target="_blank" rel="noopener">github.com/shajibsikder/tabvora</a></li>
-          <li><strong>Report an Issue:</strong> <a href="https://github.com/shajibsikder/tabvora/issues/new" target="_blank" rel="noopener">github.com/shajibsikder/tabvora/issues</a></li>
+          <li><strong>Report an Issue:</strong> <a href="https://github.com/shajibsikder/tabvora/issues" target="_blank" rel="noopener">github.com/shajibsikder/tabvora/issues</a></li>
         </ul>
       </div>
 

@@ -1,0 +1,186 @@
+﻿/* ==========================================================================
+   Tabvora v2.1.0 - Design Tokens & Aesthetic Theme Engine
+   Inspired by Bonjourr, Momentum, and Apple macOS Glassmorphism
+   Designed for maximum eye comfort ("Chukh Tanda Laghe") & 2026-2030 standards
+   ========================================================================== */
+
+:root {
+  --font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, "Inter", Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+
+  /* Ambient Multi-Stop Mesh Background (Serene Morning - Calm, Non-Glare) */
+  --bg-ambient: radial-gradient(at 10% 12%, rgba(219, 234, 254, 0.5) 0px, transparent 55%),
+                radial-gradient(at 88% 12%, rgba(238, 232, 255, 0.45) 0px, transparent 55%),
+                radial-gradient(at 50% 90%, rgba(224, 242, 254, 0.45) 0px, transparent 55%),
+                #edf2f7;
+  --bg-color: #f1f5f9;
+  
+  /* Frosted Glass Surfaces (Light Mode) */
+  --surface-color: rgba(255, 255, 255, 0.76);
+  --surface-hover: rgba(255, 255, 255, 0.92);
+  --surface-elevated: #ffffff;
+  --surface-subtle: rgba(241, 245, 249, 0.85);
+  
+  /* Text & Contrast (Soft Slate, Never Harsh Pure Black) */
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+  --text-tertiary: #94a3b8;
+  
+  /* Brand Accent Colors (Calm Royal Azure) */
+  --primary-color: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-subtle: rgba(37, 99, 235, 0.08);
+  --primary-glow: rgba(37, 99, 235, 0.22);
+  --danger-color: #ef4444;
+  --danger-subtle: rgba(239, 68, 68, 0.1);
+  --success-color: #10b981;
+  
+  /* Borders & Glassmorphism Outlines */
+  --border-color: rgba(226, 232, 240, 0.85);
+  --card-border-color: rgba(255, 255, 255, 0.85);
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.85);
+  
+  /* Shadows with Soft Multi-Layer Diffusion */
+  --shadow-sm: 0 2px 6px 0 rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 6px 16px -2px rgba(15, 23, 42, 0.06), 0 2px 4px -1px rgba(15, 23, 42, 0.03);
+  --shadow-lg: 0 14px 28px -4px rgba(15, 23, 42, 0.08), 0 6px 12px -2px rgba(15, 23, 42, 0.04);
+  --shadow-card: 0 10px 25px -4px rgba(15, 23, 42, 0.06), 0 4px 8px -2px rgba(15, 23, 42, 0.03);
+  --shadow-focus: 0 0 0 3px rgba(37, 99, 235, 0.2), 0 8px 24px -4px rgba(15, 23, 42, 0.08);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.06), 0 2px 8px 0 rgba(0, 0, 0, 0.03);
+
+  /* Geometry & Radii */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --radius-full: 9999px;
+  
+  --card-width: 104px;
+  --card-height: 104px;
+  --grid-gap: 24px;
+}
+
+/* ==========================================================================
+   Dark Mode Tokens (Deep Midnight Obsidian & Aurora Glow)
+   Soft, soothing lighting that completely eliminates glare in the dark
+   ========================================================================== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-ambient: radial-gradient(at 15% 15%, rgba(30, 58, 138, 0.28) 0px, transparent 55%),
+                  radial-gradient(at 85% 15%, rgba(88, 28, 135, 0.22) 0px, transparent 55%),
+                  radial-gradient(at 50% 85%, rgba(15, 23, 42, 0.6) 0px, transparent 55%),
+                  #0a0e17;
+    --bg-color: #0a0e17;
+    
+    --surface-color: rgba(18, 24, 38, 0.72);
+    --surface-hover: rgba(28, 38, 58, 0.85);
+    --surface-elevated: #151c2c;
+    --surface-subtle: rgba(30, 41, 59, 0.5);
+    
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --text-tertiary: #64748b;
+    
+    --primary-color: #60a5fa;
+    --primary-hover: #93c5fd;
+    --primary-subtle: rgba(96, 165, 250, 0.12);
+    --primary-glow: rgba(96, 165, 250, 0.3);
+    --danger-color: #f87171;
+    --danger-subtle: rgba(248, 113, 113, 0.15);
+    --success-color: #34d399;
+    
+    --border-color: rgba(255, 255, 255, 0.08);
+    --card-border-color: rgba(255, 255, 255, 0.08);
+    --glass-bg: rgba(18, 24, 38, 0.72);
+    --glass-border: rgba(255, 255, 255, 0.09);
+    
+    --shadow-sm: 0 2px 6px 0 rgba(0, 0, 0, 0.35);
+    --shadow-md: 0 6px 16px -2px rgba(0, 0, 0, 0.45);
+    --shadow-lg: 0 14px 28px -4px rgba(0, 0, 0, 0.55);
+    --shadow-card: 0 12px 30px -4px rgba(0, 0, 0, 0.5);
+    --shadow-focus: 0 0 0 3px rgba(96, 165, 250, 0.25), 0 8px 24px -4px rgba(0, 0, 0, 0.5);
+    --glass-shadow: 0 12px 36px -4px rgba(0, 0, 0, 0.5), 0 4px 12px -2px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Explicit Light Theme Override */
+[data-theme="light"],
+[data-resolved-theme="light"] {
+  --bg-ambient: radial-gradient(at 10% 12%, rgba(219, 234, 254, 0.5) 0px, transparent 55%),
+                radial-gradient(at 88% 12%, rgba(238, 232, 255, 0.45) 0px, transparent 55%),
+                radial-gradient(at 50% 90%, rgba(224, 242, 254, 0.45) 0px, transparent 55%),
+                #edf2f7;
+  --bg-color: #f1f5f9;
+  --surface-color: rgba(255, 255, 255, 0.76);
+  --surface-hover: rgba(255, 255, 255, 0.92);
+  --surface-elevated: #ffffff;
+  --surface-subtle: rgba(241, 245, 249, 0.85);
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --text-muted: #94a3b8;
+  --text-tertiary: #94a3b8;
+  --primary-color: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-subtle: rgba(37, 99, 235, 0.08);
+  --primary-glow: rgba(37, 99, 235, 0.22);
+  --danger-color: #ef4444;
+  --danger-subtle: rgba(239, 68, 68, 0.1);
+  --success-color: #10b981;
+  --border-color: rgba(226, 232, 240, 0.85);
+  --card-border-color: rgba(255, 255, 255, 0.85);
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.85);
+  --shadow-sm: 0 2px 6px 0 rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 6px 16px -2px rgba(15, 23, 42, 0.06), 0 2px 4px -1px rgba(15, 23, 42, 0.03);
+  --shadow-lg: 0 14px 28px -4px rgba(15, 23, 42, 0.08), 0 6px 12px -2px rgba(15, 23, 42, 0.04);
+  --shadow-card: 0 10px 25px -4px rgba(15, 23, 42, 0.06), 0 4px 8px -2px rgba(15, 23, 42, 0.03);
+  --shadow-focus: 0 0 0 3px rgba(37, 99, 235, 0.2), 0 8px 24px -4px rgba(15, 23, 42, 0.08);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.06), 0 2px 8px 0 rgba(0, 0, 0, 0.03);
+}
+
+/* Explicit Dark Theme Override */
+[data-theme="dark"],
+[data-resolved-theme="dark"] {
+  --bg-ambient: radial-gradient(at 15% 15%, rgba(30, 58, 138, 0.28) 0px, transparent 55%),
+                radial-gradient(at 85% 15%, rgba(88, 28, 135, 0.22) 0px, transparent 55%),
+                radial-gradient(at 50% 85%, rgba(15, 23, 42, 0.6) 0px, transparent 55%),
+                #0a0e17;
+  --bg-color: #0a0e17;
+  --surface-color: rgba(18, 24, 38, 0.72);
+  --surface-hover: rgba(28, 38, 58, 0.85);
+  --surface-elevated: #151c2c;
+  --surface-subtle: rgba(30, 41, 59, 0.5);
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+    --text-tertiary: #64748b;
+  --primary-color: #60a5fa;
+  --primary-hover: #93c5fd;
+  --primary-subtle: rgba(96, 165, 250, 0.12);
+  --primary-glow: rgba(96, 165, 250, 0.3);
+  --danger-color: #f87171;
+  --danger-subtle: rgba(248, 113, 113, 0.15);
+  --success-color: #34d399;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --card-border-color: rgba(255, 255, 255, 0.08);
+  --glass-bg: rgba(18, 24, 38, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.09);
+  --shadow-sm: 0 2px 6px 0 rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 6px 16px -2px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 14px 28px -4px rgba(0, 0, 0, 0.55);
+  --shadow-card: 0 12px 30px -4px rgba(0, 0, 0, 0.5);
+  --shadow-focus: 0 0 0 3px rgba(96, 165, 250, 0.25), 0 8px 24px -4px rgba(0, 0, 0, 0.5);
+  --glass-shadow: 0 12px 36px -4px rgba(0, 0, 0, 0.5), 0 4px 12px -2px rgba(0, 0, 0, 0.3);
+}
+
+/* Card Size & Density Presets */
+[data-card-size="small"] { --card-width: 104px; --card-height: 104px; }
+[data-card-size="medium"] { --card-width: 104px; --card-height: 104px; }
+[data-card-size="large"] { --card-width: 104px; --card-height: 104px; }
+
+[data-grid-density="compact"] { --grid-gap: 24px; }
+[data-grid-density="comfortable"] { --grid-gap: 24px; }
+[data-grid-density="spacious"] { --grid-gap: 24px; }

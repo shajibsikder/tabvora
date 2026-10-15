@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabvora - Smart Focus & Tab Dashboard</title>
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <!-- Tabvora Dynamic Background Engine (360° Parallax & Live Canvas Layers) -->
+  <div id="tabvoraBgContainer" class="tabvora-bg-container" aria-hidden="true">
+    <div id="tabvoraBgMedia" class="tabvora-bg-media" style="background-image: url('backgrounds/bg_nature_river.jpg');"></div>
+    <canvas id="tabvoraLiveCanvas" class="tabvora-live-canvas hidden"></canvas>
+    <div id="tabvoraBgOverlay" class="tabvora-bg-overlay"></div>
+  </div>
+
+  <div id="app" class="app-container">
+    
+    <!-- Top-Left Quick Actions (Smart Frosted Glass Pills: Profile Reward - Zen - Search) -->
+    <nav class="top-nav-group" aria-label="Quick Actions">
+      <!-- 1. Profile & Daily Rewards Journey Badge -->
+      <button id="dailyPointsBadge" class="profile-award-badge-btn" title="Your Profile & Daily Rewards Journey" aria-label="User Profile & Rewards">
+        <svg viewBox="0 0 24 24" width="18" height="18" class="profile-award-svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="profileUserGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#38bdf8"/>
+              <stop offset="55%" stop-color="#3b82f6"/>
+              <stop offset="100%" stop-color="#6366f1"/>
+            </linearGradient>
+          </defs>
+          <circle cx="12" cy="7.6" r="3.8" fill="url(#profileUserGrad)"/>
+          <path d="M4.8 19.2 C4.8 15.3 8 13.5 12 13.5 C16 13.5 19.2 15.3 19.2 19.2 C19.2 19.7 18.6 20.2 17.8 20.2 L6.2 20.2 C5.4 20.2 4.8 19.7 4.8 19.2 Z" fill="url(#profileUserGrad)"/>
+        </svg>
+        <span id="userPointsText" class="profile-badge-count" style="display: none !important;">0</span>
+      </button>
+
+      <!-- 2. Zen Focus Mode -->
+      <button id="zenModeBtn" class="top-nav-btn" title="Zen Focus Mode (Hide Distractions)" aria-label="Toggle Zen Mode" aria-pressed="false">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/></svg>
+        <span class="zen-btn-label">Zen</span>
+        <span class="zen-active-dot"></span>
+      </button>
+
+      <!-- 3. Search Trigger -->
+      <button id="searchTriggerBtn" class="top-nav-btn" title="Search Shortcuts & Web (Ctrl + K)" aria-label="Search">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <span>Search</span>
+      </button>
+    </nav>
+
+    <!-- Top-Right Status & Controls (Matching Glass Pills) -->
+    <div class="top-status-group" aria-label="Status and Controls">
+      <div class="top-date-status hidden" id="topDateStatus" style="display: none !important;">Saturday, Oct 3</div>
+      <button id="addBtn" class="top-add-btn" title="Add Shortcut or Website" aria-label="Add new shortcut">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        <span>Add</span>
+      </button>
+      <button id="settingsBtn" class="top-settings-btn" title="Dashboard Settings" aria-label="Open settings">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        <span>Settings</span>
+      </button>
+    </div>
+
+    <!-- Notification Toast Container -->
+    <div id="toastContainer" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+    
+
+    <!-- Main Dashboard Scrollable Region -->
+    <div class="dashboard-scroll-wrapper">
+      <div class="momentum-stage-center">
+        
+        <!-- Grand Clock, Date & Greeting Centerpiece (Matching Image 2) -->
+        <div class="momentum-hero-centerpiece" id="heroTimeSection" aria-label="Current Time and Greeting">
+          <!-- Day and Date above time (Matching Image 2) -->
+          <div class="momentum-date" id="heroDateDisplay">Saturday, October 3</div>
+
+          <!-- Main Clock with small uppercase AM/PM to top right -->
+          <div class="momentum-clock-row">
+            <span class="momentum-clock" id="heroClockDigits">06:37</span>
+            <span class="momentum-ampm" id="heroClockAmPm">PM</span>
+          </div>
+
+          <!-- Personalized Greeting below time -->
+          <div class="momentum-greeting" id="heroGreeting" title="Click to customize your name" style="cursor: pointer;">Good day</div>
+        </div>
+
+        <!-- Daily Main Focus (Momentum-style) -->
+        <div id="dailyFocusSection" class="momentum-focus-section hidden" aria-label="Daily Main Focus">
+          <div id="dailyFocusPrompt" class="momentum-focus-prompt">
+            <div class="momentum-focus-title">What is your focus for today?</div>
+            <div class="momentum-focus-input-wrapper">
+              <input type="text" id="dailyFocusInput" class="momentum-focus-input" placeholder="" autocomplete="off" spellcheck="false" maxlength="120" aria-label="Enter your focus for today">
+              <div class="momentum-focus-line"></div>
+            </div>
+          </div>
+
+          <div id="dailyFocusDisplay" class="momentum-focus-display hidden">
+            <span class="momentum-focus-label">TODAY</span>
+            <div class="momentum-focus-row">
+              <button type="button" id="dailyFocusToggleBtn" class="momentum-focus-checkbox" title="Toggle Done" aria-label="Toggle Complete">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                </svg>
+              </button>
+              <span id="dailyFocusText" class="momentum-focus-text"></span>
+              <button type="button" id="dailyFocusClearBtn" class="momentum-focus-clear" title="Clear Focus" aria-label="Clear Focus">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" aria-hidden="true">
+                  <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Daily Inspirational Quote (Exact to Image 2 Bottom) -->
+      <div class="momentum-quote-container" id="quoteContainer" title="Click to refresh quote" role="region" aria-label="Inspirational Quote">
+        <div class="momentum-quote-text" id="quoteText">"Embrace possibility."</div>
+        <div class="momentum-quote-author" id="quoteAuthor">- Austin Freeman</div>
+      </div>
+
+    </div>
+
+    <!-- Right-Side Floating Vertical Dock (Exact to Image 2) -->
+    <aside class="sidebar-floating-dock" aria-label="Quick Productivity Dock">
+      <!-- 1. Tasks / Checklist -->
+      <button id="dockTasksBtn" class="dock-squircle-btn" title="Tasks & Checklist" aria-label="Open Tasks">
+        <div class="dock-btn-icon-wrap">
+          <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+          <span id="dockTasksBadge" class="dock-badge hidden">0</span>
+        </div>
+        <span class="dock-squircle-label">Tasks</span>
+      </button>
+
+      <!-- 2. Notes Scratchpad -->
+      <button id="dockNotesBtn" class="dock-squircle-btn" title="Quick Notes" aria-label="Open Notes">
+        <div class="dock-btn-icon-wrap">
+          <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+        </div>
+        <span class="dock-squircle-label">Notes</span>
+      </button>
+
+      <!-- 3. Apps & Shortcuts Launchpad -->
+      <button id="dockAppsBtn" class="dock-squircle-btn" title="Shortcuts & Workspaces" aria-label="Open Shortcuts">
+        <div class="dock-btn-icon-wrap">
+          <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z"/></svg>
+          <span id="dockAppsBadge" class="dock-badge">4</span>
+        </div>
+        <span class="dock-squircle-label">Apps</span>
+      </button>
+
+      <!-- 4. Focus Timers (Pomodoro) -->
+      <button id="dockTimersBtn" class="dock-squircle-btn" title="Focus Timer" aria-label="Open Focus Timer">
+        <div class="dock-btn-icon-wrap">
+          <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M15 1H9v2h6V1zm-4 13h2V8h-2v6zm8.03-6.61l1.42-1.42c-.43-.51-.9-.99-1.41-1.41l-1.42 1.42A8.962 8.962 0 0 0 12 4c-4.97 0-9 4.03-9 9s4.02 9 9 9a8.994 8.994 0 0 0 7.03-14.61zM12 20c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7z"/></svg>
+          <span id="dockPomoBadge" class="dock-time-badge">25m</span>
+        </div>
+        <span class="dock-squircle-label">Timers</span>
+      </button>
+
+      <!-- 5. Store (Theme Store) -->
+      <button id="dockRewardsBtn" class="dock-squircle-btn" title="Store (Wallpapers & Sounds)" aria-label="Store">
+        <div class="dock-btn-icon-wrap">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+            <path fill="currentColor" d="M19 6h-2c0-2.76-2.24-5-5-5S7 3.24 7 6H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7-3c1.66 0 3 1.34 3 3H9c0-1.66 1.34-3 3-3zm7 17H5V8h14v12zm-7-8c-1.66 0-3-1.34-3-3H7c0 2.76 2.24 5 5 5s5-2.24 5-5h-2c0 1.66-1.34 3-3 3z"/>
+          </svg>
+          <span id="dockRewardsBadge" class="dock-badge hidden">❤️</span>
+        </div>
+        <span class="dock-squircle-label">Store</span>
+      </button>
+    </aside>
+
+    <!-- Slide-out Flyout Tray Cards Wrapper -->
+    <div id="dockFlyoutWrapper" class="dock-flyout-wrapper">
+      
+      <!-- Card 1: Apps & Shortcuts Launchpad Drawer -->
+      <div id="appsWidget" class="widget-card widget-apps dock-flyout-card" aria-label="Apps and Shortcuts">
+        <div class="apps-drawer-header">
+          <div class="apps-drawer-title-row">
+            <div class="apps-drawer-title">
+              <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z"/></svg>
+              <span>Shortcuts (<span id="appsHeaderCount">0</span>)</span>
+            </div>
+            <button id="appsAddBtn" class="btn btn-primary btn-sm" aria-label="Add new shortcut">+ Add</button>
+          </div>
+          
+          <!-- Workspace Tabs Toolbar inside drawer -->
+          <div class="workspace-toolbar-wrapper">
+            <div class="workspace-toolbar" role="toolbar" aria-label="Workspaces">
+              <button class="workspace-pill active" data-workspace="all">All</button>
+              <button class="workspace-pill" data-workspace="main">Main</button>
+              <button class="workspace-pill" data-workspace="work">Work</button>
+              <button class="workspace-pill" data-workspace="study">Study</button>
+              <button class="workspace-pill" data-workspace="personal">Personal</button>
+              <button class="workspace-pill" data-workspace="shopping">Shopping</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Skeleton Loading State inside Apps Drawer -->
+        <div id="loadingState" class="skeleton-grid hidden" aria-hidden="true">
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
+          <div class="skeleton-card"></div>
+        </div>
+
+        <!-- Virtual Shortcuts Grid Viewport -->
+        <div class="apps-drawer-body">
+          <main id="viewport" class="grid-viewport" tabindex="0" aria-label="Shortcut Dashboard Grid">
+            <div id="virtualCanvas" class="grid-canvas" role="grid"></div>
+          </main>
+
+          <!-- Empty Shortcuts Display -->
+          <div id="emptyState" class="empty-state hidden" role="region" aria-label="No shortcuts found">
+            <h3 class="empty-title">No shortcuts here yet</h3>
+            <p class="empty-desc">Click + Add to save your favorite websites</p>
+            <button id="emptyAddBtn" class="btn btn-primary">Add Shortcut</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2A: Tasks & Checklist Flyout (Dedicated) -->
+      <div id="tasksWidget" class="widget-tasks dock-flyout-card" aria-label="Tasks Checklist">
+        <div class="notes-header">
+          <div class="tasks-drawer-title">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            <span>Tasks (<span id="todoPendingCount">0</span>)</span>
+          </div>
+          <div class="notes-actions">
+            <button id="clearDoneTodosBtn" class="notes-action-btn" title="Clear completed tasks">Clear Done</button>
+          </div>
+        </div>
+
+        <!-- Interactive Checklist Content -->
+        <div id="checklistContainer" class="checklist-view-content">
+          <div class="checklist-input-row">
+            <input type="text" id="newTodoInput" class="checklist-input" placeholder="Add task & press Enter..." aria-label="New task">
+            <button id="addTodoBtn" class="btn btn-icon btn-add-todo" title="Add Task" aria-label="Add Task">
+              <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+            </button>
+          </div>
+          <div id="todoProgressBar" class="todo-progress-container" aria-hidden="true">
+            <div id="todoProgressFill" class="todo-progress-bar" style="width: 0%;"></div>
+          </div>
+          <ul id="todoList" class="todo-items-list" role="list"></ul>
+        </div>
+
+        <div class="notes-footer">
+          <span id="notesFooterLeft">0 done</span>
+          <span>Local & Auto-saved</span>
+        </div>
+      </div>
+
+      <!-- Card 2B: Quick Notes Flyout (Dedicated, Smart & Multilingual) -->
+      <div id="notesWidget" class="widget-notes dock-flyout-card" aria-label="Quick Notes">
+        <div class="notes-header">
+          <div class="notes-drawer-title">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+            <span>Quick Notes</span>
+          </div>
+          <div class="notes-actions">
+            <button id="copyNotesBtn" class="notes-action-btn" title="Copy text to clipboard">
+              <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path fill="currentColor" d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+              <span id="copyNotesLabel">Copy</span>
+            </button>
+            <button id="pasteNotesBtn" class="notes-action-btn" title="Paste text from clipboard (Ctrl+V)">
+              <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path fill="currentColor" d="M19 2h-4.18C14.4.84 13.3 0 12 0c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm7 18H5V4h2v3h10V4h2v16z"/></svg>
+              <span id="pasteNotesLabel">Paste</span>
+            </button>
+            <button id="timestampNotesBtn" class="notes-action-btn" title="Insert date and time">
+              <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path fill="currentColor" d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+              <span>Time</span>
+            </button>
+            <button id="exportNotesBtn" class="notes-action-btn" title="Download note as text file">
+              <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path fill="currentColor" d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+              <span>Export</span>
+            </button>
+            <button id="clearNotesBtn" class="notes-action-btn danger" title="Clear notes">
+              <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true"><path fill="currentColor" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+              <span>Clear</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Large Comfortable Notes Textarea -->
+        <div class="notes-content-wrap">
+          <textarea id="quickNotesInput" class="notes-textarea" placeholder="Type or paste your notes, thoughts, or ideas here..." spellcheck="false"></textarea>
+        </div>
+
+        <div class="notes-footer">
+          <div class="notes-stats">
+            <span id="notesWordCount">0 words</span>
+            <span class="dot-separator">&bull;</span>
+            <span id="notesCharCount">0 chars</span>
+          </div>
+          <span class="notes-autosave-badge">
+            <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="display: inline-block; vertical-align: -1px; margin-right: 3px;"><polyline points="20 6 9 17 4 12"/></svg>
+            Local & Auto-saved
+          </span>
+        </div>
+
+        <!-- Hidden compatibility stubs -->
+        <button id="checklistViewBtn" class="hidden"></button>
+        <button id="notesViewBtn" class="hidden"></button>
+        <div id="notesTextContainer" class="hidden"></div>
+      </div>
+
+      <!-- Card 3: Modern Native Focus & Custom Timer Flyout Card -->
+      <div id="pomodoroWidget" class="widget-card widget-pomodoro dock-flyout-card" aria-label="Focus and Custom Timer">
+        
+        <!-- Header: Apple-style Mode Switcher (Focus vs Custom) -->
+        <div class="pomo-header">
+          <div class="pomo-mode-switcher" role="tablist">
+            <button id="pomoModeFocus" class="pomo-mode-btn active" data-mode="focus" role="tab" aria-selected="true">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+              <span>Focus (25m)</span>
+            </button>
+            <button id="pomoModeCustom" class="pomo-mode-btn" data-mode="custom" role="tab" aria-selected="false">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span>Custom</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mode 2: Custom Stepper (Only Increase / Decrease) -->
+        <div id="pomoCustomOptions" class="pomo-custom-setter hidden">
+          <div class="pomo-stepper">
+            <button id="pomoStepMinus" class="pomo-stepper-btn" title="Decrease time" aria-label="Decrease time">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+            <div class="pomo-stepper-val">
+              <span id="pomoCustomMinsText">30</span>
+              <span class="pomo-stepper-unit">min</span>
+            </div>
+            <button id="pomoStepPlus" class="pomo-stepper-btn" title="Increase time" aria-label="Increase time">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Main Timer Stage -->
+        <div class="pomo-stage">
+          <div class="pomo-time-display" id="pomoTimeDisplay">25:00</div>
+          
+          <!-- Sleek Ambient Progress Bar -->
+          <div class="pomo-progress-track">
+            <div id="pomoProgressFill" class="pomo-progress-fill" style="width: 0%;"></div>
+          </div>
+
+          <div class="pomo-status-wrap">
+            <span class="pomo-status-dot" id="pomoStatusDot"></span>
+            <span id="pomoStatusText" class="pomo-status-text">Ready to focus (25m)</span>
+          </div>
+        </div>
+
+        <!-- Control Action Bar -->
+        <div class="pomo-actions">
+          <button id="pomoStartBtn" class="btn btn-primary pomo-btn-start" aria-label="Start or pause timer">
+            <svg id="pomoPlayIcon" viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            <svg id="pomoPauseIcon" class="hidden" viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+            <svg id="pomoDoneIcon" class="hidden" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span id="pomoStartBtnText">Start</span>
+          </button>
+          <button id="pomoResetBtn" class="pomo-btn-reset" title="Reset Timer" aria-label="Reset Timer">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+          </button>
+        </div>
+
+        <!-- Sleek Footer -->
+        <div class="pomo-footer">
+          <span id="pomoSessionCount" class="pomo-session-pill">🎯 0 Sessions</span>
+          <span class="pomo-audio-hint" title="Chime alert plays 5 times on completion">🔔 5x Chime Alert</span>
+        </div>
+
+      </div>
+
+      <!-- Card 4: Global Browser Usage Card -->
+      <div id="browserUsageWidget" class="widget-card widget-browser-usage dock-flyout-card hidden">
+        <div class="notes-header">
+          <span class="notes-title">BROWSER USAGE</span>
+          <span id="browserUsageTimeText" class="usage-stat-time">0m / 0m</span>
+        </div>
+        <div class="usage-progress-bg" style="margin: 10px 0;">
+          <div id="browserUsageProgressFill" class="usage-progress-fill" style="width: 0%;"></div>
+        </div>
+        <div class="notes-footer">
+          <span id="browserUsageRemainingText">Remaining: 0m</span>
+          <span>Global Limit</span>
+        </div>
+      </div>
+
+      <!-- Card 5: Rewards Vault Flyout Drawer (Wallpapers & Sound Chimes) -->
+      <div id="rewardsWidget" class="widget-card widget-rewards dock-flyout-card" aria-label="Rewards Vault">
+        <div class="rewards-drawer-header">
+          <div class="rewards-drawer-title-row">
+            <div class="rewards-drawer-title">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                <path fill="#f43f5e" d="M19 6h-2c0-2.76-2.24-5-5-5S7 3.24 7 6H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-7-3c1.66 0 3 1.34 3 3H9c0-1.66 1.34-3 3-3zm7 17H5V8h14v12zm-7-8c-1.66 0-3-1.34-3-3H7c0 2.76 2.24 5 5 5s5-2.24 5-5h-2c0 1.66-1.34 3-3 3z"/>
+              </svg>
+              <span>Store</span>
+            </div>
+            <button type="button" class="rewards-header-pts-chip" id="rewardsDrawerPtsChip" title="View Daily Rewards & Streak Journey" aria-label="Open Daily Rewards Journey">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="#f43f5e" aria-hidden="true">
+                <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+              </svg>
+              <span id="rewardsVaultPointsText">0</span>
+              <span class="pts-unit-label">Hearts</span>
+            </button>
+          </div>
+
+          <!-- Segmented Tab Switcher (Apple style) -->
+          <div class="rewards-tab-toolbar" role="tablist">
+            <button type="button" id="rewardsTabWallpapers" class="rewards-tab-btn active" data-tab="wallpapers" role="tab" aria-selected="true">
+              <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1 2 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+              <span>Wallpapers</span>
+            </button>
+            <button type="button" id="rewardsTabSounds" class="rewards-tab-btn" data-tab="sounds" role="tab" aria-selected="false">
+              <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"/></svg>
+              <span>Sound Chimes</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="rewards-drawer-body">
+          <!-- 1. Wallpapers Tab Panel -->
+          <div id="rewardsWallpapersPanel" class="rewards-panel-content">
+            <div id="rewardsWallpaperList" class="rewards-items-grid"></div>
+          </div>
+
+          <!-- 2. Sound Chimes Tab Panel -->
+          <div id="rewardsSoundsPanel" class="rewards-panel-content hidden">
+            <div class="rewards-sound-intro">
+              <span>🔔 Custom chimes apply to Website Limits, Pomodoro & Wellbeing Alerts</span>
+            </div>
+            <div id="rewardsSoundList" class="rewards-sounds-stack"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Apple-style Spotlight Search Modal (Ctrl+K or Search trigger) -->
+    <div id="spotlightOverlay" class="spotlight-overlay hidden" role="dialog" aria-modal="true" aria-label="Search">
+      <div class="spotlight-box">
+        <form id="searchForm" class="spotlight-form" role="search">
+          <svg class="spotlight-icon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+            <path fill="currentColor" d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+          </svg>
+          <input type="text" id="searchInput" class="spotlight-input" placeholder="Search the web, shortcuts, or notes..." autocomplete="off" spellcheck="false" />
+          <button type="button" id="clearSearchBtn" class="btn btn-icon hidden" aria-label="Clear search">✕</button>
+          <kbd class="spotlight-esc-pill">ESC</kbd>
+        </form>
+        <!-- Dynamic Instant Search Results Container -->
+        <div id="spotlightResults" class="spotlight-results hidden" role="listbox" aria-label="Instant search results"></div>
+      </div>
+    </div>
+
+    <!-- Hidden compatibility elements required by background engines -->
+    <div id="widgetsContainer" class="hidden"></div>
+    <div id="clockWidget" class="hidden">
+      <span id="clockGreeting"></span>
+      <span id="clockTime"></span>
+      <span id="clockDay"></span>
+      <span id="clockDate"></span>
+    </div>
+    <!-- Hidden legacy dock trigger elements for backward compatibility -->
+    <button id="dockPomoBtn" class="hidden"></button>
+    <button id="dockNotesLegacyBtn" class="hidden"></button>
+    <button id="wallpaperBtn" class="hidden"></button>
+    <span id="dockPomoTime" class="hidden">25:00</span>
+    <span id="dockTodoCount" class="hidden">0</span>
+
+  </div>
+  <!-- Context Menu -->
+  <div id="contextMenu" class="context-menu hidden" role="menu" aria-label="Shortcut Context Menu">
+    <button class="menu-item" data-action="open-new" role="menuitem">Open in New Tab</button>
+    <button class="menu-item" data-action="pin" role="menuitem">Toggle Pin</button>
+    <button class="menu-item" data-action="archive" role="menuitem">Archive Shortcut</button>
+    <button class="menu-item" data-action="copy" role="menuitem">Copy Link</button>
+    <button class="menu-item" data-action="edit" role="menuitem">Edit Shortcut</button>
+    <div class="menu-divider"></div>
+    <button class="menu-item danger" data-action="delete" role="menuitem">Delete Shortcut</button>
+  </div>
+
+  <!-- Add/Edit Shortcut Modal Dialog -->
+  <dialog id="shortcutModal" class="modal shortcut-modal-dialog" aria-labelledby="modalTitle" role="dialog">
+    <form id="shortcutForm" method="dialog" novalidate>
+      <div class="shortcut-modal-header">
+        <div class="shortcut-modal-title-cluster">
+          <div class="shortcut-modal-icon-badge">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+            </svg>
+          </div>
+          <div>
+            <h2 id="modalTitle" class="shortcut-modal-title">Add Shortcut</h2>
+            <span class="shortcut-modal-subtitle">Quick link for your dashboard grid</span>
+          </div>
+        </div>
+        <button type="button" id="closeShortcutModalBtn" class="shortcut-modal-close-btn" aria-label="Close dialog" title="Close">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+      <input type="hidden" id="shortcutId">
+      <div class="form-group">
+        <label for="urlInput">URL</label>
+        <input type="text" inputmode="url" id="urlInput" placeholder="Website URL" autocomplete="off">
+        <span id="urlErrorMsg" class="form-error hidden">Please enter a valid website URL (e.g. google.com or https://...)</span>
+      </div>
+      <div class="form-group">
+        <label for="titleInput">Title</label>
+        <input type="text" id="titleInput" placeholder="Website Name (e.g. GitHub)" autocomplete="off">
+      </div>
+
+      <div class="form-group">
+        <label for="workspaceSelect">Assign Workspace</label>
+        <select id="workspaceSelect" class="md-select">
+          <option value="main">Main (Default)</option>
+          <option value="work">Work</option>
+          <option value="study">Study</option>
+          <option value="personal">Personal</option>
+          <option value="shopping">Shopping</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="notesInput">Notes (Optional)</label>
+        <textarea id="notesInput" rows="2" placeholder="Add personal notes or remarks..." autocomplete="off" style="resize: vertical; font-family: inherit;"></textarea>
+      </div>
+
+      <div class="shortcut-limit-card">
+        <div class="shortcut-limit-info">
+          <div class="shortcut-limit-title-row">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span class="setting-label">Enable Daily Usage Limit</span>
+          </div>
+          <span class="setting-desc">Set max daily usage time for this site</span>
+        </div>
+        <label class="md-switch" tabindex="0" role="checkbox" aria-checked="false" aria-label="Enable Daily Usage Limit">
+          <input type="checkbox" id="enableLimitToggle" tabindex="-1">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div id="limitOptionsContainer" class="form-group hidden">
+        <label for="limitPresetSelect">Daily Limit Duration</label>
+        <select id="limitPresetSelect" class="md-select">
+          <option value="15">15 Minutes</option>
+          <option value="30">30 Minutes</option>
+          <option value="60">1 Hour</option>
+          <option value="120">2 Hours</option>
+          <option value="custom">Custom Hours</option>
+        </select>
+      </div>
+
+      <div id="customLimitContainer" class="form-group hidden">
+        <label for="customLimitHours">Custom Hours</label>
+        <input type="number" id="customLimitHours" min="0.1" step="0.5" placeholder="e.g. 1.5" class="md-select">
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" id="cancelModalBtn" class="btn btn-secondary">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save Shortcut</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="duplicateDetectedModal" class="modal" aria-labelledby="dupeModalTitle" role="dialog">
+    <div class="modal-content-center">
+      <div class="warning-icon-wrapper">
+        <svg viewBox="0 0 24 24" width="36" height="36" aria-hidden="true"><path fill="#FBBC04" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+      </div>
+      <h2 id="dupeModalTitle" class="modal-alert-title">This website already exists</h2>
+      <p class="modal-alert-site" id="dupeSiteTitle">Website Title</p>
+      <p class="setting-desc" id="dupeSiteUrl" style="margin-bottom: 20px; word-break: break-all;">https://example.com</p>
+
+      <div class="modal-actions" style="flex-direction: column; width: 100%; gap: 8px;">
+        <button type="button" id="openExistingDupeBtn" class="btn btn-primary" style="width: 100%;">Open Existing</button>
+        <button type="button" id="editExistingDupeBtn" class="btn btn-secondary" style="width: 100%;">Edit Existing</button>
+        <button type="button" id="cancelDupeBtn" class="btn btn-danger-subtle" style="width: 100%;">Cancel</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="limitReachedModal" class="modal" aria-labelledby="limitModalTitle" role="dialog">
+    <div class="modal-content-center">
+      <div class="warning-icon-wrapper">
+        <svg viewBox="0 0 24 24" width="36" height="36" aria-hidden="true"><path fill="#ff4d4d" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+      </div>
+      <h2 id="limitModalTitle" class="modal-alert-title">Daily Limit Reached</h2>
+      <p class="modal-alert-site" id="limitSiteName">Website Name</p>
+      
+      <div class="limit-stats-box">
+        <div class="limit-stat-row">
+          <span>Today's Usage:</span>
+          <strong id="limitTodayUsage">0 Mins</strong>
+        </div>
+        <div class="limit-stat-row">
+          <span>Daily Limit:</span>
+          <strong id="limitMaxAllowed">0 Mins</strong>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" id="closeLimitBtn" class="btn btn-secondary">Close</button>
+        <button type="button" id="changeLimitBtn" class="btn btn-primary">Change Limit</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="tutorialModal" class="modal" aria-labelledby="tutorialTitle" role="dialog" style="max-width: 480px;">
+    <div class="modal-content-center">
+      <div id="tutorialStepIcon" style="font-size: 42px; margin-bottom: 12px;">🔒</div>
+      <h2 id="tutorialTitle" class="modal-alert-title" style="margin-bottom: 8px;">Welcome to Tabvora</h2>
+      <p id="tutorialBody" class="setting-desc" style="font-size: 13px; line-height: 1.6; margin-bottom: 24px; text-align: center;">
+        Tabvora is a private, local-first workspace manager. Everything stays strictly on your computer. No data ever leaves your device, and all optional tools are completely under your control.
+      </p>
+
+      <div style="display: flex; justify-content: center; gap: 6px; margin-bottom: 20px;">
+        <span class="tutorial-dot active" data-step="1"></span>
+        <span class="tutorial-dot" data-step="2"></span>
+        <span class="tutorial-dot" data-step="3"></span>
+        <span class="tutorial-dot" data-step="4"></span>
+      </div>
+
+      <div class="modal-actions" style="width: 100%; justify-content: space-between;">
+        <button type="button" id="skipTutorialBtn" class="btn btn-secondary">Skip</button>
+        <button type="button" id="nextTutorialBtn" class="btn btn-primary">Get Started</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Smart Feature Informed Consent & Explanation Modal -->
+  <dialog id="featureConsentModal" class="modal feature-consent-modal" aria-labelledby="featureConsentTitle" role="dialog" aria-modal="true">
+    <div class="feature-consent-card">
+      <div class="feature-consent-icon-box" id="featureConsentIcon">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/></svg>
+      </div>
+      <h3 id="featureConsentTitle" class="feature-consent-title">Feature Name</h3>
+      <p id="featureConsentDesc" class="feature-consent-desc">Feature Description</p>
+      <div class="feature-consent-actions">
+        <button type="button" id="featureConsentCancelBtn" class="btn btn-secondary">Cancel</button>
+        <button type="button" id="featureConsentConfirmBtn" class="btn btn-primary">Enable Feature</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Daily Focus Journey & Reward Modal (Gamified Plaque & 7-Day Track) -->
+  <dialog id="dailyJourneyModal" class="modal daily-journey-dialog" aria-labelledby="journeyModalTitle" role="dialog">
+    <div class="reward-plaque-container">
+      <!-- 1. Top Ribbon Banner -->
+      <div class="reward-ribbon-wrapper">
+        <div class="reward-ribbon-tail left-tail"></div>
+        <div class="reward-ribbon-curl left-curl"></div>
+        <div class="reward-ribbon-banner">
+          <span class="ribbon-star left-star">★</span>
+          <h2 id="journeyModalTitle" class="reward-ribbon-text">DAILY REWARD</h2>
+          <span class="ribbon-star right-star">★</span>
+        </div>
+        <div class="reward-ribbon-curl right-curl"></div>
+        <div class="reward-ribbon-tail right-tail"></div>
+      </div>
+
+      <!-- 2. Plaque Body Frame -->
+      <div class="reward-plaque-frame">
+        <!-- Top Status Sub-bar: Hearts Balance, Streak, Stage/Cycle Switcher -->
+        <div class="reward-hud-strip">
+          <div class="hud-stat-pill hud-hearts" title="Hearts Balance">
+            <span class="hud-icon">❤️</span>
+            <span id="journeyTotalPointsText" class="hud-val">0</span>
+            <span id="journeyPointsUnit" class="hud-unit">Hearts</span>
+          </div>
+
+          <div class="hud-stage-selector">
+            <button type="button" id="journeyPrevStageBtn" class="hud-cycle-btn" title="Previous Cycle" aria-label="Previous Cycle">‹</button>
+            <span id="journeyStageTitle" class="hud-cycle-title">Cycle 1 (Days 1–7)</span>
+            <span id="journeyStageStatus" class="hud-cycle-badge">Active</span>
+            <button type="button" id="journeyNextStageBtn" class="hud-cycle-btn" title="Next Cycle" aria-label="Next Cycle">›</button>
+          </div>
+
+          <div class="hud-stat-pill hud-streak" title="Current Daily Streak">
+            <span class="hud-icon">🔥</span>
+            <span id="journeyStreakDaysText" class="hud-val">Day 1</span>
+          </div>
+
+          <button type="button" id="journeyOpenStoreBtn" class="hud-store-btn" title="Open Store to redeem Hearts">
+            <span>Store</span>
+            <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+
+          <!-- Hidden legacy spans for backwards-compatibility -->
+          <span id="journeyTotalDaysText" class="hidden"></span>
+          <span id="journeyProgressPercent" class="hidden"></span>
+          <div id="journeyProgressBar" class="hidden"></div>
+        </div>
+
+        <!-- 3. Horizontal 7-Day Reward Cards Row -->
+        <div id="journeyDaysGrid" class="reward-cards-row" role="list">
+          <!-- Rendered dynamically by JavaScript with 7 arched reward cards -->
+        </div>
+
+        <!-- 4. Timeline Progress Track (Connecting Line & Node Dots) -->
+        <div id="rewardTimelineTrack" class="reward-timeline-track">
+          <!-- Rendered dynamically by JavaScript with connecting line, jewel nodes and DAY 1..7 labels -->
+        </div>
+
+        <!-- 5. Bottom OK / CLAIM Action Button -->
+        <div class="reward-action-bar">
+          <button type="button" id="dailyRewardOkBtn" class="reward-claim-btn" title="Close & Continue">
+            <span class="btn-bevel-glow"></span>
+            <span class="btn-text" id="rewardActionBtnText">OK</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Reward Item Unlock Confirmation Modal -->
+  <dialog id="rewardUnlockModal" class="modal reward-unlock-dialog" aria-labelledby="unlockModalTitle" role="dialog">
+    <button type="button" id="closeUnlockModalBtn" class="reward-unlock-close-btn" aria-label="Close dialog" title="Close">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+      </svg>
+    </button>
+    <div class="reward-unlock-body">
+      <!-- Smart Item Preview (Wallpaper Picture or Interactive Audio Player) -->
+      <div id="unlockPreviewContainer" class="reward-unlock-preview-container">
+        <!-- 1. Wallpaper Banner -->
+        <div id="unlockWpPreview" class="unlock-wp-preview-banner">
+          <div id="unlockWpImage" class="unlock-wp-image"></div>
+          <div class="unlock-preview-tag">
+            <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1 2 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+            <span>Wallpaper</span>
+          </div>
+        </div>
+
+        <!-- 2. Sound Chime Player Card -->
+        <div id="unlockSoundPreview" class="unlock-sound-preview-card hidden">
+          <button type="button" id="unlockModalPlayBtn" class="unlock-modal-play-btn" title="Click to test listen" aria-label="Play Sound">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          </button>
+          <div class="unlock-sound-meta">
+            <span class="unlock-sound-prompt">Click to preview chime 🎵</span>
+            <span id="unlockSoundDesc" class="unlock-sound-desc">Melodic chime alert</span>
+          </div>
+          <div class="unlock-preview-tag sound-tag">
+            <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+            <span>Sound</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reward-unlock-header">
+        <h2 id="unlockModalTitle" class="reward-unlock-title">Unlock Wallpaper</h2>
+        <p class="reward-unlock-item-name" id="unlockItemName">Item Name</p>
+      </div>
+
+      <div class="reward-cost-box">
+        <div class="reward-cost-row">
+          <span class="cost-label">Required Hearts</span>
+          <strong id="unlockItemCostText" class="cost-value text-rose">❤️ 5 Hearts</strong>
+        </div>
+        <div class="reward-cost-row">
+          <span class="cost-label">Your Hearts</span>
+          <span id="unlockCurrentBalText" class="cost-value balance-value">2 Hearts</span>
+        </div>
+        <div class="reward-cost-row border-top">
+          <span class="cost-label" id="unlockBalanceLabel">Hearts After</span>
+          <strong id="unlockRemainingBalText" class="cost-value text-emerald">0 Hearts</strong>
+        </div>
+      </div>
+
+      <div id="unlockNoticeText" class="reward-unlock-notice hidden"></div>
+
+      <div class="reward-unlock-actions">
+        <button type="button" id="cancelUnlockBtn" class="reward-cancel-btn">Cancel</button>
+        <button type="button" id="confirmUnlockBtn" class="btn-unlock-confirm">Unlock & Apply ✨</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Settings Panel -->
+  <dialog id="settingsModal" class="settings-dialog" aria-label="Settings" role="dialog">
+    <button id="closeSettingsBtn" class="settings-close-top-btn" aria-label="Close settings" title="Close Settings">
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+    </button>
+
+    <div class="settings-container">
+      <aside class="settings-sidebar" role="tablist" aria-label="Settings Categories">
+        <div class="settings-header">
+          <h2 class="settings-title">Settings</h2>
+        </div>
+        <nav class="settings-nav">
+          <button class="nav-item active" role="tab" aria-selected="true" data-tab="tab-appearance"><span class="nav-icon">🎨</span><span class="nav-label">Appearance & Style</span></button>
+          <button class="nav-item" role="tab" aria-selected="false" data-tab="tab-background"><span class="nav-icon">🖼️</span><span class="nav-label">Background</span></button>
+          <button class="nav-item" role="tab" aria-selected="false" data-tab="tab-behavior"><span class="nav-icon">⚙️</span><span class="nav-label">Behavior & Search</span></button>
+          <button class="nav-item" role="tab" aria-selected="false" data-tab="tab-performance" title="Performance & Memory"><span class="nav-icon">⚡</span><span class="nav-label">Performance & RAM</span></button>
+          <button class="nav-item" role="tab" aria-selected="false" data-tab="tab-reports"><span class="nav-icon">📊</span><span class="nav-label">Screen Time & Reports</span></button>
+          <button class="nav-item" role="tab" aria-selected="false" data-tab="tab-wellbeing"><span class="nav-icon">🧘</span><span class="nav-label">Digital Wellbeing</span></button>
+          <button class="nav-item" role="tab" aria-selected="false" data-tab="tab-data"><span class="nav-icon">💾</span><span class="nav-label">Data & Backup</span></button>
+          <button class="nav-item" role="tab" aria-selected="false" data-tab="tab-archive"><span class="nav-icon">📦</span><span class="nav-label">Archived Shortcuts</span></button>
+          <button class="nav-item" role="tab" aria-selected="false" data-tab="tab-about"><span class="nav-icon">ℹ️</span><span class="nav-label">About & Shortcuts</span></button>
+        </nav>
+      </aside>
+
+      <main class="settings-content">
+        <!-- 1. APPEARANCE & STYLE TAB -->
+        <section id="tab-appearance" class="tab-panel active" role="tabpanel">
+          <h3 class="panel-title">Appearance & Style</h3>
+          
+          <div class="setting-row">
+            <div class="setting-info">
+              <span class="setting-label">Theme</span>
+              <span class="setting-desc">Choose dark, light, or follow system appearance</span>
+            </div>
+            <select id="settingTheme" class="md-select">
+              <option value="system">System (Auto)</option>
+              <option value="light">Light</option>
+              <option value="dark">Dark</option>
+            </select>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-info">
+              <span class="setting-label">Your Name</span>
+              <span class="setting-desc">Personalize your dashboard greeting (e.g. Good morning, John)</span>
+            </div>
+            <input type="text" id="settingUserName" class="md-select" placeholder="Enter your name" style="max-width: 220px;" maxlength="32" autocomplete="off">
+          </div>
+
+          <!-- Section: Dashboard Widgets -->
+          <div class="settings-subhead" style="margin-top: 24px; margin-bottom: 12px;">
+            <h4 style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-secondary); margin: 0;">Dashboard Widgets</h4>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-info">
+              <span class="setting-label">Show Live Clock</span>
+              <span class="setting-desc">Display digital clock & greeting on dashboard</span>
+            </div>
+            <label class="md-switch" tabindex="0" role="checkbox" aria-checked="true" aria-label="Toggle Live Clock Widget">
+              <input type="checkbox" id="settingShowClock" tabindex="-1">
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-info">
+              <span class="setting-label">Show Daily Main Focus</span>
+              <span class="setting-desc">Display daily focus prompt below time and greeting</span>
+            </div>
+            <label class="md-switch" tabindex="0" role="checkbox" aria-checked="false" aria-label="Toggle Daily Main Focus">
+              <input type="checkbox" id="settingShowDailyFocus" tabindex="-1">
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-info">
+              <span class="setting-label">Show Pomodoro & Custom Timer</span>
+              <span class="setting-desc">Focus timer with 5-chime alert and Windows notification</span>
+            </div>
+            <label class="md-switch" tabindex="0" role="checkbox" aria-checked="true" aria-label="Toggle Pomodoro Timer Widget">
+              <input type="checkbox" id="settingShowPomodoro" tabindex="-1">
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-info">
+              <span class="setting-label">Show Quick Notes & Tasks</span>
+              <span class="setting-desc">Local auto-saved scratchpad & checklist</span>
+            </div>
+            <label class="md-switch" tabindex="0" role="checkbox" aria-checked="true" aria-label="Toggle Notes & Checklist Widget">
+              <input type="checkbox" id="settingShowNotes" tabindex="-1">
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-info">
+              <span class="setting-label">Show Workspace Toolbar</span>
+              <span class="setting-desc">Display workspace categories below search bar</span>
+            </div>
+            <label class="md-switch" tabindex="0" role="checkbox" aria-checked="true" aria-label="Toggle Workspace Toolbar">
+              <input type="checkbox" id="settingShowWorkspace" tabindex="-1">
+              <span class="slider"></span>
+            </label>
+          </div>
+        </section>
+
+        <!-- 2. BACKGROUND TAB -->
+        <section id="tab-background" class="tab-panel" role="tabpanel">
+          <h3 class="panel-title">Background & Wallpaper</h3>
+          
+          <div class="setting-row">
+            <div class="setting-info">
+              <span class="setting-label">Wallpaper Style</span>
+              <span class="setting-desc">Choose between nature photography, solid color, or custom image</span>
+            </div>
+            <select id="settingBgType" class="md-select">
+              <option value="default">Cinematic Nature (Default)</option>
+              <option value="color">Solid Color</option>
+              <option value="image">Custom Upload</option>
+            </select>
+          </div>
+
+          <div id="bgOptionsColor" class="setting-row bg-sub-option hidden">
+            <div class="setting-info">
+              <span class="setting-label">Solid Color Picker</span>
+              <span class="setting-desc">Pick custom background color</span>
+            </div>
+            <input type="color" id="settingBgColorVal" value="#121212" class="color-picker" aria-label="Background solid color picker">
+          </div>
+
+          <div id="bgOptionsImage" class="setting-row bg-sub-option hidden">
+            <div class="setting-info">
+              <span class="setting-label">Upload Custom Image</span>
+              <span class="setting-desc">Choose an image from your computer</span>
+            </div>
+            <button id="uploadBgBtn" type="button" class="btn btn-secondary">Choose File</button>
+            <input type="file" id="bgFileInput" accept="image/*" class="hidden">
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-info">
+              <span class="setting-label">Blur Wallpaper</span>
+              <span class="setting-desc">Softly blur background image to highlight shortcuts</span>
+            </div>
+            <label class="md-switch" tabindex="0" role="checkbox" aria-checked="false" aria-label="Toggle background blur">
+              <input type="checkbox" id="settingBgBlur" tabindex="-1">
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-info">
+              <span class="setting-label">Reset Wallpaper</span>
+              <span class="setting-desc">Restore original nature landscapes</span>
+            </div>
+            <button id="resetBgBtn" type="button" class="btn btn-danger-subtle">Reset to Default</button>
+          </div>
+        </section>
+
+        <!-- 3. BEHAVIOR & NAVIGATION TAB -->
+        <section id="tab-behavior" class="tab-panel" role="tabpanel">
+          <h3 class="panel-title">Behavior & Navigation</h3>
+
+          <div class="setting-row">
+            <div class="setting-info">
+              <span class="setting-label">Open Shortcuts In</span>
+              <span class="setting-desc">Where clicked website links should launch</span>
+            </div>
+            <div class="md-radio-group">
+              <label class="radio-label"><input type="radio" name="openTarget" value="current"> Current Tab</label>
+              <label class="radio-label"><input type="radio" name="openTarget" value="new"> New Tab</label>
+            </div>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-info">
+              <span class="setting-label">Auto-Focus Search Bar</span>
+              <span class="setting-desc">Automatically place cursor in search on new tab open</span>
+            </div>
+            <label class="md-switch" tabindex="0" role="checkbox" aria-checked="true" aria-label="Toggle auto focus search">
+              <input type="checkbox" id="settingAutoFocus" tabindex="-1">
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-info">
+              <span class="setting-label">Instant Search</span>
+              <span class="setting-desc">Instantly filter shortcuts as you type</span>
+            </div>
+            <label class="md-switch" tabindex="0" role="checkbox" aria-checked="true" aria-label="Toggle instant search">
+              <input type="checkbox" id="settingInstantSearch" tabindex="-1">
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="setting-row">
+            <div class="setting-info">
+              <span class="setting-label">Confirm Before Delete</span>
+              <span class="setting-desc">Show confirmation dialog before deleting shortcuts</span>
+            </div>
+            <label class="md-switch" tabindex="0" role="checkbox" aria-checked="true" aria-label="Toggle confirm before delete">
+              <input type="checkbox" id="settingConfirmDelete" tabindex="-1">
+              <span class="slider"></span>
+            </label>
+          </div>
+        </section>
+
+        <!-- 3.5 PERFORMANCE & MEMORY TAB -->
+        <section id="tab-performance" class="tab-panel" role="tabpanel">
+          <div class="panel-header-row" style="margin-bottom: 18px;">
+            <h3 class="panel-title" style="margin-bottom: 4px;">Performance & Memory</h3>
+            <p style="font-size: 13px; color: var(--text-secondary); margin: 0; line-height: 1.5;">
+              Monitor browser memory efficiency, release physical RAM from idle tabs, and protect system responsiveness.
+            </p>
+          </div>
+
+          <!-- Hero Action Card: 1-Click RAM Optimizer -->
+          <div class="stats-card perf-clean-card">
+            <div class="perf-clean-row">
+              <div class="perf-clean-info-cluster">
+                <div class="perf-clean-icon-box">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                  </svg>
+                </div>
+                <div class="perf-clean-text-content">
+                  <h4 class="perf-clean-title">Smart Memory Optimizer</h4>
+                  <p class="perf-clean-desc">
+                    Suspends background idle tabs into ultra-low-power sleep mode without closing them. Reclaims physical RAM and boosts battery efficiency immediately.
+                  </p>
+                </div>
+              </div>
+              <button type="button" id="ramSaverBtn" class="btn btn-primary perf-optimize-btn ram-optimize-action-btn">
+                <span id="ramBtnIcon" style="display: flex; align-items: center;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                  </svg>
+                </span>
+                <span id="ramBtnText">Optimize Memory Now</span>
+              </button>
+            </div>
+            <!-- Background state hooks for widgets.js lifecycle -->
+            <span id="ramStatusBadge" class="hidden"></span>
+            <span id="ramIndicatorDot" class="hidden"></span>
+            <span id="ramIndicatorText" class="hidden"></span>
+          </div>
+
+          <!-- Section: Core Architecture & Safeguards -->
+          <div class="settings-subhead" style="margin-top: 22px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+              <rect x="9" y="9" width="6" height="6"></rect>
+              <line x1="9" y1="1" x2="9" y2="4"></line>
+              <line x1="15" y1="1" x2="15" y2="4"></line>
+              <line x1="9" y1="20" x2="9" y2="23"></line>
+              <line x1="15" y1="20" x2="15" y2="23"></line>
+              <line x1="20" y1="9" x2="23" y2="9"></line>
+              <line x1="20" y1="14" x2="23" y2="14"></line>
+              <line x1="1" y1="9" x2="4" y2="9"></line>
+              <line x1="1" y1="14" x2="4" y2="14"></line>
+            </svg>
+            <h4 style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: var(--text-secondary); margin: 0;">
+              How Tabvora Optimizes Memory
+            </h4>
+          </div>
+
+          <div class="perf-feature-list">
+            <!-- Feature 1: Tab Hibernation -->
+            <div class="perf-feature-card">
+              <div class="perf-icon-box icon-blue">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+              </div>
+              <div class="perf-card-content">
+                <div class="perf-card-header">
+                  <span class="perf-card-title">Background Tab Hibernation (Tab Discard)</span>
+                  <span class="perf-pill-tag tag-blue">Native API</span>
+                </div>
+                <p class="perf-card-desc">
+                  Reclaims up to 70% of memory from idle tabs while keeping their titles and icons open in your tab bar.
+                </p>
+              </div>
+            </div>
+
+            <!-- Feature 2: Audio & Media Safeguard -->
+            <div class="perf-feature-card">
+              <div class="perf-icon-box icon-green">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  <path d="m9 12 2 2 4-4"></path>
+                </svg>
+              </div>
+              <div class="perf-card-content">
+                <div class="perf-card-header">
+                  <span class="perf-card-title">Audio & Media Safe Guard</span>
+                  <span class="perf-pill-tag tag-green">Protected</span>
+                </div>
+                <p class="perf-card-desc">
+                  Tabs playing YouTube, Spotify, podcasts, or video calls are automatically detected and never interrupted.
+                </p>
+              </div>
+            </div>
+
+            <!-- Feature 3: Zero Data Loss Restore -->
+            <div class="perf-feature-card">
+              <div class="perf-icon-box icon-amber">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+              </div>
+              <div class="perf-card-content">
+                <div class="perf-card-header">
+                  <span class="perf-card-title">Zero Data Loss & Instant Wake</span>
+                  <span class="perf-pill-tag tag-amber">Instant Wake</span>
+                </div>
+                <p class="perf-card-desc">
+                  Clicking any sleeping tab wakes it up immediately with full scroll position and browsing history intact.
+                </p>
+              </div>
+            </div>
+
+            <!-- Feature 4: Protected Internal URLs -->
+            <div class="perf-feature-card">
+              <div class="perf-icon-box icon-purple">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+              </div>
+              <div class="perf-card-content">
+                <div class="perf-card-header">
+                  <span class="perf-card-title">Internal & System Tab Immunity</span>
+                  <span class="perf-pill-tag tag-purple">Whitelisted</span>
+                </div>
+                <p class="perf-card-desc">
+                  Internal system pages (chrome://, edge://, about:) and pinned active work items are permanently excluded.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          </section>
+
+        <section id="tab-reports" class="tab-panel" role="tabpanel">
+          <h3 class="panel-title">Screen Time & Usage Reports</h3>
+
+          <!-- Global Browser Usage Limit Box -->
+          <div class="stats-card">
+            <div class="setting-row" style="border-bottom: none; padding: 0 0 10px 0;">
+              <div class="setting-info">
+                <span class="setting-label">Enable Daily Browser Usage Limit</span>
+                <span class="setting-desc">Alert when total daily browser time is exceeded</span>
+              </div>
+              <label class="md-switch" tabindex="0" role="checkbox" aria-checked="false" aria-label="Toggle Global Browser Usage Limit">
+                <input type="checkbox" id="settingEnableGlobalLimit" tabindex="-1">
+                <span class="slider"></span>
+              </label>
+            </div>
+
+            <div id="globalLimitInputsContainer" class="form-group hidden" style="margin-top: 10px; border-top: 1px solid var(--border-color); padding-top: 12px;">
+              <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 12px;">
+                <div style="flex: 1;">
+                  <label for="globalLimitHours" style="font-size: 11px; font-weight: 600; color: var(--text-secondary); text-transform: uppercase;">Hours</label>
+                  <input type="number" id="globalLimitHours" min="0" max="23" value="2" class="md-select" style="width: 100%;">
+                </div>
+                <div style="flex: 1;">
+                  <label for="globalLimitMinutes" style="font-size: 11px; font-weight: 600; color: var(--text-secondary); text-transform: uppercase;">Minutes</label>
+                  <input type="number" id="globalLimitMinutes" min="0" max="59" value="0" class="md-select" style="width: 100%;">
+                </div>
+              </div>
+              <button id="saveGlobalLimitBtn" type="button" class="btn btn-primary" style="width: 100%;">Save Daily Limit</button>
+            </div>
+          </div>
+
+          <!-- Browser Usage Reports Master Toggle Card (Default OFF) -->
+          <div class="stats-card" style="margin-top: 14px;">
+            <div class="setting-row" style="border-bottom: none; padding: 0;">
+              <div class="setting-info">
+                <span class="setting-label">Browser Usage Reports</span>
+                <span class="setting-desc">Track local browsing time and view site activity analytics</span>
+              </div>
+              <label class="md-switch" tabindex="0" role="checkbox" aria-checked="false" aria-label="Toggle Browser Usage Reports">
+                <input type="checkbox" id="settingEnableStats" tabindex="-1">
+                <span class="slider"></span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Empty / Disabled State placeholder when Reports are OFF -->
+          <div id="browserReportsDisabledMsg" class="stats-card" style="margin-top: 14px; text-align: center; padding: 28px 20px;">
+            <div style="font-size: 32px; margin-bottom: 8px;">📊</div>
+            <h4 style="font-size: 15px; font-weight: 600; margin-bottom: 6px; color: var(--text-primary);">Browser Usage Reports are Turned Off</h4>
+            <p class="setting-desc" style="max-width: 440px; margin: 0 auto; line-height: 1.5;">
+              Turn on the switch above to track your daily screen time, view visited websites with duration, and inspect browsing productivity. All metrics remain safely on your local device.
+            </p>
+          </div>
+
+          <!-- Analytics Container: Only visible when Browser Usage Reports is ON -->
+          <div id="browserReportsAnalyticsContainer" class="hidden">
+            <!-- Section: Analytics & Activity Reports -->
+            <div class="settings-subhead" style="margin-top: 24px; margin-bottom: 12px; display: flex; align-items: center; justify-content: space-between;">
+              <h4 style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-secondary); margin: 0;">Usage Analytics & Reports</h4>
+              <div style="display: flex; gap: 8px;">
+                <button id="clearStatsBtn" type="button" class="btn btn-danger-subtle btn-sm">Clear Stats</button>
+                <button id="exportStatsBtn" type="button" class="btn btn-secondary btn-sm">Export JSON</button>
+              </div>
+            </div>
+
+            <!-- Date Filters -->
+            <div class="stats-filter-bar" role="toolbar" aria-label="Browser usage date ranges">
+              <button class="browser-report-btn active" data-range="today">Today</button>
+              <button class="browser-report-btn" data-range="week">Week</button>
+              <button class="browser-report-btn" data-range="month">Month</button>
+              <button class="browser-report-btn" data-range="custom">Custom</button>
+            </div>
+
+            <div id="browserCustomRangeContainer" class="setting-row hidden" style="margin-top: 8px;">
+              <div class="setting-info"><span class="setting-label">Custom Date Range</span></div>
+              <div class="date-range-inputs">
+                <input type="date" id="browserStartDate" class="md-select" aria-label="Start date">
+                <span>to</span>
+                <input type="date" id="browserEndDate" class="md-select" aria-label="End date">
+              </div>
+            </div>
+
+            <!-- 3 Stats Metric Cards -->
+            <div class="stats-card" style="margin-top: 12px;">
+              <div class="stats-grid" style="flex-wrap: wrap; gap: 12px;">
+                <div class="stat-item"><span class="stat-num" id="reportTotalUsage">0h 0m</span><span class="stat-lbl">Total Usage</span></div>
+                <div class="stat-item"><span class="stat-num" id="reportAvgDaily">0h 0m</span><span class="stat-lbl">Avg Daily Usage</span></div>
+                <div class="stat-item"><span class="stat-num" id="reportLongestSession">0h 0m</span><span class="stat-lbl">Longest Session</span></div>
+              </div>
+            </div>
+
+            <!-- Visited Websites List -->
+            <div class="stats-card" style="margin-top: 12px;">
+              <h4 id="visitedWebsitesTitle" style="font-size: 13px; margin-bottom: 12px; color: var(--text-primary);">Websites Visited</h4>
+              <div id="statsListContainer" class="stats-card-list"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. DIGITAL WELLBEING TAB -->
+        <section id="tab-wellbeing" class="tab-panel" role="tabpanel">
+          <h3 class="panel-title">Digital Wellbeing</h3>
+
+          <!-- Main Master Switch Card -->
+          <div class="stats-card">
+            <div class="setting-row" style="border-bottom: none; padding: 0 0 10px 0;">
+              <div class="setting-info">
+                <span class="setting-label">Digital Wellbeing Reminders</span>
+                <span class="setting-desc">Smart programmer deep work cadence with harmonic audio alerts & non-blocking floating reminders</span>
+              </div>
+              <label class="md-switch" tabindex="0" role="checkbox" aria-checked="false" aria-label="Toggle Digital Wellbeing">
+                <input type="checkbox" id="settingEnableWellbeing" tabindex="-1">
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; padding-top: 10px; border-top: 1px solid var(--border-color); flex-wrap: wrap; gap: 8px;">
+              <span style="font-size: 11.5px; color: var(--text-tertiary); display: inline-flex; align-items: center; gap: 6px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+                Gentle harmonic chime (C5, E5, G5) • Never freezes typing
+              </span>
+              <button type="button" id="testWellbeingChimeBtn" class="btn btn-secondary btn-sm" style="display: inline-flex; align-items: center; gap: 6px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+                Test Chime Sound
+              </button>
+            </div>
+          </div>
+
+          <!-- Smart Routine Breakdown -->
+          <div class="stats-card" style="margin-top: 14px;">
+            <h4 style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; color: var(--text-secondary); margin-bottom: 14px; display: flex; align-items: center; gap: 8px;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Deep Work Cadence & Routine
+            </h4>
+            
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              <!-- 1. Eye Rest (45m) -->
+              <div class="wellbeing-cadence-card">
+                <div class="wellbeing-icon-box icon-blue">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                </div>
+                <div class="wellbeing-card-content">
+                  <div class="wellbeing-card-header">
+                    <span class="wellbeing-card-title">45 Mins • 20-20-20 Eye Rest</span>
+                    <span class="wellbeing-pill-tag tag-blue">Vision Health</span>
+                  </div>
+                  <p class="wellbeing-card-desc">
+                    Look 20 feet away for 20 seconds, take 3 deep breaths, and blink gently to prevent dry eye strain and headache.
+                  </p>
+                </div>
+              </div>
+
+              <!-- 2. Stretch & Relax (90m) -->
+              <div class="wellbeing-cadence-card">
+                <div class="wellbeing-icon-box icon-green">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                  </svg>
+                </div>
+                <div class="wellbeing-card-content">
+                  <div class="wellbeing-card-header">
+                    <span class="wellbeing-card-title">90 Mins • Ultradian Stretch & Posture</span>
+                    <span class="wellbeing-pill-tag tag-green">Ergonomics</span>
+                  </div>
+                  <p class="wellbeing-card-desc">
+                    Completed a 90-min focus sprint. Stand up from chair, roll your shoulders, stretch wrists, and align spinal posture.
+                  </p>
+                </div>
+              </div>
+
+              <!-- 3. Walk & Hydrate (180m) -->
+              <div class="wellbeing-cadence-card">
+                <div class="wellbeing-icon-box icon-amber">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path>
+                  </svg>
+                </div>
+                <div class="wellbeing-card-content">
+                  <div class="wellbeing-card-header">
+                    <span class="wellbeing-card-title">3 Hours • Hydrate & Movement</span>
+                    <span class="wellbeing-pill-tag tag-amber">Circulation</span>
+                  </div>
+                  <p class="wellbeing-card-desc">
+                    Drink a fresh glass of water and walk around for 3–5 minutes to reset leg blood circulation and restore cognitive stamina.
+                  </p>
+                </div>
+              </div>
+
+              <!-- 4. Long Break (240m) -->
+              <div class="wellbeing-cadence-card">
+                <div class="wellbeing-icon-box icon-purple">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                    <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                    <line x1="6" y1="1" x2="6" y2="4"></line>
+                    <line x1="10" y1="1" x2="10" y2="4"></line>
+                    <line x1="14" y1="1" x2="14" y2="4"></line>
+                  </svg>
+                </div>
+                <div class="wellbeing-card-content">
+                  <div class="wellbeing-card-header">
+                    <span class="wellbeing-card-title">4 Hours • Deep Work Reset Break</span>
+                    <span class="wellbeing-pill-tag tag-purple">Mind Recovery</span>
+                  </div>
+                  <p class="wellbeing-card-desc">
+                    4 hours of deep screen work completed. Take a restorative 15–20 minute break away from screens to recharge mental stamina.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Privacy & Local Protection -->
+          <div class="wellbeing-privacy-banner">
+            <div class="wellbeing-privacy-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <path d="m9 12 2 2 4-4"></path>
+              </svg>
+            </div>
+            <div class="wellbeing-privacy-content">
+              <div class="wellbeing-privacy-title">Private, Local & Flow-Safe</div>
+              <p class="wellbeing-privacy-desc">
+                Reminders appear as subtle floating alerts with a harmonic chime. They <strong>never lock your screen, close tabs, or interrupt keyboard typing</strong>. Routine timers pause automatically when Chrome is minimized or in the background.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. DATA & BACKUP TAB -->
+        <section id="tab-data" class="tab-panel" role="tabpanel">
+          <h3 class="panel-title">Data & Backup</h3>
+
+          <!-- Backup & Restore Box -->
+          <div class="stats-card">
+            <h4 style="font-size: 13px; margin-bottom: 12px; color: var(--text-primary);">Backup & Bookmarks</h4>
+            <div class="backup-action-row">
+              <button id="exportBtn" type="button" class="btn btn-secondary backup-action-btn" title="Export settings & shortcuts to JSON backup">Export Backup</button>
+              <button id="importBtn" type="button" class="btn btn-secondary backup-action-btn" title="Import settings & shortcuts from JSON backup">Import Backup</button>
+              <input type="file" id="importFileInput" accept=".json" class="hidden">
+              <button id="importBookmarksBtn" type="button" class="btn btn-primary backup-action-btn" title="Import bookmarks from Google Chrome">Import Bookmarks</button>
+            </div>
+          </div>
+
+          <!-- Smart Draft Recovery Box -->
+          <div class="stats-card" style="margin-top: 14px;">
+            <div class="setting-row" style="border-bottom: none; padding: 0 0 10px 0;">
+              <div class="setting-info">
+                <span class="setting-label">Smart Draft Recovery (Power-cut & Crash Protection)</span>
+                <span class="setting-desc">Auto-saves text in web forms so you never lose work on power outages or browser crashes. Clean corner toast only when needed; auto-cleans on submit.</span>
+              </div>
+              <label class="md-switch" tabindex="0" role="checkbox" aria-checked="false" aria-label="Toggle draft recovery">
+                <input type="checkbox" id="settingEnableDrafts" tabindex="-1">
+                <span class="slider"></span>
+              </label>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: space-between; padding-top: 10px; border-top: 1px solid var(--border-color);">
+              <span id="draftStorageUsedText" style="font-size: 11px; color: var(--text-tertiary);">0 KB used for draft backups</span>
+              <button id="clearAllDraftsBtn" type="button" class="btn btn-danger-subtle btn-sm">Clear Saved Drafts</button>
+            </div>
+          </div>
+
+          <!-- Shortcuts Cleanup & Archive -->
+          <div class="stats-card" style="margin-top: 14px;">
+            <div class="setting-row" style="border-bottom: none; padding: 0 0 12px 0;">
+              <div class="setting-info">
+                <span class="setting-label">Duplicate Shortcut Cleaner</span>
+                <span class="setting-desc">Scan and eliminate identical URLs across workspaces</span>
+              </div>
+              <button id="findDuplicatesBtn" type="button" class="btn btn-secondary">Scan Duplicates</button>
+            </div>
+            <div id="duplicateResultsContainer" class="stats-card-list hidden" style="margin-top: 8px;"></div>
+          </div>
+
+          <!-- Storage Analyzer Breakdown -->
+          <div class="stats-card" style="margin-top: 14px;">
+            <h4 style="font-size: 13px; margin-bottom: 12px; color: var(--text-primary);">Storage Analyzer</h4>
+            <div class="stats-grid" style="flex-wrap: wrap; gap: 12px;">
+              <div class="stat-item"><span class="stat-num" id="sizeShortcuts">0 KB</span><span class="stat-lbl">Shortcuts</span></div>
+              <div class="stat-item"><span class="stat-num" id="sizeNotes">0 KB</span><span class="stat-lbl">Notes</span></div>
+              <div class="stat-item"><span class="stat-num" id="sizeStats">0 KB</span><span class="stat-lbl">Statistics</span></div>
+              <div class="stat-item"><span class="stat-num" id="sizeDrafts">0 KB</span><span class="stat-lbl">Drafts</span></div>
+              <div class="stat-item"><span class="stat-num" id="sizeBackground">0 KB</span><span class="stat-lbl">Background</span></div>
+            </div>
+          </div>
+
+          <!-- Factory Reset Box -->
+          <div class="stats-card" style="margin-top: 14px; border-color: rgba(239, 68, 68, 0.3);">
+            <div class="setting-row" style="border-bottom: none; padding: 0;">
+              <div class="setting-info">
+                <span class="setting-label" style="color: #ef4444;">Factory Reset</span>
+                <span class="setting-desc">Erase all shortcuts, notes, settings, and start completely fresh</span>
+              </div>
+              <button id="factoryResetBtn" type="button" class="btn btn-danger">Reset All Data</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- 6. ARCHIVED SHORTCUTS TAB -->
+        <section id="tab-archive" class="tab-panel" role="tabpanel">
+          <h3 class="panel-title">Archived Shortcuts</h3>
+
+          <!-- Archive Overview Card -->
+          <div class="stats-card">
+            <h4 style="font-size: 13px; margin-bottom: 6px; color: var(--text-primary);">Vault & Storage</h4>
+            <p class="setting-desc" style="margin-bottom: 14px; line-height: 1.5;">
+              Archived shortcuts are safely preserved away from your main dashboard to eliminate clutter while keeping notes, visit history, and settings intact. You can restore them to your grid anytime.
+            </p>
+
+            <!-- Quick Archive Selector -->
+            <div id="quickArchiveSection" style="display: flex; gap: 8px; align-items: center; padding-top: 10px; border-top: 1px solid var(--border-color);">
+              <select id="quickArchiveSelect" class="md-select" style="flex: 1;" aria-label="Select shortcut to archive">
+                <option value="">Select an active shortcut to archive...</option>
+              </select>
+              <button id="quickArchiveBtn" type="button" class="btn btn-secondary">Archive</button>
+            </div>
+          </div>
+
+          <!-- Preserved Shortcuts List -->
+          <div class="stats-card" style="margin-top: 14px;">
+            <h4 style="font-size: 13px; margin-bottom: 12px; color: var(--text-primary);">Preserved Shortcuts</h4>
+            <div id="archiveListContainer" class="stats-card-list"></div>
+          </div>
+
+          <!-- Smart Preservation & Privacy Banner -->
+          <div class="archive-info-banner">
+            <div class="archive-info-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="21 8 21 21 3 21 3 8"></polyline>
+                <rect x="1" y="3" width="22" height="5"></rect>
+                <line x1="10" y1="12" x2="14" y2="12"></line>
+              </svg>
+            </div>
+            <div class="archive-info-content">
+              <div class="archive-info-title">Smart Vault & Local Preservation</div>
+              <p class="archive-info-desc">
+                You can quickly archive any shortcut from your main dashboard by right-clicking its card and selecting <strong>"Archive Shortcut"</strong>. Preserved shortcuts stay completely private in local browser storage and can be restored anytime with all notes and custom settings intact.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 6. ABOUT & HELP TAB -->
+        <section id="tab-about" class="tab-panel" role="tabpanel" aria-labelledby="tab-about-heading">
+          <h3 id="tab-about-heading" class="panel-title">About & Shortcuts</h3>
+          
+          <div class="about-card">
+            <div class="about-header-meta">
+              <div class="about-title-row">
+                <span class="about-app-title">Tabvora</span>
+                <span class="about-version" id="manifestVersionLabel">v2.1.0</span>
+              </div>
+              <span class="about-app-subtitle">Smart Tab, Workspace & Productivity Dashboard</span>
+            </div>
+            
+            <p class="about-desc">
+              Tabvora is a private, local-first browser productivity extension designed to organize smart shortcuts, manage workspaces, optionally monitor local screen time, and promote healthy browsing habits. Built on Manifest V3. No cloud synchronization, no analytics, zero telemetry.
+            </p>
+
+            <!-- Keyboard Shortcuts Cheat Sheet -->
+            <div class="stats-card" style="margin: 16px 0; background: var(--surface-color);">
+              <h4 style="font-size: 13px; margin-bottom: 12px; color: var(--text-primary);">Keyboard Shortcuts</h4>
+              <div class="shortcut-setting-row">
+                <span>Focus Search Bar</span>
+                <span class="kbd-badge"><kbd>Ctrl</kbd> + <kbd>K</kbd> / <kbd>Ctrl</kbd> + <kbd>F</kbd></span>
+              </div>
+              <div class="shortcut-setting-row">
+                <span>Add New Shortcut Modal</span>
+                <span class="kbd-badge"><kbd>Alt</kbd> + <kbd>A</kbd></span>
+              </div>
+              <div class="shortcut-setting-row">
+                <span>Open Settings Panel</span>
+                <span class="kbd-badge"><kbd>Alt</kbd> + <kbd>S</kbd></span>
+              </div>
+              <div class="shortcut-setting-row">
+                <span>Switch Workspaces</span>
+                <span class="kbd-badge"><kbd>Alt</kbd> + <kbd>1</kbd> ... <kbd>5</kbd></span>
+              </div>
+              <div class="shortcut-setting-row">
+                <span>Close Any Dialog</span>
+                <span class="kbd-badge"><kbd>Esc</kbd></span>
+              </div>
+            </div>
+
+            <!-- Privacy Summary & Link -->
+            <div class="stats-card" style="margin-bottom: 16px; background: var(--surface-color);">
+              <div style="display: flex; align-items: center; justify-content: space-between;">
+                <div>
+                  <h4 style="font-size: 13px; margin-bottom: 4px; color: var(--text-primary);">🔒 Local-First & Private Architecture</h4>
+                  <p class="setting-desc" style="margin: 0;">No telemetry, no tracking scripts, no ads. All data stays strictly on your device.</p>
+                </div>
+                <button type="button" id="openPrivacyBtn" class="btn btn-secondary btn-sm" style="flex-shrink: 0; margin-left: 12px;">Open Privacy Policy</button>
+              </div>
+            </div>
+
+            <div class="about-actions-grid" role="group" aria-label="Support and Resources Navigation">
+              <button type="button" id="btnOfficialWebsite" class="btn btn-secondary about-action-btn" aria-label="Visit Official Website">
+                <span class="btn-icon-symbol" aria-hidden="true">🌐</span>
+                <span>Official Website</span>
+              </button>
+              <button type="button" id="btnGithubRepo" class="btn btn-secondary about-action-btn" aria-label="View Source Code on GitHub">
+                <span class="btn-icon-symbol" aria-hidden="true">💻</span>
+                <span>GitHub Source</span>
+              </button>
+            </div>
+
+            <div class="about-footer-bar" style="margin-top: 16px;">
+              <span class="footer-meta-text">Tabvora v2.1.0 © 2026 • Privacy First • Local First • Manifest V3</span>
+              <button id="relaunchTutorialBtn" type="button" class="btn btn-secondary btn-sm">Relaunch Guide</button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </dialog>
+
+  <!-- First-Run Onboarding Welcome Screen (Momentum-style) -->
+  <div id="onboardingOverlay" class="onboarding-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="onboardingTitle">
+    <div class="onboarding-top-brand">
+      <img src="icons/logo.png" alt="Tabvora" class="onboarding-brand-logo" width="220" height="74">
+    </div>
+
+    <div class="onboarding-center-content">
+      <h1 id="onboardingTitle" class="onboarding-title">Hello! What's your name?</h1>
+      <div class="onboarding-input-wrap">
+        <input type="text" id="onboardingNameInput" class="onboarding-input" placeholder="" autocomplete="off" spellcheck="false" maxlength="32" aria-label="Your name">
+      </div>
+      <p class="onboarding-sub">Please enter your first name or the name you prefer to be called.</p>
+      <button type="button" id="onboardingContinueBtn" class="onboarding-btn">Continue &gt;</button>
+    </div>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

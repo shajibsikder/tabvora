@@ -455,11 +455,15 @@ body {
   background-color: var(--bg-primary);
 }
 
+.hero-window-frame .window-image-container {
+  aspect-ratio: 3 / 2;
+}
+
 .dashboard-screenshot {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top center;
+  object-position: center;
   display: block;
 }
 
@@ -722,6 +726,133 @@ body {
   .hero-btn-group .btn-hero {
     width: 100%;
   }
+
+  /* Show hero browser strip exclusively on mobile devices */
+  .hero-compat-strip {
+    display: flex;
+  }
+}
+
+/* 13. Browser Compatibility Showcase */
+.browser-compat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.75rem;
+}
+
+.browser-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.5rem 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.browser-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--brand-primary);
+  background: var(--brand-surface);
+}
+
+.browser-icon-wrapper {
+  width: 58px;
+  height: 58px;
+  border-radius: 16px;
+  background: var(--bg-tertiary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+  transition: transform 0.2s ease;
+}
+
+.browser-icon-wrapper img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+  display: block;
+}
+
+.browser-card:hover .browser-icon-wrapper {
+  transform: scale(1.12);
+}
+
+.browser-card-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+  transition: color 0.15s ease;
+}
+
+.browser-card:hover .browser-card-title {
+  color: var(--brand-primary);
+}
+
+/* Hero Browser Compatibility Quick-Pill (Hidden on Desktop, Visible on Mobile) */
+.hero-compat-strip {
+  display: none; /* Excluded on desktop / PC */
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-color);
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.hero-compat-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-tertiary);
+}
+
+.hero-compat-icons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.hero-browser-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0.65rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  font-size: 0.775rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.hero-browser-pill:hover {
+  border-color: var(--brand-primary);
+  color: var(--text-primary);
+  background: var(--brand-surface);
+}
+
+.hero-browser-pill svg,
+.hero-browser-pill img {
+  width: 15px;
+  height: 15px;
+  object-fit: contain;
+  flex-shrink: 0;
+  display: block;
 }
 
 @media (prefers-reduced-motion: reduce) {

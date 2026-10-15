@@ -43,33 +43,132 @@
   </section>
 
   <div style="display: flex; flex-direction: column; gap: 1rem;">
+    <!-- 1. Free & Open Source -->
     <div class="app-card">
       <button class="accordion-header" aria-expanded="false" style="background:none; border:none; width:100%; text-align:left; font-size:1.15rem; font-weight:700; color:var(--text-primary); cursor:pointer; display:flex; justify-content:space-between; align-items:center;">
         Is Tabvora completely free and open source?
         <span>&#9660;</span>
       </button>
-      <div class="accordion-content" style="display:none; margin-top: 1rem; color: var(--text-secondary);">
-        Yes. Tabvora is 100% free software distributed under the permissive MIT License. There are no hidden subscriptions, premium paywalls, or feature limits.
+      <div class="accordion-content" style="display:none; margin-top: 1rem; color: var(--text-secondary); line-height: 1.6;">
+        Yes. Tabvora is completely free software distributed under the permissive MIT License. There are no subscriptions, paywalls, premium tiers, or feature locks. The entire source code is auditable on GitHub.
       </div>
     </div>
 
+    <!-- 2. Privacy & Data Transmission -->
     <div class="app-card">
       <button class="accordion-header" aria-expanded="false" style="background:none; border:none; width:100%; text-align:left; font-size:1.15rem; font-weight:700; color:var(--text-primary); cursor:pointer; display:flex; justify-content:space-between; align-items:center;">
-        Does Tabvora transmit my browsing history or workspace names?
+        Does Tabvora transmit my browsing data, notes, or history?
         <span>&#9660;</span>
       </button>
-      <div class="accordion-content" style="display:none; margin-top: 1rem; color: var(--text-secondary);">
-        Never. Tabvora runs entirely on your local machine. All shortcuts, workspace folders, notes, and settings are saved in standard browser <code>chrome.storage.local</code>/IndexedDB storage and never transmitted over the internet.
+      <div class="accordion-content" style="display:none; margin-top: 1rem; color: var(--text-secondary); line-height: 1.6;">
+        Never. Tabvora is architected on a strict local-first model. All saved shortcuts, custom workspaces, Quick Notes, timer states, and settings reside strictly on your physical machine in <code>chrome.storage.local</code> and <code>IndexedDB</code>. Tabvora operates no backend servers and includes zero analytics or telemetry scripts.
       </div>
     </div>
 
+    <!-- 3. RAM Saver (Memory Optimizer) -->
     <div class="app-card">
       <button class="accordion-header" aria-expanded="false" style="background:none; border:none; width:100%; text-align:left; font-size:1.15rem; font-weight:700; color:var(--text-primary); cursor:pointer; display:flex; justify-content:space-between; align-items:center;">
-        How does Tabvora stay fast with a lot of saved shortcuts?
+        How does the RAM Saver (Memory Optimizer) work?
         <span>&#9660;</span>
       </button>
-      <div class="accordion-content" style="display:none; margin-top: 1rem; color: var(--text-secondary);">
-        Tabvora uses a virtual scrolling grid, so it only renders the shortcuts currently visible on screen. This keeps the new-tab dashboard fast and responsive even with hundreds of saved shortcuts.
+      <div class="accordion-content" style="display:none; margin-top: 1rem; color: var(--text-secondary); line-height: 1.6;">
+        RAM Saver provides a one-click action from your new-tab dashboard to sleep inactive background tabs using Chrome's native <code>chrome.tabs.discard</code> API. It immediately reclaims system memory while automatically safeguarding your active tab, pinned tabs, and tabs playing audio or video.
+      </div>
+    </div>
+
+    <!-- 4. Draft Recovery & Security Screening -->
+    <div class="app-card">
+      <button class="accordion-header" aria-expanded="false" style="background:none; border:none; width:100%; text-align:left; font-size:1.15rem; font-weight:700; color:var(--text-primary); cursor:pointer; display:flex; justify-content:space-between; align-items:center;">
+        What is Draft Recovery and how does it protect sensitive data?
+        <span>&#9660;</span>
+      </button>
+      <div class="accordion-content" style="display:none; margin-top: 1rem; color: var(--text-secondary); line-height: 1.6;">
+        Draft Recovery is an optional feature (disabled by default) that temporarily saves text typed into web forms so you don't lose work if a tab crashes or closes. It features multi-tier screening that automatically excludes password fields (<code>type="password"</code>), payment cards, CVVs, expiration dates, PINs, OTPs, authentication tokens, and phone numbers. Draft snapshots stay purely in local IndexedDB.
+      </div>
+    </div>
+
+    <!-- 5. Virtual Grid Performance -->
+    <div class="app-card">
+      <button class="accordion-header" aria-expanded="false" style="background:none; border:none; width:100%; text-align:left; font-size:1.15rem; font-weight:700; color:var(--text-primary); cursor:pointer; display:flex; justify-content:space-between; align-items:center;">
+        How does Tabvora stay fast with hundreds of shortcuts?
+        <span>&#9660;</span>
+      </button>
+      <div class="accordion-content" style="display:none; margin-top: 1rem; color: var(--text-secondary); line-height: 1.6;">
+        Tabvora utilizes an optimized virtual scrolling grid engine. Only the shortcut cards currently visible in your viewport are rendered to the DOM. This keeps memory consumption minimal and ensures instantaneous load times regardless of whether you have 10 or 1,000 shortcuts.
+      </div>
+    </div>
+
+    <!-- 6. Broad Host Permissions -->
+    <div class="app-card">
+      <button class="accordion-header" aria-expanded="false" style="background:none; border:none; width:100%; text-align:left; font-size:1.15rem; font-weight:700; color:var(--text-primary); cursor:pointer; display:flex; justify-content:space-between; align-items:center;">
+        Does Tabvora declare broad host permissions across all websites?
+        <span>&#9660;</span>
+      </button>
+      <div class="accordion-content" style="display:none; margin-top: 1rem; color: var(--text-secondary); line-height: 1.6;">
+        No. Tabvora v2.1.0 does not declare broad <code>host_permissions</code> in its manifest. Its content scripts run strictly in top-level browsing frames (<code>all_frames: false</code>) and activate only if you explicitly turn on optional user-facing features (such as Draft Recovery or Site Limits) in Settings.
+      </div>
+    </div>
+
+    <!-- 7. Permissions Declared -->
+    <div class="app-card">
+      <button class="accordion-header" aria-expanded="false" style="background:none; border:none; width:100%; text-align:left; font-size:1.15rem; font-weight:700; color:var(--text-primary); cursor:pointer; display:flex; justify-content:space-between; align-items:center;">
+        What browser permissions does Tabvora request?
+        <span>&#9660;</span>
+      </button>
+      <div class="accordion-content" style="display:none; margin-top: 1rem; color: var(--text-secondary); line-height: 1.6;">
+        Tabvora requests 9 specific Manifest V3 permissions: <code>storage</code> (save local dashboard data), <code>favicon</code> (render icons via Chrome's native favicon cache), <code>tabs</code> (manage shortcuts, identify active domain for limits, and sleep background tabs via RAM Saver), <code>bookmarks</code> (manual bookmark import), <code>contextMenus</code> (right-click to add shortcut), <code>alarms</code> (local timer intervals), <code>search</code> (dashboard search bar), <code>clipboardRead</code> (single-click paste button in notes), and <code>notifications</code> (local desktop alerts).
+      </div>
+    </div>
+
+    <!-- 8. Wallpapers & Live Effects -->
+    <div class="app-card">
+      <button class="accordion-header" aria-expanded="false" style="background:none; border:none; width:100%; text-align:left; font-size:1.15rem; font-weight:700; color:var(--text-primary); cursor:pointer; display:flex; justify-content:space-between; align-items:center;">
+        What wallpapers and visual customization options are included?
+        <span>&#9660;</span>
+      </button>
+      <div class="accordion-content" style="display:none; margin-top: 1rem; color: var(--text-secondary); line-height: 1.6;">
+        Tabvora includes 40 curated high-definition aesthetic wallpapers, featuring real-time atmospheric canvas effects including Northern Lights aurora, gentle rain, glowing fireflies, cosmic lake, and starlight. Light, Dark, and Zen minimalist focus modes are fully supported.
+      </div>
+    </div>
+
+    <!-- 9. Digital Wellbeing -->
+    <div class="app-card">
+      <button class="accordion-header" aria-expanded="false" style="background:none; border:none; width:100%; text-align:left; font-size:1.15rem; font-weight:700; color:var(--text-primary); cursor:pointer; display:flex; justify-content:space-between; align-items:center;">
+        How does the Digital Wellbeing feature work?
+        <span>&#9660;</span>
+      </button>
+      <div class="accordion-content" style="display:none; margin-top: 1rem; color: var(--text-secondary); line-height: 1.6;">
+        Digital Wellbeing (optional, default OFF) calculates active browser session time locally and sends gentle reminders for eye rest (45m), stretching (90m), hydration, and walking breaks. All timers reside in session storage (<code>chrome.storage.session</code>) and automatically reset when you close Chrome or at midnight.
+      </div>
+    </div>
+
+    <!-- 10. Backup & Portability -->
+    <div class="app-card">
+      <button class="accordion-header" aria-expanded="false" style="background:none; border:none; width:100%; text-align:left; font-size:1.15rem; font-weight:700; color:var(--text-primary); cursor:pointer; display:flex; justify-content:space-between; align-items:center;">
+        How can I backup or transfer my shortcuts to another computer?
+        <span>&#9660;</span>
+      </button>
+      <div class="accordion-content" style="display:none; margin-top: 1rem; color: var(--text-secondary); line-height: 1.6;">
+        You can export your complete workspace collection, custom links, and settings to a local JSON backup file with a single click in Settings. You can import this file anytime on any computer running Tabvora.
+      </div>
+    </div>
+
+    <!-- 11. Supported Browsers -->
+    <div class="app-card">
+      <button class="accordion-header" aria-expanded="false" style="background:none; border:none; width:100%; text-align:left; font-size:1.15rem; font-weight:700; color:var(--text-primary); cursor:pointer; display:flex; justify-content:space-between; align-items:center;">
+        Which browsers are supported by Tabvora?
+        <span>&#9660;</span>
+      </button>
+      <div class="accordion-content" style="display:none; margin-top: 1rem; color: var(--text-secondary); line-height: 1.6;">
+        Tabvora is built strictly on standard Chromium Manifest V3 WebExtensions APIs. When installed from the Chrome Web Store, it runs natively with full feature parity across all major desktop Chromium browsers, including:
+        <ul style="margin: 0.75rem 0 0 1.5rem; line-height: 1.8;">
+          <li><strong>Google Chrome</strong> (Version 102+)</li>
+          <li><strong>Microsoft Edge</strong> (Enable "Allow extensions from other stores")</li>
+          <li><strong>Brave Browser</strong> (Full compatibility with Shields)</li>
+          <li><strong>Opera &amp; Opera GX</strong> (Full workspace and RAM Saver support)</li>
+          <li><strong>Vivaldi</strong> (Compatible with tab stacks and custom workspaces)</li>
+          <li><strong>Arc Browser</strong> (Seamless operation within Arc's sidebar workflow)</li>
+        </ul>
       </div>
     </div>
   </div>

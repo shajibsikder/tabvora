@@ -163,7 +163,36 @@
         </a>
       </div>
 
-      <!-- Trust Badges Bar -->
+      <!-- Trust Badges Bar / Browser Compatibility Quick-Pill Strip (Mobile View) -->
+      <div class="hero-compat-strip">
+        <span class="hero-compat-label">Supported Chromium Browsers</span>
+        <div class="hero-compat-icons">
+          <a href="https://www.google.com/chrome/" target="_blank" rel="noopener" class="hero-browser-pill" aria-label="Visit Google Chrome Official Site">
+            <img src="images/browsers/chrome.svg" alt="Google Chrome" width="15" height="15">
+            Chrome
+          </a>
+          <a href="https://www.microsoft.com/edge" target="_blank" rel="noopener" class="hero-browser-pill" aria-label="Visit Microsoft Edge Official Site">
+            <img src="images/browsers/edge.svg" alt="Microsoft Edge" width="15" height="15">
+            Edge
+          </a>
+          <a href="https://brave.com/" target="_blank" rel="noopener" class="hero-browser-pill" aria-label="Visit Brave Browser Official Site">
+            <img src="images/browsers/brave.svg" alt="Brave Browser" width="15" height="15">
+            Brave
+          </a>
+          <a href="https://www.opera.com/" target="_blank" rel="noopener" class="hero-browser-pill" aria-label="Visit Opera Official Site">
+            <img src="images/browsers/opera.svg" alt="Opera & GX" width="15" height="15">
+            Opera
+          </a>
+          <a href="https://vivaldi.com/" target="_blank" rel="noopener" class="hero-browser-pill" aria-label="Visit Vivaldi Official Site">
+            <img src="images/browsers/vivaldi.svg" alt="Vivaldi" width="15" height="15">
+            Vivaldi
+          </a>
+          <a href="https://arc.net/" target="_blank" rel="noopener" class="hero-browser-pill" aria-label="Visit Arc Browser Official Site">
+            <img src="images/browsers/arc.svg" alt="Arc Browser" width="15" height="15">
+            Arc
+          </a>
+        </div>
+      </div>
 
     </div>
 
@@ -185,13 +214,15 @@
           </div>
         </div>
 
-        <!-- 4:3 Aspect Ratio Image Container -->
+        <!-- 3:2 Aspect Ratio Showcase Container -->
         <div class="window-image-container">
           <img 
-            src="images/ff1.png" 
-            alt="Tabvora Dashboard Preview" 
+            src="images/hero-dashboard.png" 
+            alt="Tabvora Dashboard Preview on Tablet" 
             class="dashboard-screenshot"
             loading="eager"
+            width="1856"
+            height="1237"
           >
         </div>
 
@@ -200,6 +231,66 @@
 
   </div>
 </section>
+
+  <!-- Universal Browser Compatibility Showcase -->
+  <section class="browser-compat-section" style="margin-top: 3.5rem; margin-bottom: 3.5rem;">
+    <div style="text-align: center; max-width: 680px; margin: 0 auto 2rem auto;">
+      <h2 style="font-size: 1.85rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--text-primary);">Works Across Your Favorite Browsers</h2>
+      <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+        Tabvora is built strictly on modern W3C WebExtensions and Chromium Manifest V3 standards. Because modern desktop browsers share the Chromium engine, Tabvora installs smoothly and runs natively on all major Chromium browsers.
+      </p>
+    </div>
+
+    <div class="browser-compat-grid">
+      <!-- 1. Google Chrome -->
+      <a href="https://www.google.com/chrome/" target="_blank" rel="noopener" class="browser-card" aria-label="Visit Google Chrome Official Site">
+        <div class="browser-icon-wrapper">
+          <img src="images/browsers/chrome.svg" alt="Google Chrome" width="38" height="38">
+        </div>
+        <span class="browser-card-title">Google Chrome</span>
+      </a>
+
+      <!-- 2. Microsoft Edge -->
+      <a href="https://www.microsoft.com/edge" target="_blank" rel="noopener" class="browser-card" aria-label="Visit Microsoft Edge Official Site">
+        <div class="browser-icon-wrapper">
+          <img src="images/browsers/edge.svg" alt="Microsoft Edge" width="38" height="38">
+        </div>
+        <span class="browser-card-title">Microsoft Edge</span>
+      </a>
+
+      <!-- 3. Brave Browser -->
+      <a href="https://brave.com/" target="_blank" rel="noopener" class="browser-card" aria-label="Visit Brave Browser Official Site">
+        <div class="browser-icon-wrapper">
+          <img src="images/browsers/brave.svg" alt="Brave Browser" width="38" height="38">
+        </div>
+        <span class="browser-card-title">Brave</span>
+      </a>
+
+      <!-- 4. Opera & Opera GX -->
+      <a href="https://www.opera.com/" target="_blank" rel="noopener" class="browser-card" aria-label="Visit Opera Official Site">
+        <div class="browser-icon-wrapper">
+          <img src="images/browsers/opera.svg" alt="Opera & GX" width="38" height="38">
+        </div>
+        <span class="browser-card-title">Opera &amp; GX</span>
+      </a>
+
+      <!-- 5. Vivaldi -->
+      <a href="https://vivaldi.com/" target="_blank" rel="noopener" class="browser-card" aria-label="Visit Vivaldi Official Site">
+        <div class="browser-icon-wrapper">
+          <img src="images/browsers/vivaldi.svg" alt="Vivaldi" width="38" height="38">
+        </div>
+        <span class="browser-card-title">Vivaldi</span>
+      </a>
+
+      <!-- 6. Arc Browser -->
+      <a href="https://arc.net/" target="_blank" rel="noopener" class="browser-card" aria-label="Visit Arc Browser Official Site">
+        <div class="browser-icon-wrapper">
+          <img src="images/browsers/arc.svg" alt="Arc Browser" width="38" height="38">
+        </div>
+        <span class="browser-card-title">Arc Browser</span>
+      </a>
+    </div>
+  </section>
 
   <!-- Feature Grid -->
   <section style="margin-top: 3rem;">
@@ -227,6 +318,30 @@
           Instant Shortcut Search
         </h3>
         <p class="app-card-desc">Lightning-fast search across all your saved shortcuts by title, URL, domain, or notes, with virtual scrolling that stays fast even with hundreds of entries.</p>
+      </div>
+
+      <div class="app-card">
+        <h3 class="app-card-title">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--brand-primary)" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          RAM Saver (Memory Optimizer)
+        </h3>
+        <p class="app-card-desc">One-click sleep for inactive background tabs via <code>chrome.tabs.discard</code> to free up browser memory, safely protecting pinned tabs and active media.</p>
+      </div>
+
+      <div class="app-card">
+        <h3 class="app-card-title">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--brand-primary)" stroke-width="2"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+          40 Wallpapers &amp; Live Effects
+        </h3>
+        <p class="app-card-desc">Curated collection of 40 aesthetic high-definition backgrounds featuring dynamic atmospheric canvas animations (aurora, rain, fireflies, cosmic lake, stars).</p>
+      </div>
+
+      <div class="app-card">
+        <h3 class="app-card-title">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--brand-primary)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Digital Wellbeing &amp; Limits
+        </h3>
+        <p class="app-card-desc">Optional, session-only eye and posture break reminders plus website usage budgets that reset automatically when you close Chrome. Zero health profiling.</p>
       </div>
     </div>
   </section>

@@ -50,7 +50,7 @@
     <ul style="margin-left: 1.5rem; margin-top: 0.5rem; color: var(--text-secondary);">
       <li>No remote scripts, hosted JS files, or dynamically evaluated code (e.g., <code>eval()</code>) are permitted or used.</li>
       <li>Background tasks run exclusively inside ephemeral, non-persistent Service Workers.</li>
-      <li>Strict Content Security Policies (CSP) block all remote script loading and inline code execution. Tabvora operates without any backend server — the only outbound requests are standard browser navigation, checking whether a saved shortcut's URL is reachable, and page interactions used by the optional Draft Recovery and Website Usage Statistics features, none of which send data to a Tabvora-owned server.</li>
+      <li>Strict Content Security Policies (CSP) block all remote script loading and inline code execution. Tabvora operates completely without any backend server — zero background or automated network requests are transmitted from any extension feature. Outbound network traffic occurs exclusively during standard browser navigation when you intentionally click a shortcut link or perform a web search through your default search engine.</li>
     </ul>
   </section>
 

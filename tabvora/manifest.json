@@ -1,8 +1,9 @@
 {
+
   "manifest_version": 3,
-  "name": "Tabvora – Smart Tab & Session Manager",
-  "version": "1.0.0",
-  "description": "A high-performance, offline-first New Tab dashboard with virtual scrolling, unlimited shortcuts, deep search, and draft recovery.",
+  "name": "Tabvora - Smart Tab & Dashboard Manager",
+  "version": "2.1.0",
+  "description": "A local-first new tab dashboard with visual shortcuts, custom workspaces, Pomodoro timer, notes, and memory optimizer.",
   "chrome_url_overrides": {
     "newtab": "newtab.html"
   },
@@ -20,27 +21,28 @@
     "tabs",
     "bookmarks",
     "contextMenus",
-    "alarms"
-  ],
-  "host_permissions": [
-    "http://*/*",
-    "https://*/*"
+    "alarms",
+    "search",
+    "clipboardRead",
+    "notifications"
   ],
   "content_scripts": [
     {
       "matches": ["http://*/*", "https://*/*"],
       "js": ["js/content-script.js"],
-      "run_at": "document_idle"
+      "run_at": "document_idle",
+      "all_frames": false,
+      "match_about_blank": false
     }
   ],
   "background": {
     "service_worker": "js/background.js",
     "type": "module"
   },
+  "minimum_chrome_version": "104",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
     "128": "icons/icon128.png"
-  },
-  "offline_enabled": true
+  }
 }

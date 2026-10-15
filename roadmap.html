@@ -48,73 +48,66 @@
   <!-- Roadmap Timeline Container -->
   <div style="display: flex; flex-direction: column; gap: 2rem; margin-bottom: 3rem;">
     
-    <!-- Q3 2026: Released & Live -->
+    <!-- v2.0.0: Completed -->
     <article class="app-card" style="padding: 2rem; border-left: 4px solid #10b981; box-shadow: var(--shadow-sm);">
       <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
         <div style="display: flex; align-items: center; gap: 0.6rem;">
           <span class="badge badge-success" style="font-size: 0.8rem;">Completed</span>
-          <h2 style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary); margin: 0;">v1.0.0 – Production Baseline</h2>
+          <h2 style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary); margin: 0;">v2.0.0 – Digital Wellbeing &amp; Usage Limits</h2>
         </div>
-        <span style="font-size: 0.85rem; font-weight: 600; color: var(--text-tertiary);">July 2026</span>
+        <span style="font-size: 0.85rem; font-weight: 600; color: var(--text-tertiary);">August 2026</span>
       </div>
       <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.6;">
-        Full Manifest V3 architecture, local-first workspace manager, Scratchpad widget, and custom theme launcher.
+        Introduced session-based Digital Wellbeing break reminders, website and global daily browsing limits, and browser usage tracking cards.
       </p>
       <ul style="list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.9rem; color: var(--text-secondary);">
-        <li>✓ Strict Manifest V3 Service Worker background engine</li>
-        <li>✓ Zero remote network calls, tracking pixels, or telemetry</li>
-        <li>✓ IndexedDB local database layer for instant performance</li>
+        <li>✓ Session-only Digital Wellbeing break reminders (Eye, Stretch, Walk)</li>
+        <li>✓ Website-level and global daily browsing limits with real-time alerts</li>
+        <li>✓ Browser Usage Dashboard card with configurable appearance controls</li>
       </ul>
     </article>
 
-    <!-- Q4 2026: In Active Development -->
-    <article class="app-card" style="padding: 2rem; border-left: 4px solid var(--brand-primary); box-shadow: var(--shadow-sm);">
+    <!-- v2.1.0: Current Production Release -->
+    <article class="app-card" style="padding: 2rem; border-left: 4px solid #10b981; box-shadow: var(--shadow-sm);">
       <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
         <div style="display: flex; align-items: center; gap: 0.6rem;">
-          <span class="badge badge-info" style="font-size: 0.8rem;">In Progress</span>
-          <h2 style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary); margin: 0;">v1.1.0 – Local Backup & Advanced Widgets</h2>
+          <span class="badge badge-success" style="font-size: 0.8rem; background: #10b981; color: #fff;">Current Release</span>
+          <h2 style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary); margin: 0;">v2.1.0 – Hardening, RAM Saver &amp; CWS Compliance</h2>
         </div>
-        <span style="font-size: 0.85rem; font-weight: 600; color: var(--text-tertiary);">Q4 2026</span>
+        <span style="font-size: 0.85rem; font-weight: 600; color: var(--text-tertiary);">October 2026</span>
       </div>
       <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.6;">
-        Enhancing data portability and dashboard customizability without introducing any third-party cloud connections.
+        Major performance and Chrome Web Store compliance milestone with memory optimization, hardened security screening, and aesthetic wallpapers.
       </p>
       <ul style="list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.9rem; color: var(--text-secondary);">
-        <li style="padding-left: 1.25rem; position: relative;">
-          <span style="position: absolute; left: 0; color: var(--brand-primary); font-weight: 700;">•</span>
-          <strong>Encrypted JSON Export/Import:</strong> Backup your shortcuts and workspace structures directly to your local file system.
-        </li>
-        <li style="padding-left: 1.25rem; position: relative;">
-          <span style="position: absolute; left: 0; color: var(--brand-primary); font-weight: 700;">•</span>
-          <strong>Custom Wallpaper Engine:</strong> Support for local custom image upload and gradient presets for the dashboard background.
-        </li>
-        <li style="padding-left: 1.25rem; position: relative;">
-          <span style="position: absolute; left: 0; color: var(--brand-primary); font-weight: 700;">•</span>
-          <strong>Keyboard Shortcut Manager:</strong> Extended global hotkey bindings for opening workspace folders instantly.
-        </li>
+        <li>✓ RAM Saver memory optimizer (<code>chrome.tabs.discard</code> with pinned tab safety)</li>
+        <li>✓ Multi-tier sensitive field screening for optional Draft Recovery</li>
+        <li>✓ 40 curated wallpapers with dynamic real-time atmospheric canvas effects</li>
+        <li>✓ Zero broad host permissions (scoped top-level content scripts only)</li>
+        <li>✓ Full asset provenance documentation in <code>LICENSES.md</code> and <code>ATTRIBUTION.md</code></li>
       </ul>
     </article>
 
-    <!-- Q1 2027: Future Exploration -->
+    <!-- v2.2.0: Future Exploration -->
     <article class="app-card" style="padding: 2rem; border-left: 4px solid var(--border-strong); box-shadow: var(--shadow-sm);">
       <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem;">
         <div style="display: flex; align-items: center; gap: 0.6rem;">
           <span class="badge badge-warning" style="font-size: 0.8rem;">Planned</span>
-          <h2 style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary); margin: 0;">v1.2.0 – Smart Focus Tools</h2>
+          <h2 style="font-size: 1.25rem; font-weight: 800; color: var(--text-primary); margin: 0;">v2.2.0 – Smart Workspace Innovations</h2>
         </div>
         <span style="font-size: 0.85rem; font-weight: 600; color: var(--text-tertiary);">Q1 2027</span>
       </div>
       <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.6;">
-        Focus mode integrations designed to reduce screen clutter and improve browser memory efficiency.
+        Focus tools and workspace grouping designed to optimize tab management while preserving local-first privacy.
       </p>
       <ul style="list-style: none; padding-left: 0; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.9rem; color: var(--text-secondary);">
         <li style="padding-left: 1.25rem; position: relative;">
           <span style="position: absolute; left: 0; color: var(--text-tertiary); font-weight: 700;">•</span>
-          <strong>Tab Group Auto-Organizer:</strong> Automatic grouping of open tabs by host domain using Chrome Tab Groups API.
+          <strong>Tab Group Auto-Organizer:</strong> Optional grouping of open tabs by workspace or domain using Chrome Tab Groups API.
         </li>
         <li style="padding-left: 1.25rem; position: relative;">
           <span style="position: absolute; left: 0; color: var(--text-tertiary); font-weight: 700;">•</span>
-          <strong>Focus Timer Widget:</strong> Local Pomodoro timer card on the dashboard to help manage work cycles.
+          <strong>Local Theme Presets:</strong> Custom user wallpaper uploads with client-side compression and offline gradient styling.
         </li>
       </ul>
     </article>
