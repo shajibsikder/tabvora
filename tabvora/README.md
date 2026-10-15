@@ -34,10 +34,10 @@ I'm available for:
 
 For business inquiries, collaboration, or freelance work, please contact me through LinkedIn or the official Weekmotion website.
 
-## 📦 Repository Notice
+## 📦 Extension Source & Security Notice
 
-This repository contains the public documentation, website resources, screenshots, and selected source files for **Tabvora**.
+This directory contains the production extension source files for **Tabvora** (v2.1.0).
 
-To protect actively maintained commercial implementation details, some production source files are intentionally not included in this public repository.
-
-We welcome bug reports, feature requests, security reports, and general feedback through GitHub Issues.
+- **Personal Review & Audit:** The code is available for transparent security audit and local inspection.
+- **Store & Resale Protection:** As outlined in the root [LICENSE](../LICENSE), re-uploading this extension or derivative clones to the Chrome Web Store or other marketplaces, and commercial resale, are strictly prohibited without written authorization.
+- **Reporting Issues:** We welcome bug reports, security disclosures, and feature feedback via GitHub Issues.

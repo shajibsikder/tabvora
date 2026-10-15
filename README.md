@@ -9,7 +9,7 @@ A clean, high-performance browser extension designed to organize web workflows, 
 [![Chrome Web Store](https://img.shields.io/badge/Chrome_Web_Store-v2.1.0-1a73e8?logo=googlechrome&logoColor=white)](https://chromewebstore.google.com/detail/ibejmhkigcbnfnobfkeebfnpodlpgjab)
 [![Platform: Manifest V3](https://img.shields.io/badge/Platform-Manifest%20V3-success)](https://developer.chrome.com/docs/extensions/mv3/intro/)
 [![Storage: Local-First](https://img.shields.io/badge/Storage-Device--Level%20IndexedDB-informational)](#privacy--local-first-architecture)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![License: Protective](https://img.shields.io/badge/License-Source--Available-blue.svg)](LICENSE)
 
 <br/>
 
@@ -209,5 +209,5 @@ Contributions, bug reports, and feature suggestions are welcome. Please ensure p
 
 ## License & Attribution
 
-- **License:** Released under the [MIT License](LICENSE).
+- **License:** Released under a [Custom Protective License](LICENSE) (Source-available for local inspection, transparent security audit, and personal use; commercial resale and unauthorized browser store republishing strictly prohibited).
 - **Asset Attribution:** Third-party libraries, audio synthesis algorithms, and image provenance are fully cataloged in [`tabvora/ATTRIBUTION.md`](tabvora/ATTRIBUTION.md) and [`tabvora/LICENSES.md`](tabvora/LICENSES.md).

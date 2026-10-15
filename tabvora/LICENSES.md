@@ -8,19 +8,34 @@ Version 2.1.0 • Manifest V3 • Local-First Architecture
 ## 1. Software License
 
 ```
-MIT License
+Custom Source-Available & Protective Distribution License
 
-Copyright (c) 2026 Shajib Sikder
+Copyright (c) 2026 Md Shajib Sikder. All rights reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+of this software and associated documentation files (the "Software"), to inspect,
+study, review, and run locally for personal non-commercial educational purposes,
+subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+1. TRADEMARK & BRANDING:
+The name "Tabvora", the logo, icons, branding assets, and visual presentation are
+the exclusive intellectual property of Md Shajib Sikder. No license or permission
+is granted to use the Tabvora trademark or branding in any derivative works.
+
+2. BROWSER EXTENSION STORE DISTRIBUTION RESTRICTION:
+Re-publishing, re-uploading, mirroring, repackaging, or distributing this extension
+or any derivative work on any public browser extension marketplace or store (including,
+without limitation, the Google Chrome Web Store, Microsoft Edge Add-ons, Firefox Add-ons,
+or Opera Addons) is STRICTLY PROHIBITED without prior express written permission
+from Md Shajib Sikder.
+
+3. COMMERCIAL RESALE:
+Selling, sublicensing, or monetizing this software, its source code, or any derivative
+works as a paid product or paid service is strictly prohibited.
+
+4. ATTRIBUTION:
+The above copyright notice, this permission notice, and all original author attributions
+must be retained in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -59,4 +74,4 @@ All audio notifications (timer completions and mindfulness chime intervals) are 
 
 ## 4. Icons & Brand Assets
 
-All extension icons (`icons/icon16.png`, `icons/icon48.png`, `icons/icon128.png`, and `icons/logo.png`) are original brand assets designed specifically for Tabvora and released under the MIT License.
+All extension icons (`icons/icon16.png`, `icons/icon48.png`, `icons/icon128.png`, and `icons/logo.png`) are proprietary brand assets designed specifically for Tabvora and reserved under copyright. Re-use of the Tabvora trademark, logo, and brand identity in any derivative works is strictly prohibited.
