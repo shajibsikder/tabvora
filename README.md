@@ -1,6 +1,6 @@
 <div align="center">
 
-# Tabvora
+# Tabvora Smart Tab
 
 **Local-First Workspace & New Tab Productivity Dashboard for Chromium Browsers**
 
