@@ -174,20 +174,24 @@ Tabvora includes native keyboard shortcuts for power-user navigation:
 
 ## Installation
 
-### Chrome Web Store (Recommended)
-Install Tabvora directly from the official [Chrome Web Store](https://chromewebstore.google.com/detail/tabvora-%E2%80%93-smart-tab-sessi/ibejmhkigcbnfnobfkeebfnpodlpgjab).
+### For Users: Chrome Web Store (Official 1-Click Install)
+The official, verified method to install Tabvora on Google Chrome, Microsoft Edge, Brave, Opera, Vivaldi, or Arc:
 
-### Developer / Local Installation
-To inspect, test, or contribute to Tabvora locally:
+👉 **[Add to Chrome from the Chrome Web Store](https://chromewebstore.google.com/detail/tabvora-%E2%80%93-smart-tab-sessi/ibejmhkigcbnfnobfkeebfnpodlpgjab)**
 
-1. Clone the repository:
+### For Developers & Code Audit (Local Inspection)
+For developers, security auditors, or open-source contributors inspecting the source:
+
+1. Clone this repository:
    ```bash
    git clone https://github.com/shajibsikder/tabvora.git
    ```
-2. Open your Chromium browser and navigate to the extensions page (`chrome://extensions` or `edge://extensions`).
+2. Navigate to your browser's extensions management page (`chrome://extensions` or `edge://extensions`).
 3. Enable **Developer mode** via the toggle in the upper-right corner.
-4. Click **Load unpacked** and select the `tabvora` folder within the cloned repository.
-5. Open a new tab to launch your local build of Tabvora.
+4. Click **Load unpacked** and select the `tabvora` folder within the cloned directory.
+5. Open a new tab to test your local build.
+
+> **Notice:** The source code is provided for personal testing, transparent security audit, and contribution. Re-publishing this extension, its branding, or derivative clones to the Chrome Web Store or other public browser marketplaces is strictly prohibited under the project license.
 
 ---
 
