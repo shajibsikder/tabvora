@@ -15,10 +15,6 @@ A clean, high-performance browser extension designed to organize web workflows, 
 
 <img src="images/hero-dashboard.png" alt="Tabvora Workspace Dashboard" width="840" style="border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);"/>
 
-<br/><br/>
-
-[Overview](#overview) • [Interface Showcase](#interface-showcase) • [Key Features](#key-features) • [Supported Browsers](#supported-browsers) • [Technical Architecture](#technical-architecture) • [Permissions Audit](#permissions-audit) • [Installation](#installation)
-
 </div>
 
 ---
