@@ -22,60 +22,82 @@ A local-first new tab dashboard with visual shortcuts, custom workspaces, Pomodo
 - **Category:** Productivity
 
 ### Detailed Description
-```markdown
-Tabvora transforms your browser's new tab page into a clean, distraction-free productivity dashboard built on a strict local-first, zero-telemetry architecture.
+```text
+Tabvora is a fast, local-first New Tab dashboard designed to organize shortcuts, workspaces, and everyday browsing in one clean, customizable interface. Replace Chrome's default New Tab page with a customizable dashboard while keeping all your data stored locally on your device.
 
-Organize your daily web tools into visual shortcuts, switch seamlessly between custom project workspaces, stay focused with an integrated Pomodoro timer, take quick scratchpad notes, and monitor your digital wellbeing — without sending a single byte of your data to external servers.
+KEY FEATURES
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-✨ KEY PRODUCTIVITY FEATURES
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Dashboard & Shortcuts
+• Responsive Shortcut Grid: Handles extensive collections of websites smoothly with responsive layouts and instant search.
+• Custom Workspaces: Group and organize links by category or context (Main, Work, Study, Personal, Shopping).
+• Quick Customization: Drag-and-drop reordering, link pinning, notes indicators, and adjustable grid layouts.
+• One-Click Search & Import: Instant search across all saved links and simple Chrome bookmark import.
+• Context Menu Integration: Right-click any webpage or link to save it directly with "Add to Tabvora".
+• Organization Tools: Built-in duplicate finder and archive for unused shortcuts.
+• Automatic Favicons: Renders clean site icons using Chrome's native favicon service without third-party network calls.
 
-⚡ VISUAL SHORTCUTS & SPEED DIAL
-• Custom visual shortcut tiles with website icons displayed using Chrome's native built-in favicon service.
-• Group shortcuts into custom categories or tags.
-• Instant search filtering across all your shortcuts.
-• One-click bookmark import to quickly bring your existing browser links into Tabvora.
+Productivity Widgets & Controls
+• RAM Saver (Memory Optimizer): One-click memory optimization using native tab sleeping (chrome.tabs.discard) to hibernate inactive background tabs, automatically safeguarding pinned tabs and media playback.
+• Integrated Focus Pomodoro Timer: 25-minute focus intervals and 5-minute break cycles with real-time countdown, chime alerts synthesized via W3C Web Audio API, and desktop notifications.
+• Quick Notes & Task Checklist: Local scratchpad widget with character counter, 1-click clipboard paste, text file export, and an integrated task checklist with progress tracking.
+• Browser Usage Card: Dashboard widget to track daily browsing dwell time and limit progress locally.
+• Live Clock, Date & Quotes: Clean, real-time desktop clock display (12h/24h) and curated offline motivational quote bank.
+• Widget Visibility Controls: Toggle individual widgets on or off via Appearance settings.
+• Native Glassmorphism UI: Modern overlay dialogs for reminders, limits, and system notices.
 
-📂 CUSTOM WORKSPACES
-• Create dedicated workspaces for Work, Personal, Research, or Projects.
-• Switch contexts instantly without cluttering your main view.
+Personalization & Environments
+• 40 Curated HD Wallpapers: High-resolution offline landscapes, architecture, and minimal textures.
+• Dynamic Live Canvas Effects: Real-time procedural atmospheric animations (Aurora Borealis, Rain on Window, Fireflies, Cosmic Lake, Starlight).
+• Zen Minimalist Mode: Clean hide/reveal toggle that clears the UI for zero-distraction focus.
+• Appearance Customization: Light, Dark, and System themes with adjustable card sizes and spacing.
+• Backup & Restore: Export and import your dashboard configurations as a local JSON file anytime.
 
-⏱️ INTEGRATED FOCUS POMODORO TIMER
-• 25-minute focus intervals and 5-minute break timers.
-• Real-time countdown display directly on your dashboard.
-• Local desktop notifications when intervals complete with a 5-minute snooze option.
-• Procedural synthetic audio chimes generated in-browser via the W3C Web Audio API.
+OPTIONAL FEATURES (Disabled by Default)
 
-📝 QUICK SCRATCHPAD NOTES
-• Instant note-taking right on your new tab.
-• One-click clipboard paste button for quick snippet capture.
-• Notes are persisted purely inside your browser's local storage (`chrome.storage.local`).
+• Digital Wellbeing: Provides session-based break reminders (Eye, Stretch, Walk, Long Break) to reduce screen fatigue. Resets automatically when Chrome closes. This feature is intended only for productivity and break reminders. It does not collect health or personal data.
+• Browser Usage Dashboard: Optionally displays your locally calculated daily browsing time and progress toward configured limits.
+• Website & Global Browsing Time Limits: Set custom daily time budgets per website or globally across Chrome, with real-time popups that work during full-screen media playback.
+• Draft Recovery: Optionally saves supported unsaved text entered into compatible web forms to help recover accidental tab closures. Password fields, payment fields, OTPs, tokens, and phone numbers are automatically excluded by sensitive field screening.
+• Website Usage Statistics: Optionally calculates browsing time and visit activity for websites and displays the results locally on your dashboard.
 
-🧹 RAM SAVER (MEMORY OPTIMIZER)
-• One-click memory optimization to sleep inactive background tabs (via `chrome.tabs.discard`) and free up system RAM, automatically protecting pinned tabs and audible media.
+PRIVACY & ZERO TELEMETRY GUARANTEE
 
-🌿 DIGITAL WELLBEING & USAGE LIMITS (OPTIONAL)
-• Set gentle daily usage limits on distracting websites.
-• Periodic break reminders (45m eye-rest, 90m stretch, 3h hydrate & walk) measuring active browser session time.
-• Disabled by default — you have complete opt-in control.
+Tabvora operates strictly on a local-first architecture. All user data—including shortcuts, workspaces, notes, settings, limits, and optional feature records—remains stored on your device via chrome.storage.local, chrome.storage.session, and IndexedDB.
 
-🛡️ OPTIONAL DRAFT RECOVERY
-• Helps prevent lost form text if a tab accidentally crashes or closes.
-• Disabled by default.
-• Best-effort security filtering: automatically screens out passwords, credit cards, CVVs, tokens, authentication fields, and phone numbers.
+• Zero Tracking: No analytics, telemetry, advertising trackers, or user profiling.
+• Zero Cloud Storage: No backend servers, cloud databases, user accounts, or cloud synchronization.
+• Zero Remote Code: Complies with strict CSP. No eval(), no remote scripts, and no external CDNs. All scripts and styles are bundled locally.
+• Data Integrity: We do not collect, transmit, share, or sell user data.
+• Session Safety: Temporary session data (Digital Wellbeing states and limit dismissals) automatically clears upon ending your browser session.
 
-🎨 IMMERSIVE VISUAL CUSTOMIZATION
-• 40 curated wallpapers, including dynamic live effects (aurora, rain, fireflies, ocean, stars).
-• Light, Dark, and System theme support with full Zen minimalist mode.
+PERMISSIONS
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-🔒 PRIVACY & ZERO TELEMETRY GUARANTEE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-• Local-First: All of your data (shortcuts, notes, preferences, history stats) is stored on your machine in `chrome.storage.local` and `IndexedDB`.
-• Zero Tracking: No analytics, no Google Analytics, no tracking pixels, no telemetry scripts.
-• Zero Remote Code: No eval(), no remote scripts, and no external CDNs. All scripts and styles are bundled locally.
-• No Account Required: No signup, no passwords, no cloud sync required.
+• Storage: Saves shortcuts, workspaces, notes, settings, and local preferences on your device.
+• Tabs: Required for RAM Saver tab sleeping (chrome.tabs.discard) and workspace tab navigation.
+• Bookmarks: Used exclusively when you manually click "Import Bookmarks".
+• Context Menus: Powers the right-click "Add to Tabvora" shortcut creation menu.
+• Alarms: Schedules local reminder events and maintains Pomodoro timers after service worker suspension.
+• Favicon: Renders website icons using Chrome's built-in favicon API without third-party network calls.
+• Search: Dispatches search bar queries to your chosen search engine.
+• ClipboardRead: Powers the single-click paste button inside the Quick Notes scratchpad upon user click.
+• Notifications: Displays native desktop notifications for Pomodoro cycles and website limits.
+• Content Scripts (http://*/*, https://*/*): Scoped strictly to top-level pages (all_frames: false) to display in-tab limit overlays and power the optional form draft recovery feature.
+
+TRANSPARENCY & RESOURCES
+
+Tabvora provides public documentation, a public GitHub repository, and supporting resources for transparency. Review the repository, inspect our privacy practices, or report issues directly on GitHub.
+
+GitHub Repository
+https://github.com/shajibsikder/tabvora
+
+Privacy Policy
+https://shajibsikder.github.io/tabvora/privacy.html
+
+Report Issues
+https://github.com/shajibsikder/tabvora/issues
+
+Built with Manifest V3
+Privacy First • Local First • Transparent & Secure
 ```
 
 ---
