@@ -1,19 +1,30 @@
 <div align="center">
 
-# Tabvora Smart Tab
+# Tabvora – Smart Tab & Browser Productivity Dashboard
 
-**Local-First Workspace & New Tab Productivity Dashboard for Chromium Browsers**
+**A Privacy-First Chrome New Tab Extension for Workspaces, Bookmarks, Tab Management & Productivity**
 
-A clean, high-performance browser extension designed to organize web workflows, manage project workspaces, reduce system memory overhead, and maintain healthy browsing habits without cloud tracking.
+Turn your browser's new tab into a clean, customizable workspace. Tabvora brings smart shortcuts, project workspaces, RAM Saver, a Pomodoro focus timer, quick notes, wallpapers, and digital wellbeing tools together in one local-first browser extension.
 
 [![Chrome Web Store](https://img.shields.io/badge/Chrome_Web_Store-v2.1.0-1a73e8?logo=googlechrome&logoColor=white)](https://chromewebstore.google.com/detail/ibejmhkigcbnfnobfkeebfnpodlpgjab)
-[![Platform: Manifest V3](https://img.shields.io/badge/Platform-Manifest%20V3-success)](https://developer.chrome.com/docs/extensions/mv3/intro/)
-[![Storage: Local-First](https://img.shields.io/badge/Storage-Device--Level%20IndexedDB-informational)](#privacy--local-first-architecture)
-[![License: Protective](https://img.shields.io/badge/License-Source--Available-blue.svg)](LICENSE)
+[![Manifest V3](https://img.shields.io/badge/Manifest-V3-success)](https://developer.chrome.com/docs/extensions/develop/migrate/what-is-mv3)
+[![Platform](https://img.shields.io/badge/Platform-Chromium%20Browsers-informational)](#supported-browsers)
+[![Privacy](https://img.shields.io/badge/Privacy-Local--First-blue)](#privacy--local-first-architecture)
+[![License](https://img.shields.io/badge/License-See%20LICENSE-blue.svg)](LICENSE)
 
 <br/>
 
-<img src="images/hero-dashboard.png" alt="Tabvora Workspace Dashboard" width="840" style="border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);"/>
+<a href="https://shajibsikder.github.io/tabvora/">
+  <img src="images/hero-dashboard.png" alt="Tabvora Chrome new tab productivity dashboard showing shortcuts, workspaces and widgets" width="840"/>
+</a>
+
+<br/>
+
+[Website](https://shajibsikder.github.io/tabvora/) ·
+[Chrome Web Store](https://chromewebstore.google.com/detail/ibejmhkigcbnfnobfkeebfnpodlpgjab) ·
+[Privacy Policy](https://shajibsikder.github.io/tabvora/privacy.html) ·
+[Security](https://shajibsikder.github.io/tabvora/security.html) ·
+[Report an Issue](https://github.com/shajibsikder/tabvora/issues)
 
 </div>
 
@@ -21,16 +32,26 @@ A clean, high-performance browser extension designed to organize web workflows, 
 
 ## Overview
 
-Modern web browsers are powerful workstations, but default new-tab pages often introduce clutter, algorithmic distractions, and background telemetry. 
+**Tabvora is a Chrome new tab extension and browser productivity dashboard** designed to make everyday browsing more organized, focused, and personal. It replaces the default new-tab page with a customizable workspace where you can organize website shortcuts, separate projects into workspaces, manage inactive tabs, take quick notes, and build healthier browsing habits.
 
-**Tabvora** replaces the default new tab with an extensible, local-first productivity dashboard. It combines workspace organization, an integrated Pomodoro focus timer, active memory optimization (RAM Saver), and optional digital wellbeing controls into a single, cohesive interface.
+Instead of relying on an account-based cloud service, Tabvora is designed around local-first storage. Your shortcuts, notes, workspaces, and preferences are kept in browser storage on your device. The extension is built for people who want a useful new tab page without unnecessary clutter or background tracking.
+
+### Why Tabvora?
+
+- **Organize your browser:** Keep frequently used websites, bookmarks, and project links in one dashboard.
+- **Separate projects:** Create dedicated workspaces for development, research, study, work, and personal browsing.
+- **Manage inactive tabs:** Use RAM Saver to discard eligible background tabs when you choose.
+- **Stay focused:** Use the built-in Pomodoro timer, reminders, and website time limits.
+- **Capture ideas quickly:** Write and export notes directly from your new tab.
+- **Make it yours:** Personalize the dashboard with wallpapers, themes, widgets, and minimalist mode.
+- **Keep data local:** Tabvora does not require an account or cloud synchronization for its core experience.
 
 ### Core Principles
 
-- **Local-First Storage:** All bookmarks, notes, workspaces, and analytics are persisted exclusively inside your browser (`chrome.storage.local` and IndexedDB). No data is sent to external servers.
-- **Strict Privacy:** Zero analytics, zero telemetry scripts, zero tracking pixels, and no account requirements.
-- **Resource Efficiency:** Built on Manifest V3 standards with virtualized grid rendering and an event-driven background service worker that terminates when idle.
-- **Opt-In Productivity:** Advanced features like form draft recovery and browsing duration limits are disabled by default, giving users full governance over their environment.
+- **Local-first storage:** User data is stored in browser storage, including `chrome.storage.local`, IndexedDB, and session storage where applicable.
+- **Privacy-conscious design:** No analytics, telemetry scripts, tracking pixels, or account requirement are part of the documented core experience.
+- **Efficient browser architecture:** Uses Manifest V3, virtualized grid rendering, and an event-driven background service worker.
+- **User-controlled features:** Optional features such as form draft recovery and browsing duration limits are disabled by default.
 
 ---
 
@@ -38,176 +59,287 @@ Modern web browsers are powerful workstations, but default new-tab pages often i
 
 | Main Workspace Dashboard | Appearance & Widget Settings | About & Keyboard Shortcuts |
 | :---: | :---: | :---: |
-| <img src="images/ss1.png" width="280" alt="Dashboard Preview"/> | <img src="images/ss2.png" width="280" alt="Settings Preview"/> | <img src="images/ss3.png" width="280" alt="Shortcuts Preview"/> |
-| Clean clock, quote & widgets | Modular toggles & theme controls | Quick keys & local architecture |
+| <img src="images/ss1.png" width="280" alt="Tabvora new tab dashboard with website shortcuts, clock and productivity widgets"/> | <img src="images/ss2.png" width="280" alt="Tabvora settings screen with appearance, theme and widget controls"/> | <img src="images/ss3.png" width="280" alt="Tabvora about screen showing keyboard shortcuts and local-first information"/> |
+| Shortcuts, clock and widgets | Modular settings and themes | Keyboard shortcuts and project details |
 
 ---
 
 ## Key Features
 
-### 1. Visual Shortcuts & Project Workspaces
-- **Virtual Grid Rendering:** Handles hundreds of shortcuts smoothly with virtualized DOM node recycling, ensuring 60fps scrolling and negligible memory footprint.
-- **Context Workspaces:** Separate your browsing contexts (e.g., Development, Research, Media, Client Work) and switch between them instantly.
-- **Native Favicon Provider:** Resolves website icons locally using Chrome's internal favicon provider (`chrome://favicon2/`) without making external network calls.
-- **Tagging & Color Labels:** Organize tiles with customizable category badges and color-coded indicators.
-- **Bookmark Migration:** 1-click import tool to migrate existing browser bookmarks directly into structured Tabvora workspaces.
+### 1. Smart Shortcuts, Speed Dial & Project Workspaces
 
-### 2. RAM Saver (Memory Optimizer)
-- **Background Tab Sleeping:** Leverages native `chrome.tabs.discard` APIs to hibernate background tabs that consume excess memory.
-- **Safety Guards:** Automatically protects pinned tabs, active audio/video playback, and forms with active user inputs from being discarded.
-- **One-Click Execution:** Free up hundreds of megabytes of RAM during heavy multi-tab workflows.
+Organize frequently visited websites and separate browsing links by task or project.
 
-### 3. Integrated Focus & Audio Synthesis
-- **Configurable Pomodoro Timer:** 25-minute work sprints and 5-minute restorative intervals with a real-time countdown display.
-- **Procedural Web Audio Engine:** Chime alerts and completion sounds are synthesized in real time using the W3C Web Audio API (`AudioContext`), eliminating external audio file dependencies.
-- **Desktop Notifications:** Dispatches native system notifications when intervals complete, with an optional 5-minute snooze.
+- **Visual website shortcuts:** Open your favorite websites from a customizable new-tab dashboard.
+- **Project workspaces:** Keep Development, Research, Media, Client Work, Study, or Personal links in separate contexts.
+- **Virtualized grid rendering:** Supports large shortcut collections through virtualized DOM node recycling.
+- **Native favicon provider:** Resolves website icons through Chrome's internal favicon provider (`chrome://favicon2/`) rather than a third-party favicon service.
+- **Tags and color labels:** Categorize shortcuts with custom labels and color indicators.
+- **Bookmark migration:** Import existing browser bookmarks into organized Tabvora workspaces.
 
-### 4. Digital Wellbeing & Browsing Allowances (Optional)
-- **Session Break Alerts:** Periodic ergonomics reminders (Eye strain 20-20-20 rule, Stretch, Hydrate & Walk) calculated from active browser session dwell time.
-- **Domain Time Limits:** Set custom daily allowances for distracting websites with non-intrusive in-tab glassmorphic countdown overlays.
-- **Session-Only Persistence:** Wellbeing timers utilize `chrome.storage.session` and automatically reset at midnight or when the browser closes.
+### 2. RAM Saver & Background Tab Manager
 
-### 5. Quick Notes Scratchpad
-- **Instant Capture:** Markdown-friendly notes widget directly on the new tab.
-- **1-Click Paste:** Dedicated clipboard paste button using strictly scoped `clipboardRead` APIs.
-- **Offline Export:** Save notes locally as `.txt` files with character count and timestamps.
+Manage inactive browser tabs during multi-tab workflows.
 
-### 6. Curated Visual Environments
-- **40 HD Wallpapers:** High-resolution landscapes, architecture, minimalist workspaces, and abstract textures.
-- **Dynamic Live Canvas Effects:** Real-time atmospheric particle animations (Aurora Borealis, Rain on Window, Fireflies, Cosmic Lake, Starlight).
-- **Zen Minimalist Mode:** Clean hide/reveal toggle that clears the UI for zero-distraction focus.
+- **Background tab sleeping:** Uses the native `chrome.tabs.discard` API to discard eligible inactive tabs.
+- **Safety guards:** Protects pinned tabs, active audio/video playback, and forms with active user input from being discarded.
+- **User-initiated control:** Run the RAM Saver when you need to reduce the memory pressure caused by inactive tabs.
+- **Tab workflow support:** Helps keep large browsing sessions more manageable.
+
+> Actual memory savings depend on the websites, browser, open tabs, and device. Discarding a tab does not guarantee a fixed amount of RAM will be released.
+
+### 3. Pomodoro Timer & Focus Tools
+
+Build focused work sessions with an integrated timer.
+
+- **Configurable Pomodoro sessions:** Includes 25-minute work sessions and 5-minute breaks.
+- **Real-time countdown:** View the remaining time directly from the new-tab dashboard.
+- **Web Audio notifications:** Generates timer sounds with the Web Audio API (`AudioContext`) without requiring external audio files.
+- **Desktop notifications:** Receive native notifications when a session ends, with an optional 5-minute snooze.
+
+### 4. Digital Wellbeing & Website Time Limits
+
+Optional tools to support more intentional browsing.
+
+- **Session break reminders:** Get reminders for eye breaks using the 20-20-20 rule, stretching, hydration, and walking.
+- **Website time limits:** Set daily allowances for selected websites.
+- **In-tab countdown overlays:** View remaining allowance through an on-page countdown overlay.
+- **Session-based timers:** Uses `chrome.storage.session` for session data and resets according to the configured daily and browser-session behavior.
+
+### 5. Quick Notes & Scratchpad
+
+Capture small ideas without leaving your browser.
+
+- **Markdown-friendly notes:** Write and organize quick notes from the new-tab page.
+- **Clipboard paste:** Use the dedicated paste control with the scoped `clipboardRead` permission.
+- **Offline export:** Export notes as `.txt` files.
+- **Useful note details:** View character counts and timestamps.
+
+### 6. Wallpapers, Themes & Visual Customization
+
+Personalize the look and feel of your browser dashboard.
+
+- **40 HD wallpapers:** Includes landscapes, architecture, minimalist workspaces, and abstract textures.
+- **Live canvas effects:** Includes Aurora Borealis, Rain on Window, Fireflies, Cosmic Lake, and Starlight effects.
+- **Zen Minimalist Mode:** Hide or reveal dashboard elements for a cleaner, distraction-reduced view.
+- **Appearance controls:** Customize the dashboard through the available settings and theme controls.
+
+---
+
+## Use Cases
+
+Tabvora brings common browser productivity tools into one new-tab experience.
+
+- **Developers:** Keep coding tools, documentation, repositories, and project links in dedicated workspaces.
+- **Students:** Organize study resources, learning websites, and notes.
+- **Researchers:** Group reference websites and research links by topic.
+- **Freelancers and professionals:** Separate client projects, work resources, and personal browsing.
+- **Everyday browser users:** Create a useful speed-dial page, manage open tabs, and access frequently used websites quickly.
 
 ---
 
 ## Supported Browsers
 
-Tabvora is built strictly to W3C WebExtensions specifications and Manifest V3 standards. It operates natively across all major Chromium-based desktop browsers:
+Tabvora targets Chromium-based desktop browsers and uses the Chrome Extensions Manifest V3 platform.
 
-| Browser | Logo | Engine Requirement | Compatibility Status |
+| Browser | Logo | Engine Requirement | Compatibility |
 | :--- | :---: | :--- | :--- |
-| **Google Chrome** | <img src="images/browsers/chrome.svg" width="22" height="22" alt="Google Chrome"/> | Chromium 102+ | Full native support (Primary target) |
-| **Microsoft Edge** | <img src="images/browsers/edge.svg" width="22" height="22" alt="Microsoft Edge"/> | Chromium 102+ | Full native support |
-| **Brave Browser** | <img src="images/browsers/brave.svg" width="22" height="22" alt="Brave Browser"/> | Chromium 102+ | Compatible with Brave Shields |
-| **Opera & Opera GX** | <img src="images/browsers/opera.svg" width="22" height="22" alt="Opera"/> | Chromium 102+ | Full workspace & RAM Saver support |
-| **Vivaldi** | <img src="images/browsers/vivaldi.svg" width="22" height="22" alt="Vivaldi"/> | Chromium 102+ | Compatible with tab stacks |
-| **Arc Browser** | <img src="images/browsers/arc.svg" width="22" height="22" alt="Arc"/> | Chromium 102+ | Compatible with Arc Spaces |
+| **Google Chrome** | <img src="images/browsers/chrome.svg" width="22" height="22" alt="Google Chrome logo"/> | Chromium 102+ | Primary target |
+| **Microsoft Edge** | <img src="images/browsers/edge.svg" width="22" height="22" alt="Microsoft Edge logo"/> | Chromium 102+ | Supported |
+| **Brave Browser** | <img src="images/browsers/brave.svg" width="22" height="22" alt="Brave Browser logo"/> | Chromium 102+ | Compatible with Brave Shields |
+| **Opera & Opera GX** | <img src="images/browsers/opera.svg" width="22" height="22" alt="Opera browser logo"/> | Chromium 102+ | Workspace and RAM Saver support |
+| **Vivaldi** | <img src="images/browsers/vivaldi.svg" width="22" height="22" alt="Vivaldi browser logo"/> | Chromium 102+ | Compatible with tab stacks |
+| **Arc Browser** | <img src="images/browsers/arc.svg" width="22" height="22" alt="Arc browser logo"/> | Chromium-based version | Compatibility may vary by release |
+
+Browser compatibility can vary by browser version and extension API support. Google Chrome is the primary target.
 
 ---
 
 ## Technical Architecture
 
-Tabvora is architected with modern modular standards for long-term maintainability and zero vendor lock-in.
+Tabvora uses a modular browser-extension structure built around Manifest V3, browser APIs, local storage, and independent UI modules.
 
-```
+```text
 tabvora/
-├── manifest.json              # Manifest V3 configuration & permission boundaries
-├── newtab.html                # Entry point DOM structure
+├── manifest.json              # Manifest V3 configuration and permissions
+├── newtab.html                # New-tab page entry point
 ├── css/
-│   ├── base.css               # Reset, typography, layout grid & animations
-│   ├── components.css         # UI widgets, modal dialogs, glassmorphic styles
-│   └── tokens.css             # Color systems, light/dark variables, spacing tokens
+│   ├── base.css               # Reset, typography, layout and animations
+│   ├── components.css         # Widgets, dialogs and component styles
+│   └── tokens.css             # Colors, themes, spacing and design tokens
 ├── js/
-│   ├── app.js                 # Master controller, keyboard dispatcher, initialization
-│   ├── background.js          # Service worker: alarms, tab lifecycle, RAM saver
-│   ├── content-script.js      # Scoped in-tab overlays & sensitive field detection
-│   ├── db.js                  # IndexedDB schema, migrations & CRUD operations
-│   ├── dynamic-bg.js          # Canvas 2D procedural atmospheric animations
-│   ├── virtual-grid.js        # Windowed virtualized DOM rendering engine
-│   └── widgets.js             # Pomodoro, clock, notes, and wellbeing modules
-├── backgrounds/               # Curated local wallpaper library
-└── icons/                     # Vector-derived production icon assets
+│   ├── app.js                 # Main controller and initialization
+│   ├── background.js          # Service worker, alarms and tab lifecycle
+│   ├── content-script.js      # Scoped in-tab overlays and field detection
+│   ├── db.js                  # IndexedDB schema, migrations and CRUD
+│   ├── dynamic-bg.js          # Canvas-based background effects
+│   ├── virtual-grid.js        # Virtualized shortcut grid
+│   └── widgets.js             # Pomodoro, clock, notes and wellbeing widgets
+├── backgrounds/               # Local wallpaper collection
+└── icons/                     # Extension icon assets
 ```
 
 ### Engineering Highlights
 
-- **Event-Driven Service Worker:** Uses `chrome.alarms` and lifecycle listeners instead of persistent background processes, minimizing idle CPU usage to 0%.
-- **Zero Remote Code:** Complies with strict Content Security Policy (`script-src 'self'`). No `eval()`, no `new Function()`, and no external CDN dependencies.
-- **Sensitive Field Screening:** The optional Draft Recovery module utilizes heuristic screening to exclude sensitive inputs (`type="password"`, `autocomplete="cc-number"`, CVVs, PINs, tokens, SSNs, and phone numbers).
+- **Event-driven service worker:** Uses `chrome.alarms` and lifecycle listeners instead of a permanently running background process.
+- **Manifest V3:** Uses the modern Chrome extension platform and its service-worker model.
+- **No remote executable code:** Uses a self-hosted extension codebase and a Content Security Policy with `script-src 'self'`; does not use `eval()`, `new Function()`, or external CDN dependencies.
+- **Virtualized interface:** Uses a windowed grid-rendering approach to reduce unnecessary DOM elements for large shortcut collections.
+- **Sensitive-field screening:** The optional Draft Recovery module uses heuristic screening to exclude fields such as passwords, payment-card numbers, CVVs, PINs, tokens, SSNs, and phone numbers.
 
 ---
 
 ## Permissions Audit
 
-Every permission declared in `manifest.json` corresponds directly to an active, user-facing feature:
+The extension requests browser permissions to support its user-facing features. The table below describes the purposes documented for the current implementation.
 
-| Permission | Purpose & Technical Scope |
+| Permission | Purpose |
 | :--- | :--- |
-| `storage` | Stores user shortcuts, workspaces, settings, and scratchpad notes locally on device. |
-| `favicon` | Loads website icons via Chrome's internal provider without third-party network queries. |
-| `tabs` | Required for RAM Saver tab sleeping (`chrome.tabs.discard`) and workspace tab switching. |
-| `bookmarks` | Used exclusively when the user manually clicks "Import Bookmarks". |
-| `contextMenus` | Adds a right-click context option allowing users to save links directly to Tabvora. |
-| `alarms` | Manages event-driven local timers for Pomodoro intervals and midnight wellbeing resets. |
-| `search` | Dispatches search bar queries to the user's chosen default search engine. |
-| `clipboardRead` | Enables single-click pasting into the Quick Notes scratchpad upon user click. |
-| `notifications` | Displays local desktop notifications for Pomodoro cycles and website limits. |
-| `content_scripts` | Scoped strictly to top-level pages (`all_frames: false`) for optional form recovery and limit alerts. No broad host permissions requested. |
+| `storage` | Stores shortcuts, workspaces, settings, and notes in browser storage. |
+| `favicon` | Retrieves website icons through Chrome's internal favicon provider. |
+| `tabs` | Supports tab management, RAM Saver, and workspace tab switching. |
+| `bookmarks` | Imports bookmarks when the user chooses the import feature. |
+| `contextMenus` | Adds a context-menu action for saving links to Tabvora. |
+| `alarms` | Schedules local Pomodoro and wellbeing timer events. |
+| `search` | Sends search queries to the user's selected search provider. |
+| `clipboardRead` | Supports the user-initiated paste action in Quick Notes. |
+| `notifications` | Displays local notifications for focus sessions and website limits. |
+| `content_scripts` | Supports optional form recovery and website-limit overlays on top-level pages (`all_frames: false`). |
+
+Review the current `manifest.json` before changing permissions or describing the extension's permission scope.
 
 ---
 
 ## Privacy & Local-First Architecture
 
-Tabvora is designed around strict data sovereignty principles:
+Tabvora is designed to keep its core personal workspace data on the user's device.
 
-- **No Remote Telemetry:** No analytics scripts, Google Analytics, or third-party trackingSDKs.
-- **No Cloud Synchronization:** Data stays isolated in local browser storage on your machine.
-- **No User Profiling:** No accounts, passwords, or authentication requirements.
-- **Data Exportability:** Complete JSON backup and restore capabilities for user data mobility.
+- **No analytics:** The project documentation states that it does not include analytics scripts or Google Analytics.
+- **No telemetry:** No telemetry scripts or tracking pixels are part of the documented experience.
+- **No required account:** Core use does not require account registration or a Tabvora login.
+- **Local browser storage:** Shortcuts, notes, workspaces, and preferences are stored using browser-local storage technologies.
+- **No cloud synchronization:** The documented architecture does not sync personal workspace data to a Tabvora cloud account.
+- **Data portability:** JSON backup and restore features support moving user data.
 
-For complete compliance details, see our published [Privacy Policy](https://shajibsikder.github.io/tabvora/privacy.html) and [Security Architecture](https://shajibsikder.github.io/tabvora/security.html).
+Read the [Privacy Policy](https://shajibsikder.github.io/tabvora/privacy.html) and [Security Architecture](https://shajibsikder.github.io/tabvora/security.html) for more information.
 
 ---
 
 ## Keyboard Shortcuts
 
-Tabvora includes native keyboard shortcuts for power-user navigation:
+Tabvora includes keyboard shortcuts for common actions.
 
 | Shortcut | Action |
 | :--- | :--- |
-| `Ctrl + K` / `Ctrl + F` | Focus the instant search bar |
+| `Ctrl + K` / `Ctrl + F` | Focus the search bar |
 | `Alt + A` | Open the Add Shortcut modal |
-| `Alt + S` | Open the Settings & Appearance panel |
+| `Alt + S` | Open Settings and Appearance |
 | `Alt + 1` ... `Alt + 5` | Switch between workspaces 1 through 5 |
-| `Esc` | Dismiss any open modal dialog or active search |
+| `Esc` | Close an open modal or active search |
 
 ---
 
 ## Installation
 
-### For Users: Chrome Web Store (Official 1-Click Install)
-The official, verified method to install Tabvora on Google Chrome, Microsoft Edge, Brave, Opera, Vivaldi, or Arc:
+### Install from the Chrome Web Store
 
-👉 **[Add to Chrome from the Chrome Web Store](https://chromewebstore.google.com/detail/tabvora-%E2%80%93-smart-tab-sessi/ibejmhkigcbnfnobfkeebfnpodlpgjab)**
+The recommended installation method for Google Chrome is the official Chrome Web Store listing.
 
-### For Developers & Code Audit (Local Inspection)
-For developers, security auditors, or open-source contributors inspecting the source:
+**[Add Tabvora to Chrome](https://chromewebstore.google.com/detail/tabvora-%E2%80%93-smart-tab-sessi/ibejmhkigcbnfnobfkeebfnpodlpgjab)**
 
-1. Clone this repository:
+For other Chromium-based browsers, check the browser's extension store and compatibility requirements.
+
+### Install from Source
+
+To inspect or run a local copy of the repository:
+
+1. Clone the repository:
+
    ```bash
    git clone https://github.com/shajibsikder/tabvora.git
    ```
-2. Navigate to your browser's extensions management page (`chrome://extensions` or `edge://extensions`).
-3. Enable **Developer mode** via the toggle in the upper-right corner.
-4. Click **Load unpacked** and select the `tabvora` folder within the cloned directory.
-5. Open a new tab to test your local build.
 
-> **Notice:** The source code is provided for personal testing, transparent security audit, and contribution. Re-publishing this extension, its branding, or derivative clones to the Chrome Web Store or other public browser marketplaces is strictly prohibited under the project license.
+2. Open the extensions page:
+   - Chrome: `chrome://extensions`
+   - Edge: `edge://extensions`
+
+3. Enable **Developer mode**.
+4. Select **Load unpacked**.
+5. Choose the cloned `tabvora` project folder.
+6. Open a new browser tab to test the extension.
+
+Use the repository's applicable license terms when copying, modifying, or redistributing the source.
 
 ---
 
 ## Contributing
 
-Contributions, bug reports, and feature suggestions are welcome. Please ensure pull requests maintain local-first data integrity, adhere to Manifest V3 CSP constraints, and include documentation updates where appropriate.
+Bug reports, feature suggestions, documentation improvements, and code contributions can help improve Tabvora.
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/Optimization`)
-3. Commit your Changes (`git commit -m 'Add RAM Saver safety guard'`)
-4. Push to the Branch (`git push origin feature/Optimization`)
-5. Open a Pull Request
+Before opening a pull request:
+
+- Explain the problem or use case your change addresses.
+- Keep the local-first data model and privacy expectations in mind.
+- Follow Manifest V3 and the extension's Content Security Policy requirements.
+- Avoid introducing remote executable code, unnecessary permissions, or tracking dependencies.
+- Update documentation when behavior or permissions change.
+- Check that existing features continue to work.
+
+### Contribution Workflow
+
+1. Fork the repository.
+2. Create a feature branch:
+
+   ```bash
+   git checkout -b feature/your-feature
+   ```
+
+3. Make and test your changes.
+4. Commit your work:
+
+   ```bash
+   git commit -m "Describe your change"
+   ```
+
+5. Push your branch:
+
+   ```bash
+   git push origin feature/your-feature
+   ```
+
+6. Open a Pull Request with a clear description and testing notes.
+
+Please read the repository's `LICENSE` before submitting contributions. Contribution does not grant rights beyond those stated in the applicable license.
+
+---
+
+## Roadmap & Feedback
+
+Have an idea that could make Tabvora more useful? Open a [GitHub Issue](https://github.com/shajibsikder/tabvora/issues) to report a bug, suggest a feature, or share feedback.
+
+Please include your browser name and version, steps to reproduce the issue, and screenshots or console errors when relevant. Do not include private information in public issue reports.
 
 ---
 
 ## License & Attribution
 
-- **License:** Released under a [Custom Protective License](LICENSE) (Source-available for local inspection, transparent security audit, and personal use; commercial resale and unauthorized browser store republishing strictly prohibited).
-- **Asset Attribution:** Third-party libraries, audio synthesis algorithms, and image provenance are fully cataloged in [`tabvora/ATTRIBUTION.md`](tabvora/ATTRIBUTION.md) and [`tabvora/LICENSES.md`](tabvora/LICENSES.md).
+Tabvora is distributed under the terms described in the repository's [LICENSE](LICENSE).
+
+**Important:** The current repository license must be checked before describing Tabvora as an OSI-approved open-source project. A source-available license that restricts commercial use, redistribution, or derivative works is not an Open Source license under the OSI definition. If the project is intended to become genuinely open source, replace the restrictive license with an OSI-approved license and update this section and the license badge accordingly.
+
+Third-party libraries, audio synthesis algorithms, and image provenance are documented in:
+
+- [`tabvora/ATTRIBUTION.md`](tabvora/ATTRIBUTION.md)
+- [`tabvora/LICENSES.md`](tabvora/LICENSES.md)
+
+---
+
+<div align="center">
+
+**Tabvora — A smarter, more organized, privacy-conscious new tab experience.**
+
+[Website](https://shajibsikder.github.io/tabvora/) ·
+[GitHub Repository](https://github.com/shajibsikder/tabvora) ·
+[Chrome Web Store](https://chromewebstore.google.com/detail/ibejmhkigcbnfnobfkeebfnpodlpgjab)
+
+</div>
