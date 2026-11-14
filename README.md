@@ -24,7 +24,7 @@ Turn your browser's new tab into a clean, customizable workspace. Tabvora brings
 [Chrome Web Store](https://chromewebstore.google.com/detail/ibejmhkigcbnfnobfkeebfnpodlpgjab) ·
 [Privacy Policy](https://shajibsikder.github.io/tabvora/privacy.html) ·
 [Security](https://shajibsikder.github.io/tabvora/security.html) ·
-[Report an Issue](https://github.com/shajibsikder/tabvora/issues)
+[Report an Issue](https://shajibsikder.github.io/tabvora/support.html)
 
 </div>
 
